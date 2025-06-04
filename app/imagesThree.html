@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Stack Interactions</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/daisyui/4.12.10/daisyui.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
+    <style>
+        .stack {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+        .stack > * {
+            grid-column-start: 1;
+            grid-row-start: 1;
+        }
+        
+        /* Base stack styles */
+        .image-stack {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            margin: 20px auto;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .image-stack img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        /* 1. Click-Through Carousel */
+        .click-carousel img {
+            opacity: 0;
+        }
+        .click-carousel img.active {
+            opacity: 1;
+        }
+        
+        /* 2. Hover Zones */
+        .hover-zones::before,
+        .hover-zones::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            z-index: 10;
+        }
+        .hover-zones::before { left: 0; }
+        .hover-zones::after { right: 0; }
+        .hover-zones img {
+            opacity: 0;
+        }
+        .hover-zones img.active {
+            opacity: 1;
+        }
+        
+        /* 3. Progress Bar */
+        .progress-stack {
+            padding-bottom: 30px;
+        }
+        .progress-bar {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            height: 4px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 2px;
+            cursor: pointer;
+        }
+        .progress-fill {
+            height: 100%;
+            background: #fff;
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+        .progress-stack img {
+            opacity: 0;
+        }
+        .progress-stack img.active {
+            opacity: 1;
+        }
+        
+        /* 4. Keyboard Navigation */
+        .keyboard-nav {
+            border: 2px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+        .keyboard-nav:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+        .keyboard-nav img {
+            opacity: 0;
+        }
+        .keyboard-nav img.active {
+            opacity: 1;
+        }
+        
+        /* 5. Auto-Rotate */
+        .auto-rotate img {
+            opacity: 0;
+        }
+        .auto-rotate img.active {
+            opacity: 1;
+        }
+        .auto-rotate.paused::after {
+            content: '⏸️';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            z-index: 10;
+        }
+        
+        /* 6. Corner Peek */
+        .corner-peek img {
+            opacity: 0;
+            transform: translateX(0);
+        }
+        .corner-peek img.active {
+            opacity: 1;
+        }
+        .corner-peek img.peek-left {
+            opacity: 0.5;
+            transform: translateX(-20px);
+        }
+        .corner-peek img.peek-right {
+            opacity: 0.5;
+            transform: translateX(20px);
+        }
+        
+        /* 7. Dot Navigation */
+        .dot-nav {
+            padding-bottom: 40px;
+        }
+        .dots {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .dot.active {
+            background: #fff;
+        }
+        .dot-nav img {
+            opacity: 0;
+        }
+        .dot-nav img.active {
+            opacity: 1;
+        }
+        
+        /* 8. Swipe Gestures */
+        .swipe-stack img {
+            opacity: 0;
+            transform: translateX(0);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .swipe-stack img.active {
+            opacity: 1;
+        }
+        .swipe-stack img.swipe-left {
+            transform: translateX(-100%);
+        }
+        .swipe-stack img.swipe-right {
+            transform: translateX(100%);
+        }
+        
+        /* 9. Scroll Triggered */
+        .scroll-stack img {
+            opacity: 0;
+        }
+        .scroll-stack img.active {
+            opacity: 1;
+        }
+        
+        /* 10. Double-Click Zoom */
+        .zoom-stack img {
+            opacity: 0;
+        }
+        .zoom-stack img.active {
+            opacity: 1;
+        }
+        .fullscreen-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        .fullscreen-overlay.active {
+            display: flex;
+        }
+        .fullscreen-img {
+            max-width: 90vw;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        
+        /* Demo layout */
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .demo-item {
+            text-align: center;
+        }
+        .demo-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .demo-desc {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto py-8">
+        <h1 class="text-4xl font-bold text-center mb-12">Image Stack Interactions</h1>
+        
+        <div class="demo-grid">
+            <!-- 1. Click-Through Carousel -->
+            <div class="demo-item">
+                <div class="demo-title">1. Click-Through Carousel</div>
+                <div class="demo-desc">Click anywhere to cycle through images</div>
+                <div class="image-stack click-carousel" data-demo="click">
+                    <img src="https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.webp" class="active" alt="Image 1">
+                    <img src="https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.webp" alt="Image 2">
+                    <img src="https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.webp" alt="Image 3">
+                </div>
+            </div>
+            
+            <!-- 2. Hover Zones -->
+            <div class="demo-item">
+                <div class="demo-title">2. Hover Zones</div>
+                <div class="demo-desc">Hover left/right to navigate</div>
+                <div class="image-stack hover-zones" data-demo="hover">
+                    <img src="https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.webp" class="active" alt="Image 1">
+                    <img src="https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.webp" alt="Image 2">
+                    <img src="https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.webp" alt="Image 3">
+                </div>
+            </div>
+            
+            <!-- 3. Progress Bar -->
+            <div class="demo-item">
+                <div class="demo-title">3. Progress Bar Scrubber</div>
+                <div class="demo-desc">Click on progress bar to jump to position</div>
+                <div class="image-stack progress-stack" data-demo="progress">
+                    <img src="https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.webp" class="active" alt="Image 1">
+                    <img src="https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.webp" alt="Image 2">
+                    <img src="https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.webp" alt="Image 3">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 33.33%"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 4. Keyboard Navigation -->
+            <div class="demo-item">
+                <div class="demo-title">4. Keyboard Navigation</div>
+                <div class="demo-desc">Click to focus, then use arrow keys or 1,2,3</div>
+                <div class="image-stack keyboard-nav" data-demo="keyboard" tabindex="0">
+                    <img src="https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.webp" class="active" alt="Image 1">
+                    <img src="https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.webp" alt="Image 2">
+                    <img src="https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.webp" alt="Image 3">
+                </div>
+            </div>
+            
+            <!-- 5. Auto-Rotate -->
+            <div class="demo-item">
+                <div class="demo-title">5. Auto-Rotate with Pause</div>
+                <div class="demo-desc">Auto-cycles, hover to pause</div>
+                <div class="image-stack auto-rotate" data-demo="auto">
+                    <img src="https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.webp" class="active" alt="Image 1">
+                    <img src="https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.webp" alt="Image 2">
+                    <img src="https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.webp" alt="Image 3">
+                </div>
+            </div>
+            
+            <!-- 6. Corner Peek -->
+            <div class="demo-item">
+                <div class="demo-title">6. Corner Peek</div>
+                <div class="demo-desc">Hover edges to peek at next/previous</div>
+                <div class="image-stack corner-peek" data-demo="peek">
+                    <img src="https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.webp" class="active" alt="Image 1">
+                    <img src="https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.webp" alt="Image 2">
+                    <img src="https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.webp" alt="Image 3">
+                </div>
+            </div>
+            
+            <!-- 7. Dot Navigation -->
+            <div class="demo-item">
+                <div class="demo-title">7. Dot Navigation</div>
+                <div class="demo-desc">Click dots to jump to specific image</div>
+                <div class="image-stack dot-nav" data-demo="dots">
+                    <img src="https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.webp" class="active" alt="Image 1">
+                    <img src="https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.webp" alt="Image 2">
+                    <img src="https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.webp" alt="Image 3">
+                    <div class="dots">
+                        <div class="dot active" data-index="0"></div>
+                        <div class="dot" data-index="1"></div>
+                        <div class="dot" data-index="2"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 8. Swipe Gestures -->
+            <div class="demo-item">
+                <div class="demo-title">8. Swipe Gestures</div>
+                <div class="demo-desc">Drag left/right to swipe between images</div>
+                <div class="image-stack swipe-stack" data-demo="swipe">
+                    <img src="https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.webp" class="active" alt="Image 1">
+                    <img src="https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.webp" alt="Image 2">
+                    <img src="https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.webp" alt="Image 3">
+                </div>
+            </div>
+            
+            <!-- 9. Scroll Triggered -->
+            <div class="demo-item">
+                <div class="demo-title">9. Scroll-Triggered</div>
+                <div class="demo-desc">Mouse wheel over image to navigate</div>
+                <div class="image-stack scroll-stack" data-demo="scroll">
+                    <img src="https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.webp" class="active" alt="Image 1">
+                    <img src="https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.webp" alt="Image 2">
+                    <img src="https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.webp" alt="Image 3">
+                </div>
+            </div>
+            
+            <!-- 10. Double-Click Zoom -->
+            <div class="demo-item">
+                <div class="demo-title">10. Double-Click Zoom</div>
+                <div class="demo-desc">Single click to navigate, double-click for fullscreen</div>
+                <div class="image-stack zoom-stack" data-demo="zoom">
+                    <img src="https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.webp" class="active" alt="Image 1">
+                    <img src="https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.webp" alt="Image 2">
+                    <img src="https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.webp" alt="Image 3">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Fullscreen overlay for zoom demo -->
+    <div class="fullscreen-overlay">
+        <span class="close-btn">&times;</span>
+        <img class="fullscreen-img" src="" alt="">
+    </div>
+    
+    <script>
+        // Utility functions
+        function setActiveImage(container, index) {
+            const imgs = container.querySelectorAll('img');
+            imgs.forEach((img, i) => {
+                img.classList.toggle('active', i === index);
+            });
+        }
+        
+        function getActiveIndex(container) {
+            const imgs = container.querySelectorAll('img');
+            return Array.from(imgs).findIndex(img => img.classList.contains('active'));
+        }
+        
+        function getImageCount(container) {
+            return container.querySelectorAll('img').length;
+        }
+        
+        // 1. Click-Through Carousel
+        document.querySelectorAll('[data-demo="click"]').forEach(container => {
+            container.addEventListener('click', () => {
+                const current = getActiveIndex(container);
+                const total = getImageCount(container);
+                const next = (current + 1) % total;
+                setActiveImage(container, next);
+            });
+        });
+        
+        // 2. Hover Zones
+        document.querySelectorAll('[data-demo="hover"]').forEach(container => {
+            let hoverTimeout;
+            
+            container.addEventListener('mousemove', (e) => {
+                clearTimeout(hoverTimeout);
+                const rect = container.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const isLeftHalf = x < rect.width / 2;
+                const current = getActiveIndex(container);
+                const total = getImageCount(container);
+                
+                hoverTimeout = setTimeout(() => {
+                    if (isLeftHalf) {
+                        const prev = current === 0 ? total - 1 : current - 1;
+                        setActiveImage(container, prev);
+                    } else {
+                        const next = (current + 1) % total;
+                        setActiveImage(container, next);
+                    }
+                }, 200);
+            });
+            
+            container.addEventListener('mouseleave', () => {
+                clearTimeout(hoverTimeout);
+            });
+        });
+        
+        // 3. Progress Bar
+        document.querySelectorAll('[data-demo="progress"]').forEach(container => {
+            const progressBar = container.querySelector('.progress-bar');
+            const progressFill = container.querySelector('.progress-fill');
+            const total = getImageCount(container);
+            
+            progressBar.addEventListener('click', (e) => {
+                const rect = progressBar.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const percentage = x / rect.width;
+                const index = Math.floor(percentage * total);
+                const clampedIndex = Math.max(0, Math.min(index, total - 1));
+                
+                setActiveImage(container, clampedIndex);
+                progressFill.style.width = ((clampedIndex + 1) / total * 100) + '%';
+            });
+        });
+        
+        // 4. Keyboard Navigation
+        document.querySelectorAll('[data-demo="keyboard"]').forEach(container => {
+            container.addEventListener('keydown', (e) => {
+                const current = getActiveIndex(container);
+                const total = getImageCount(container);
+                let newIndex = current;
+                
+                switch(e.key) {
+                    case 'ArrowLeft':
+                        newIndex = current === 0 ? total - 1 : current - 1;
+                        break;
+                    case 'ArrowRight':
+                        newIndex = (current + 1) % total;
+                        break;
+                    case '1':
+                        newIndex = 0;
+                        break;
+                    case '2':
+                        newIndex = 1;
+                        break;
+                    case '3':
+                        newIndex = 2;
+                        break;
+                }
+                
+                if (newIndex !== current) {
+                    setActiveImage(container, newIndex);
+                    e.preventDefault();
+                }
+            });
+        });
+        
+        // 5. Auto-Rotate
+        document.querySelectorAll('[data-demo="auto"]').forEach(container => {
+            let interval;
+            
+            function startRotation() {
+                interval = setInterval(() => {
+                    const current = getActiveIndex(container);
+                    const total = getImageCount(container);
+                    const next = (current + 1) % total;
+                    setActiveImage(container, next);
+                }, 2000);
+            }
+            
+            function stopRotation() {
+                clearInterval(interval);
+            }
+            
+            startRotation();
+            
+            container.addEventListener('mouseenter', () => {
+                stopRotation();
+                container.classList.add('paused');
+            });
+            
+            container.addEventListener('mouseleave', () => {
+                startRotation();
+                container.classList.remove('paused');
+            });
+        });
+        
+        // 6. Corner Peek
+        document.querySelectorAll('[data-demo="peek"]').forEach(container => {
+            container.addEventListener('mousemove', (e) => {
+                const rect = container.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const edgeThreshold = 60;
+                const current = getActiveIndex(container);
+                const total = getImageCount(container);
+                const imgs = container.querySelectorAll('img');
+                
+                // Clear all peek classes
+                imgs.forEach(img => {
+                    img.classList.remove('peek-left', 'peek-right');
+                });
+                
+                if (x < edgeThreshold) {
+                    // Peek left
+                    const prevIndex = current === 0 ? total - 1 : current - 1;
+                    imgs[prevIndex].classList.add('peek-left');
+                } else if (x > rect.width - edgeThreshold) {
+                    // Peek right
+                    const nextIndex = (current + 1) % total;
+                    imgs[nextIndex].classList.add('peek-right');
+                }
+            });
+            
+            container.addEventListener('mouseleave', () => {
+                const imgs = container.querySelectorAll('img');
+                imgs.forEach(img => {
+                    img.classList.remove('peek-left', 'peek-right');
+                });
+            });
+            
+            container.addEventListener('click', () => {
+                const current = getActiveIndex(container);
+                const total = getImageCount(container);
+                const next = (current + 1) % total;
+                setActiveImage(container, next);
+            });
+        });
+        
+        // 7. Dot Navigation
+        document.querySelectorAll('[data-demo="dots"]').forEach(container => {
+            const dots = container.querySelectorAll('.dot');
+            
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    setActiveImage(container, index);
+                    dots.forEach(d => d.classList.remove('active'));
+                    dot.classList.add('active');
+                });
+            });
+        });
+        
+        // 8. Swipe Gestures
+        document.querySelectorAll('[data-demo="swipe"]').forEach(container => {
+            let startX = 0;
+            let isDragging = false;
+            
+            function handleStart(e) {
+                isDragging = true;
+                startX = e.type === 'mousedown' ? e.clientX : e.touches[0].clientX;
+            }
+            
+            function handleEnd(e) {
+                if (!isDragging) return;
+                isDragging = false;
+                
+                const endX = e.type === 'mouseup' ? e.clientX : e.changedTouches[0].clientX;
+                const diff = startX - endX;
+                const threshold = 50;
+                
+                if (Math.abs(diff) > threshold) {
+                    const current = getActiveIndex(container);
+                    const total = getImageCount(container);
+                    let newIndex;
+                    
+                    if (diff > 0) {
+                        // Swiped left, show next
+                        newIndex = (current + 1) % total;
+                    } else {
+                        // Swiped right, show previous
+                        newIndex = current === 0 ? total - 1 : current - 1;
+                    }
+                    
+                    setActiveImage(container, newIndex);
+                }
+            }
+            
+            container.addEventListener('mousedown', handleStart);
+            container.addEventListener('mouseup', handleEnd);
+            container.addEventListener('touchstart', handleStart);
+            container.addEventListener('touchend', handleEnd);
+        });
+        
+        // 9. Scroll Triggered
+        document.querySelectorAll('[data-demo="scroll"]').forEach(container => {
+            container.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                const current = getActiveIndex(container);
+                const total = getImageCount(container);
+                let newIndex;
+                
+                if (e.deltaY > 0) {
+                    // Scroll down, next image
+                    newIndex = (current + 1) % total;
+                } else {
+                    // Scroll up, previous image
+                    newIndex = current === 0 ? total - 1 : current - 1;
+                }
+                
+                setActiveImage(container, newIndex);
+            });
+        });
+        
+        // 10. Double-Click Zoom
+        document.querySelectorAll('[data-demo="zoom"]').forEach(container => {
+            let clickCount = 0;
+            let clickTimer;
+            
+            container.addEventListener('click', (e) => {
+                clickCount++;
+                
+                if (clickCount === 1) {
+                    clickTimer = setTimeout(() => {
+                        // Single click - navigate
+                        const current = getActiveIndex(container);
+                        const total = getImageCount(container);
+                        const next = (current + 1) % total;
+                        setActiveImage(container, next);
+                        clickCount = 0;
+                    }, 300);
+                } else if (clickCount === 2) {
+                    // Double click - zoom
+                    clearTimeout(clickTimer);
+                    const activeImg = container.querySelector('img.active');
+                    const overlay = document.querySelector('.fullscreen-overlay');
+                    const fullscreenImg = overlay.querySelector('.fullscreen-img');
+                    
+                    fullscreenImg.src = activeImg.src;
+                    overlay.classList.add('active');
+                    clickCount = 0;
+                }
+            });
+        });
+        
+        // Fullscreen overlay close
+        document.querySelector('.fullscreen-overlay').addEventListener('click', (e) => {
+            if (e.target.classList.contains('fullscreen-overlay') || e.target.classList.contains('close-btn')) {
+                e.target.closest('.fullscreen-overlay').classList.remove('active');
+            }
+        });
+        
+        // ESC key to close fullscreen
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelector('.fullscreen-overlay').classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<?php
+
+namespace App\Livewire\Parampara\Acharyas;
+
+use Livewire\Component;
+
+class FullLineage extends Component
+{
+    public function render()
+    {
+        return view('livewire.parampara.acharyas.full-lineage')->layout('welcome');
+    }
+}

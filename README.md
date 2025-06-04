@@ -38,8 +38,8 @@ Built for devotees worldwide to connect with authentic Nimbarka teachings and th
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/username/nimbarka-sampradaya-website.git
-   cd nimbarka-sampradaya-website
+   git clone https://github.com/puskarwagle/harivyas.git
+   cd harivyas
    ```
 
 2. **Install PHP dependencies**

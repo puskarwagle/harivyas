@@ -30,7 +30,7 @@
                     <div class="card-body">
                         <div class="flex items-center mb-6">
                             <div class="w-12 h-12 bg-primary-contentrounded-full flex items-center justify-center mr-4">
-                                <i class="fas fa-arrows-alt-h text-white text-xl"></i>
+                                <i class="fas fa-arrows-alt-h text-primary text-xl"></i>
                             </div>
                             <h3 class="text-2xl font-bold text-primary">द्वैत (Dvaita)</h3>
                         </div>
@@ -61,7 +61,7 @@
                     <div class="card-body">
                         <div class="flex items-center mb-6">
                             <div class="w-12 h-12 bg-primary-contentrounded-full flex items-center justify-center mr-4">
-                                <i class="fas fa-compress-arrows-alt text-white text-xl"></i>
+                                <i class="fas fa-compress-arrows-alt text-primary text-xl"></i>
                             </div>
                             <h3 class="text-2xl font-bold text-primary">अद्वैत (Advaita)</h3>
                         </div>
@@ -91,7 +91,7 @@
             <!-- Central Synthesis -->
             <div class="text-center mb-16">
                 <div class="inline-block p-8 bg-gradient-to-r from-primary via-primary to-primary rounded-full mb-8">
-                    <i class="fas fa-infinity text-white text-4xl"></i>
+                    <i class="fas fa-infinity text-primary text-4xl"></i>
                 </div>
                 <h3 class="text-3xl font-bold text-base-content mb-6">The Nimbarka Synthesis</h3>
                 <div class="max-w-4xl mx-auto">
@@ -113,7 +113,7 @@
                 <div class="collapse collapse-plus bg-base-200 shadow-lg">
                     <input type="checkbox" class="peer" x-model="sections.foundation">
                     <div class="collapse-title text-xl font-medium text-primary peer-checked:bg-primary-content">
-                        <i class="fas fa-foundation mr-3"></i>Philosophical Foundation
+                        <i class="fas fa-landmark"></i> Philosophical Foundation
                     </div>
                     <div class="collapse-content peer-checked:bg-primary-content">
                         <div class="pt-4 space-y-6">
@@ -224,15 +224,15 @@
                                     </h4>
                                     <ul class="space-y-3 text-base-content">
                                         <li class="flex items-start">
-                                            <i class="fas fa-circle text-base text-xs mt-2 mr-3"></i>
+                                            <i class="fas fa-circle text-base-content mt-2 mr-3"></i>
                                             <span>Worship with both reverence and intimacy</span>
                                         </li>
                                         <li class="flex items-start">
-                                            <i class="fas fa-circle text-base text-xs mt-2 mr-3"></i>
+                                            <i class="fas fa-circle text-base-content mt-2 mr-3"></i>
                                             <span>Surrender while maintaining individual relationship</span>
                                         </li>
                                         <li class="flex items-start">
-                                            <i class="fas fa-circle text-base text-xs mt-2 mr-3"></i>
+                                            <i class="fas fa-circle text-base-content mt-2 mr-3"></i>
                                             <span>See Divine in all, serve all as Divine</span>
                                         </li>
                                     </ul>
@@ -244,15 +244,15 @@
                                     </h4>
                                     <ul class="space-y-3 text-base-content">
                                         <li class="flex items-start">
-                                            <i class="fas fa-circle text-base text-sm mt-2 mr-3"></i>
+                                            <i class="fas fa-circle text-base-content mt-2 mr-3"></i>
                                             <span>Contemplate unity without losing personal devotion</span>
                                         </li>
                                         <li class="flex items-start">
-                                            <i class="fas fa-circle text-base text-xs mt-2 mr-3"></i>
+                                            <i class="fas fa-circle text-base-content mt-2 mr-3"></i>
                                             <span>Experience oneness through loving service</span>
                                         </li>
                                         <li class="flex items-start">
-                                            <i class="fas fa-circle text-base text-xs mt-2 mr-3"></i>
+                                            <i class="fas fa-circle text-base-content mt-2 mr-3"></i>
                                             <span>Balance <span @mouseenter="showTooltip('jnana', $event)" @mouseleave="hideTooltip" class="tooltip-trigger text-primary font-medium cursor-help">ज्ञान</span> and <span @mouseenter="showTooltip('bhakti', $event)" @mouseleave="hideTooltip" class="tooltip-trigger text-primary font-medium cursor-help">भक्ति</span></span>
                                         </li>
                                     </ul>

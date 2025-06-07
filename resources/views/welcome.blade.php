@@ -50,7 +50,7 @@
                         <path d="M30 20 C30 60, 30 120, 50 120 C70 120, 70 60, 70 20" stroke="goldenrod" stroke-width="8" fill="none" />
                         <circle cx="50" cy="70" r="5" fill="red" />
                     </svg>
-                    <button class="shree btn-warning" href="{{ route('home') }}" wire:navigate>श्री हरि व्यास</button>
+                    <button class="shree btn-text-base-content" href="{{ route('home') }}" wire:navigate>श्री हरि व्यास</button>
                     {{-- <span class="hidden sm:inline">{{ __('menu.nimbarka') }}</span> --}}
                 </a>
             </div>
@@ -323,7 +323,7 @@
     <footer class="footer footer-center p-10 bg-base-200 text-base-content">
         <div>
             <div class="text-3xl mb-4">🕉️</div>
-            <p class="font-bold text-base-800">श्री हरि व्यास निकुंज मंदिर</p>
+            <p class="font-bold text-base-content">श्री हरि व्यास निकुंज मंदिर</p>
             <p class="text-primary">वृंदावन धाम, उत्तर प्रदेश</p>
             <p class="text-primary">Spreading Radha-Krishna Bhakti since 1950</p>
         </div>

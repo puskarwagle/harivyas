@@ -13,13 +13,11 @@
         <!-- Search Bar -->
         <div class="mb-8">
             <div class="form-control max-w-md mx-auto">
-                <div class="input-group">
+                <div class="input-group flex">
                     <input type="text" placeholder="Search FAQs..." class="input input-bordered w-full" x-model="searchQuery" @input="filterFAQs">
-                    <button class="btn btn-square btn-primary">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21 21-6-6m2-5a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
-                        </svg>
-                    </button>
+                    <svg class="btn btn-square btn-primary ml-2" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21 21-6-6m2-5a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
+                    </svg>
                 </div>
             </div>
         </div>
@@ -45,7 +43,7 @@
                     <input type="checkbox" :id="'faq-' + faq.id" />
                     <div class="collapse-title text-lg font-medium flex items-start gap-3">
                         <div class="badge badge-primary badge-sm mt-1 flex-shrink-0" x-text="faq.category"></div>
-                        <span x-text="faq.question" class="flex-1"></span>
+                        <span x-text="faq.question" class="flex-1 text-base-content"></span>
                     </div>
                     <div class="collapse-content">
                         <div class="pt-2">

@@ -71,17 +71,17 @@
             <!-- Masonry Layout -->
             <div class="masonry fade-in" x-show="viewMode === 'masonry'">
                 <template x-for="image in filteredImages" :key="image.id">
-                    <div class="masonry-item group cursor-pointer" @click="openModal(image)">
+                    <div class="masonry-item group cursor-pointer" >
                         <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
                             <figure class="relative overflow-hidden">
                                 <img :src="image.url" :alt="image.title" class="w-full h-auto zoom-animation object-cover" :class="{ 'loading-skeleton': !image.loaded }" @load="image.loaded = true">
-                                <div class="absolute inset-0 image-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                                    <div class="p-4 text-white w-full">
+                                <div class="absolute inset-0 image-overlay bg-base-100 opacity-20 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                                    <div class="p-4 text-base-content w-full">
                                         <h3 class="font-semibold text-lg mb-1" x-text="image.title"></h3>
                                         <p class="text-sm opacity-90" x-text="image.description"></p>
                                         <div class="flex flex-wrap gap-1 mt-2">
                                             <template x-for="tag in image.tags" :key="tag">
-                                                <span class="badge badge-xs bg-white/20 text-white border-white/30" x-text="tag"></span>
+                                                <span class="badge badge-xs bg-primary/20 text-base-content border-red" x-text="tag"></span>
                                             </template>
                                         </div>
                                     </div>
@@ -95,12 +95,12 @@
             <!-- Grid Layout -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 fade-in" x-show="viewMode === 'grid'">
                 <template x-for="image in filteredImages" :key="image.id">
-                    <div class="group cursor-pointer" @click="openModal(image)">
-                        <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden h-80">
+                    <div class="group cursor-pointer">
+                        <div class="card bg-accent shadow-xl hover:shadow-2xl transition-all duration-300 overflow-auto h-80">
                             <figure class="relative overflow-hidden flex-1">
                                 <img :src="image.url" :alt="image.title" class="w-full h-full zoom-animation object-cover" :class="{ 'loading-skeleton': !image.loaded }" @load="image.loaded = true">
-                                <div class="absolute inset-0 image-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                                    <div class="p-4 text-white w-full">
+                                <div class="absolute inset-0 image-overlay opacity-20 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                                    <div class="p-4 text-base-content w-full">
                                         <h3 class="font-semibold mb-1" x-text="image.title"></h3>
                                         <p class="text-sm opacity-90 line-clamp-2" x-text="image.description"></p>
                                     </div>
@@ -126,16 +126,16 @@
                 <div class="relative">
 
                     <!-- Close Button -->
-                    <button class="btn btn-sm btn-circle btn-ghost absolute top-4 right-4 z-10 bg-black/20 text-white hover:bg-black/40" @click="closeModal()">✕</button>
+                    <button class="btn btn-sm btn-circle btn-ghost absolute top-4 right-4 z-10 bg-black/20 text-base-content hover:bg-black/40" @click="closeModal()">✕</button>
 
                     <!-- Navigation Buttons -->
-                    <button class="btn btn-circle btn-ghost absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/20 text-white hover:bg-black/40" @click.stop="previousImage()" x-show="currentImageIndex > 0">
+                    <button class="btn btn-circle btn-ghost absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/20 text-base-content hover:bg-black/40" @click.stop="previousImage()" x-show="currentImageIndex > 0">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                         </svg>
                     </button>
 
-                    <button class="btn btn-circle btn-ghost absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/20 text-white hover:bg-black/40" @click.stop="nextImage()" x-show="currentImageIndex < filteredImages.length - 1">
+                    <button class="btn btn-circle btn-ghost absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/20 text-base-content hover:bg-black/40" @click.stop="nextImage()" x-show="currentImageIndex < filteredImages.length - 1">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                         </svg>

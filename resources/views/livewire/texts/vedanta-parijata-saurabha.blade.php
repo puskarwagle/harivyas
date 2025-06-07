@@ -1,12 +1,12 @@
 <div>
     <div x-data="vedantaText()" class="min-h-screen">
         <!-- Hero Section -->
-        <div class="hero bg-gradient-to-r from-orange-50 to-amber-50 py-16">
+        <div class="hero bg-gradient-to-r from-primary-50 to-base-50 py-16">
             <div class="hero-content text-center">
                 <div class="max-w-4xl">
-                    <h1 class="text-5xl font-bold text-orange-800 mb-4" style="font-family: 'Noto Sans Devanagari', sans-serif;">वेदान्त पारिजात सौरभ</h1>
-                    <h2 class="text-3xl font-semibold text-orange-700 mb-4">Vedanta Parijata Saurabha</h2>
-                    <p class="text-lg text-gray-600 mb-6">The Fragrance of the Wish-Fulfilling Tree of Vedanta</p>
+                    <h1 class="text-5xl font-bold text-primary mb-4" style="font-family: 'Noto Sans Devanagari', sans-serif;">वेदान्त पारिजात सौरभ</h1>
+                    <h2 class="text-3xl font-semibold text-primary mb-4">Vedanta Parijata Saurabha</h2>
+                    <p class="text-lg text-base-content/60 mb-6">The Fragrance of the Wish-Fulfilling Tree of Vedanta</p>
                     <div class="badge badge-primary badge-lg">By Acharya Nimbarka</div>
                 </div>
             </div>
@@ -19,9 +19,9 @@
                 <!-- Sidebar TOC -->
                 <div class="lg:w-1/4">
                     <div class="sticky top-8">
-                        <div class="card bg-base-100 shadow-xl border border-orange-100">
+                        <div class="card bg-base-100 shadow-xl border border-primary/20">
                             <div class="card-body p-4">
-                                <h3 class="font-bold text-orange-800 mb-4">
+                                <h3 class="font-bold text-primary mb-4">
                                     <i class="fas fa-list-ol mr-2"></i>
                                     Table of Contents
                                 </h3>
@@ -72,33 +72,33 @@
                 <!-- Main Text Content -->
                 <div class="lg:w-3/4">
                     <!-- Reading Progress -->
-                    <div class="mb-6">
-                        <div class="flex justify-between items-center mb-2">
-                            <span class="text-sm text-gray-600">Reading Progress</span>
-                            <span class="text-sm text-gray-600" x-text="`${Math.round(readingProgress)}%`"></span>
+                    <div class="sticky top-0 card bg-primary/10 mb-6 p-2 z-50">
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm mb-2">Reading Progress</span>
+                            <span class="text-sm" x-text="`${Math.round(readingProgress)}%`"></span>
                         </div>
-                        <progress class="progress progress-primary w-full" :value="readingProgress" max="100"></progress>
+                        <progress class="progress progress-base w-full" :value="readingProgress" max="100"></progress>
                     </div>
 
                     <!-- Chapter Content -->
                     <template x-for="(chapter, chapterIndex) in filteredChapters" :key="chapterIndex">
                         <div :id="`chapter-${chapterIndex}`" class="mb-12">
                             <!-- Chapter Header -->
-                            <div class="card bg-gradient-to-r from-orange-100 to-amber-100 shadow-lg mb-6">
+                            <div class="card bg-primary/10 shadow-lg mb-6">
                                 <div class="card-body">
-                                    <h2 class="card-title text-2xl text-orange-800 mb-2">
+                                    <h2 class="card-title text-2xl text-primary mb-2">
                                         <span x-text="`अध्याय ${chapterIndex + 1}`" style="font-family: 'Noto Sans Devanagari', sans-serif;"></span>
                                         <span class="text-base">Chapter <span x-text="chapterIndex + 1"></span></span>
                                     </h2>
-                                    <h3 class="text-xl font-semibold text-orange-700" x-text="chapter.title"></h3>
-                                    <p class="text-gray-600 mt-2" x-text="chapter.description"></p>
+                                    <h3 class="text-xl font-semibold text-primary" x-text="chapter.title"></h3>
+                                    <p class="text-base-content/60 mt-2" x-text="chapter.description"></p>
                                 </div>
                             </div>
 
                             <!-- Verses -->
                             <div class="space-y-6">
                                 <template x-for="(verse, verseIndex) in chapter.verses" :key="verseIndex">
-                                    <div class="card bg-base-100 shadow-lg border border-orange-50">
+                                    <div class="card bg-base-100 shadow-lg border border-primary/10">
                                         <div class="card-body" :class="{'text-lg': largeText}">
                                             <!-- Verse Number -->
                                             <div class="flex justify-between items-center mb-4">
@@ -119,40 +119,40 @@
 
                                             <!-- Sanskrit Text -->
                                             <div x-show="showSanskrit" x-transition class="mb-4">
-                                                <div class="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-300">
-                                                    <p class="text-lg leading-relaxed text-gray-800" style="font-family: 'Noto Sans Devanagari', sans-serif;" x-text="verse.sanskrit">
+                                                <div class="bg-primary/5 p-4 rounded-lg border-l-4 border-primary/30">
+                                                    <p class="text-lg leading-relaxed text-base-content" style="font-family: 'Noto Sans Devanagari', sans-serif;" x-text="verse.sanskrit">
                                                     </p>
                                                 </div>
                                             </div>
 
                                             <!-- Transliteration -->
                                             <div class="mb-4">
-                                                <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-300">
-                                                    <p class="italic text-gray-700 leading-relaxed" x-text="verse.transliteration"></p>
+                                                <div class="bg-primary/5 p-4 rounded-lg border-l-4 border-primary/30">
+                                                    <p class="italic text-base-content/70 leading-relaxed" x-text="verse.transliteration"></p>
                                                 </div>
                                             </div>
 
                                             <!-- English Translation -->
                                             <div class="mb-4">
-                                                <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-300">
-                                                    <p class="text-gray-800 leading-relaxed" x-text="verse.translation"></p>
+                                                <div class="bg-primary/5 p-4 rounded-lg border-l-4 border-primary/30">
+                                                    <p class="text-base-content leading-relaxed" x-text="verse.translation"></p>
                                                 </div>
                                             </div>
 
                                             <!-- Commentary Toggle -->
                                             <div x-show="showCommentary" x-transition>
-                                                <div class="collapse collapse-arrow bg-amber-50 border border-amber-200">
+                                                <div class="collapse collapse-arrow bg-primary/5 border border-primary/20">
                                                     <input type="checkbox" :id="`commentary-${chapterIndex}-${verseIndex}`">
-                                                    <div class="collapse-title font-medium text-amber-800">
+                                                    <div class="collapse-title font-medium text-primary">
                                                         <i class="fas fa-comment-dots mr-2"></i>
                                                         Commentary & Explanation
                                                     </div>
                                                     <div class="collapse-content">
-                                                        <p class="text-gray-700 leading-relaxed pt-2" x-text="verse.commentary"></p>
+                                                        <p class="text-base-content/70 leading-relaxed pt-2" x-text="verse.commentary"></p>
 
                                                         <!-- Key Terms -->
                                                         <div x-show="verse.keyTerms && verse.keyTerms.length > 0" class="mt-4">
-                                                            <h4 class="font-semibold text-amber-800 mb-2">Key Terms:</h4>
+                                                            <h4 class="font-semibold text-primary mb-2">Key Terms:</h4>
                                                             <div class="flex flex-wrap gap-2">
                                                                 <template x-for="term in verse.keyTerms" :key="term.sanskrit">
                                                                     <div class="tooltip" :data-tip="term.meaning">
@@ -179,7 +179,7 @@
                         </button>
 
                         <div class="text-center">
-                            <p class="text-sm text-gray-600">
+                            <p class="text-sm text-base-content/60">
                                 Chapter <span x-text="activeChapter + 1"></span> of <span x-text="chapters.length"></span>
                             </p>
                         </div>

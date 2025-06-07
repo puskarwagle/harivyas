@@ -1,12 +1,12 @@
 <div>
     <div x-data="prasadamPage()" class="min-h-screen">
         <!-- Hero Section -->
-        <div class="hero bg-gradient-to-r from-orange-50 to-amber-50 py-20">
+        <div class="hero bg-gradient-to-r from-primary/10 to-accent/10 py-20">
             <div class="hero-content text-center">
                 <div class="max-w-2xl">
-                    <h1 class="text-5xl font-bold text-orange-800 mb-4">प्रसादम्</h1>
-                    <h2 class="text-3xl font-semibold text-orange-700 mb-4">Sacred Offerings</h2>
-                    <p class="text-lg text-gray-700 leading-relaxed">
+                    <h1 class="text-5xl font-bold text-primary mb-4">प्रसादम्</h1>
+                    <h2 class="text-3xl font-semibold text-secondary mb-4">Sacred Offerings</h2>
+                    <p class="text-lg text-base-content leading-relaxed">
                         Divine food blessed by Shri Radha Krishna, prepared with devotion and offered with love
                     </p>
                 </div>
@@ -16,13 +16,13 @@
         <!-- Significance Section -->
         <div class="container mx-auto px-4 py-16">
             <div class="grid lg:grid-cols-2 gap-12 mb-16">
-                <div class="card bg-gradient-to-br from-orange-50 to-amber-50 shadow-xl border border-orange-200">
+                <div class="card bg-gradient-to-br from-primary/10 to-accent/10 shadow-xl border border-primary">
                     <div class="card-body">
-                        <h3 class="card-title text-2xl text-orange-800 mb-4">
-                            <i class="fas fa-om text-orange-600 mr-3"></i>
+                        <h3 class="card-title text-2xl text-primary mb-4">
+                            <i class="fas fa-om text-primary mr-3"></i>
                             Significance of Prasadam
                         </h3>
-                        <div class="space-y-4 text-gray-700">
+                        <div class="space-y-4 text-base-content">
                             <p>प्रसाद means "mercy" or "grace" - food that has been offered to the Divine and blessed by Their touch.</p>
                             <p>In Nimbarka Sampradaya, prasadam is considered the direct mercy of Shri Radha Krishna, purifying both body and soul.</p>
                             <p>Every grain is prepared with devotional consciousness and offered with complete surrender.</p>
@@ -30,31 +30,31 @@
                     </div>
                 </div>
 
-                <div class="card bg-gradient-to-br from-blue-50 to-indigo-50 shadow-xl border border-blue-200">
+                <div class="card bg-gradient-to-br from-info/10 to-info/5 shadow-xl border border-info">
                     <div class="card-body">
-                        <h3 class="card-title text-2xl text-blue-800 mb-4">
-                            <i class="fas fa-heart text-red-500 mr-3"></i>
+                        <h3 class="card-title text-2xl text-info mb-4">
+                            <i class="fas fa-heart text-error mr-3"></i>
                             Preparation Guidelines
                         </h3>
                         <div class="space-y-3">
                             <div class="flex items-center">
-                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <i class="fas fa-check-circle text-success mr-3"></i>
                                 <span>Prepared in meditation and chanting</span>
                             </div>
                             <div class="flex items-center">
-                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <i class="fas fa-check-circle text-success mr-3"></i>
                                 <span>Only pure vegetarian ingredients</span>
                             </div>
                             <div class="flex items-center">
-                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <i class="fas fa-check-circle text-success mr-3"></i>
                                 <span>No onion, garlic, or mushrooms</span>
                             </div>
                             <div class="flex items-center">
-                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <i class="fas fa-check-circle text-success mr-3"></i>
                                 <span>Offered to deities before serving</span>
                             </div>
                             <div class="flex items-center">
-                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <i class="fas fa-check-circle text-success mr-3"></i>
                                 <span>Served with love and reverence</span>
                             </div>
                         </div>
@@ -63,7 +63,7 @@
             </div>
 
             <!-- Filter Tabs -->
-            <div class="tabs tabs-boxed justify-center mb-8 bg-orange-100">
+            <div class="tabs tabs-boxed justify-center mb-8 bg-error-100">
                 <button class="tab" :class="{'tab-active': activeFilter === 'all'}" @click="activeFilter = 'all'">
                     All Items
                 </button>

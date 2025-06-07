@@ -1,17 +1,17 @@
 <div>
     <div x-data="paramparaData()" class="min-h-screen">
         <!-- Hero Section -->
-        <div class="hero bg-gradient-to-br from-orange-100 via-amber-50 to-yellow-50 py-20">
+        <div class="hero bg-gradient-to-br from-base-100 via-base-100 to-base-100 py-20">
             <div class="hero-content text-center">
                 <div class="max-w-4xl">
-                    <h1 class="text-6xl font-bold text-orange-800 mb-4">गुरु परम्परा</h1>
-                    <h2 class="text-3xl font-semibold text-orange-700 mb-6">Divine Lineage</h2>
-                    <p class="text-lg text-gray-700 max-w-2xl mx-auto leading-relaxed">
+                    <h1 class="text-6xl font-bold text-primary mb-4">गुरु परम्परा</h1>
+                    <h2 class="text-3xl font-semibold text-primary mb-6">Divine Lineage</h2>
+                    <p class="text-lg text-base-content max-w-2xl mx-auto leading-relaxed">
                         The sacred succession of divine teachers in the Nimbarka Sampradaya,
                         carrying the eternal flame of Radha-Krishna bhakti through centuries of devotion.
                     </p>
                     <div class="mt-8">
-                        <div class="badge badge-outline badge-lg text-orange-600 border-orange-300">
+                        <div class="badge badge-outline badge-lg text-primary border-primary">
                             <i class="fas fa-infinity mr-2"></i>
                             Eternal Divine Flow
                         </div>
@@ -40,8 +40,8 @@
         <!-- Timeline Section -->
         <div id="timeline" class="py-16 bg-gradient-to-b from-base-100 to-base-200">
             <div class="container mx-auto px-4">
-                <h2 class="text-4xl font-bold text-center text-orange-800 mb-4">Sacred Timeline</h2>
-                <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+                <h2 class="text-4xl font-bold text-center text-primary mb-4">Sacred Timeline</h2>
+                <p class="text-center text-base-content mb-12 max-w-2xl mx-auto">
                     Journey through the divine succession of our revered acharyas
                 </p>
 
@@ -49,18 +49,18 @@
                 <div class="hidden lg:block">
                     <div class="relative">
                         <!-- Timeline Line -->
-                        <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-orange-400 to-amber-400"></div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-primary to-primary"></div>
 
                         <!-- Timeline Items -->
                         <div class="space-y-12">
                             <template x-for="(acharya, index) in timelineAcharyas" :key="acharya.id">
                                 <div class="relative flex items-center" :class="index % 2 === 0 ? 'justify-start' : 'justify-end'" x-data="{ hovered: false }" @mouseenter="hovered = true" @mouseleave="hovered = false">
                                     <!-- Timeline Dot -->
-                                    <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-orange-500 rounded-full border-4 border-white shadow-lg z-10"></div>
+                                    <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-primary rounded-full border-4 border-white shadow-lg z-10"></div>
 
                                     <!-- Content Card -->
                                     <div class="w-5/12 cursor-pointer transform transition-all duration-300" :class="hovered ? 'scale-105' : ''" @click="openModal(acharya)">
-                                        <div class="card bg-base-100 shadow-xl border border-orange-100 hover:shadow-2xl transition-shadow">
+                                        <div class="card bg-base-100 shadow-xl border border-base-200 hover:shadow-2xl transition-shadow">
                                             <div class="card-body p-6">
                                                 <div class="flex items-center gap-4">
                                                     <div class="avatar">
@@ -69,14 +69,14 @@
                                                         </div>
                                                     </div>
                                                     <div class="flex-1">
-                                                        <h3 class="card-title text-orange-800" x-text="acharya.name"></h3>
-                                                        <p class="text-sm text-gray-600" x-text="acharya.period"></p>
+                                                        <h3 class="card-title text-primary" x-text="acharya.name"></h3>
+                                                        <p class="text-sm text-base-content" x-text="acharya.period"></p>
                                                         <div class="flex gap-2 mt-2">
                                                             <div class="badge badge-outline badge-sm" x-text="acharya.tradition"></div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <p class="text-sm text-gray-700 mt-3 line-clamp-2" x-text="acharya.brief"></p>
+                                                <p class="text-sm text-base-content mt-3 line-clamp-2" x-text="acharya.brief"></p>
                                                 <div class="card-actions justify-end mt-4">
                                                     <button class="btn btn-primary btn-sm">
                                                         Learn More
@@ -96,17 +96,17 @@
                 <div class="lg:hidden">
                     <div class="relative pl-8">
                         <!-- Timeline Line -->
-                        <div class="absolute left-4 top-0 h-full w-0.5 bg-gradient-to-b from-orange-400 to-amber-400"></div>
+                        <div class="absolute left-4 top-0 h-full w-0.5 bg-gradient-to-b from-primary to-primary"></div>
 
                         <!-- Timeline Items -->
                         <div class="space-y-8">
                             <template x-for="acharya in timelineAcharyas" :key="acharya.id">
                                 <div class="relative">
                                     <!-- Timeline Dot -->
-                                    <div class="absolute -left-6 top-6 w-4 h-4 bg-orange-500 rounded-full border-2 border-white"></div>
+                                    <div class="absolute -left-6 top-6 w-4 h-4 bg-primary rounded-full border-2 border-white"></div>
 
                                     <!-- Content Card -->
-                                    <div class="card bg-base-100 shadow-lg border border-orange-100 cursor-pointer" @click="openModal(acharya)">
+                                    <div class="card bg-base-100 shadow-lg border border-base-200 cursor-pointer" @click="openModal(acharya)">
                                         <div class="card-body p-4">
                                             <div class="flex items-center gap-3">
                                                 <div class="avatar">
@@ -115,11 +115,11 @@
                                                     </div>
                                                 </div>
                                                 <div class="flex-1">
-                                                    <h3 class="font-bold text-orange-800" x-text="acharya.name"></h3>
-                                                    <p class="text-xs text-gray-600" x-text="acharya.period"></p>
+                                                    <h3 class="font-bold text-primary" x-text="acharya.name"></h3>
+                                                    <p class="text-xs text-base-content" x-text="acharya.period"></p>
                                                 </div>
                                             </div>
-                                            <p class="text-sm text-gray-700 mt-2" x-text="acharya.brief"></p>
+                                            <p class="text-sm text-base-content mt-2" x-text="acharya.brief"></p>
                                         </div>
                                     </div>
                                 </div>
@@ -133,27 +133,27 @@
         <!-- Main Acharyas Grid -->
         <div id="acharyas" class="py-16">
             <div class="container mx-auto px-4">
-                <h2 class="text-4xl font-bold text-center text-orange-800 mb-4">प्रमुख आचार्य</h2>
-                <h3 class="text-2xl font-semibold text-center text-orange-700 mb-12">Main Acharyas</h3>
+                <h2 class="text-4xl font-bold text-center text-primary mb-4">प्रमुख आचार्य</h2>
+                <h3 class="text-2xl font-semibold text-center text-primary mb-12">Main Acharyas</h3>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <template x-for="acharya in mainAcharyas" :key="acharya.id">
-                        <div class="card bg-base-100 shadow-xl border border-orange-100 hover:shadow-2xl transition-all duration-300 cursor-pointer group" @click="openModal(acharya)">
+                        <div class="card bg-base-100 shadow-xl border border-base-200 hover:shadow-2xl transition-all duration-300 cursor-pointer group" @click="openModal(acharya)">
                             <figure class="px-6 pt-6">
                                 <div class="avatar">
-                                    <div class="w-24 h-24 rounded-full border-4 border-orange-200 group-hover:border-orange-400 transition-colors">
+                                    <div class="w-24 h-24 rounded-full border-4 border-primary group-hover:border-primary transition-colors">
                                         <img :src="acharya.image" :alt="acharya.name" class="object-cover">
                                     </div>
                                 </div>
                             </figure>
                             <div class="card-body text-center">
-                                <h3 class="card-title justify-center text-orange-800" x-text="acharya.name"></h3>
-                                <p class="text-sm text-gray-600" x-text="acharya.period"></p>
+                                <h3 class="card-title justify-center text-primary" x-text="acharya.name"></h3>
+                                <p class="text-sm text-base-content" x-text="acharya.period"></p>
                                 <div class="flex justify-center gap-2 my-3">
                                     <div class="badge badge-outline badge-sm" x-text="acharya.tradition"></div>
                                     <div class="badge badge-primary badge-outline badge-sm" x-text="acharya.contribution"></div>
                                 </div>
-                                <p class="text-sm text-gray-700 line-clamp-3" x-text="acharya.brief"></p>
+                                <p class="text-sm text-base-content line-clamp-3" x-text="acharya.brief"></p>
                                 <div class="card-actions justify-center mt-4">
                                     <button class="btn btn-primary btn-sm group-hover:btn-secondary transition-colors">
                                         <i class="fas fa-book-open mr-2"></i>
@@ -170,8 +170,8 @@
         <!-- Full Lineage Button -->
         <div id="lineage" class="py-16 bg-base-200">
             <div class="container mx-auto px-4 text-center">
-                <h2 class="text-4xl font-bold text-orange-800 mb-6">Complete Lineage</h2>
-                <p class="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
+                <h2 class="text-4xl font-bold text-primary mb-6">Complete Lineage</h2>
+                <p class="text-lg text-base-content mb-8 max-w-2xl mx-auto">
                     Explore the complete divine succession from Shri Krishna to the present day
                 </p>
                 <a href="/parampara/full-lineage" class="btn btn-primary btn-lg">
@@ -189,13 +189,13 @@
                     <div class="flex justify-between items-start mb-6">
                         <div class="flex items-center gap-4">
                             <div class="avatar">
-                                <div class="w-20 h-20 rounded-full border-4 border-orange-200">
+                                <div class="w-20 h-20 rounded-full border-4 border-primary">
                                     <img :src="selectedAcharya?.image" :alt="selectedAcharya?.name" class="object-cover">
                                 </div>
                             </div>
                             <div>
-                                <h3 class="font-bold text-2xl text-orange-800" x-text="selectedAcharya?.name"></h3>
-                                <p class="text-gray-600" x-text="selectedAcharya?.period"></p>
+                                <h3 class="font-bold text-2xl text-primary" x-text="selectedAcharya?.name"></h3>
+                                <p class="text-base-content" x-text="selectedAcharya?.period"></p>
                                 <div class="flex gap-2 mt-2">
                                     <div class="badge badge-outline" x-text="selectedAcharya?.tradition"></div>
                                     <div class="badge badge-primary badge-outline" x-text="selectedAcharya?.contribution"></div>
@@ -209,13 +209,13 @@
 
                     <div class="space-y-6">
                         <div>
-                            <h4 class="font-semibold text-lg text-orange-700 mb-2">About</h4>
-                            <p class="text-gray-700 leading-relaxed" x-text="selectedAcharya?.description"></p>
+                            <h4 class="font-semibold text-lg text-primary mb-2">About</h4>
+                            <p class="text-base-content leading-relaxed" x-text="selectedAcharya?.description"></p>
                         </div>
 
                         <div>
-                            <h4 class="font-semibold text-lg text-orange-700 mb-2">Key Contributions</h4>
-                            <ul class="list-disc list-inside space-y-1 text-gray-700">
+                            <h4 class="font-semibold text-lg text-primary mb-2">Key Contributions</h4>
+                            <ul class="list-disc list-inside space-y-1 text-base-content">
                                 <template x-for="contribution in selectedAcharya?.contributions" :key="contribution">
                                     <li x-text="contribution"></li>
                                 </template>
@@ -384,7 +384,7 @@
                 openModal(acharya) {
                     this.selectedAcharya = acharya;
                     this.showModal = true;
-                    document.body.style.overflow = 'hidden';
+                    document.body.style.overflow = 'auto';
                 },
 
                 closeModal() {

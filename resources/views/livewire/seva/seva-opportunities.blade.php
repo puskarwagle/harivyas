@@ -1,26 +1,26 @@
 <div>
     <div x-data="sevaOpportunities()" class="min-h-screen">
         <!-- Hero Section -->
-        <div class="hero bg-gradient-to-r from-orange-50 to-amber-50 py-20">
+        <div class="hero bg-gradient-to-r from-50 to-amber-50 py-20">
             <div class="hero-content text-center">
                 <div class="max-w-2xl">
-                    <h1 class="text-5xl font-bold text-orange-800 mb-4">सेवा के अवसर</h1>
-                    <h2 class="text-3xl font-semibold text-orange-700 mb-6">Seva Opportunities</h2>
+                    <h1 class="text-5xl font-bold text-800 mb-4">सेवा के अवसर</h1>
+                    <h2 class="text-3xl font-semibold text-700 mb-6">Seva Opportunities</h2>
                     <p class="text-lg text-gray-600 leading-relaxed">
                         Join our sacred mission through selfless service. Every act of seva is an offering to Radha Krishna and a step towards spiritual growth.
                     </p>
                     <div class="flex justify-center mt-8">
                         <div class="stats stats-horizontal shadow bg-white">
                             <div class="stat text-center">
-                                <div class="stat-value text-orange-600">50+</div>
+                                <div class="stat-value text-600">50+</div>
                                 <div class="stat-desc">Active Sevaks</div>
                             </div>
                             <div class="stat text-center">
-                                <div class="stat-value text-orange-600">15</div>
+                                <div class="stat-value text-600">15</div>
                                 <div class="stat-desc">Seva Categories</div>
                             </div>
                             <div class="stat text-center">
-                                <div class="stat-value text-orange-600">24/7</div>
+                                <div class="stat-value text-600">24/7</div>
                                 <div class="stat-desc">Service Hours</div>
                             </div>
                         </div>
@@ -60,9 +60,9 @@
                             <!-- Header -->
                             <div class="flex items-start justify-between mb-4">
                                 <div class="flex items-center">
-                                    <i :class="seva.icon" class="text-3xl text-orange-500 mr-3"></i>
+                                    <i :class="seva.icon" class="text-3xl text-500 mr-3"></i>
                                     <div>
-                                        <h3 class="card-title text-orange-800" x-text="seva.title"></h3>
+                                        <h3 class="card-title text-800" x-text="seva.title"></h3>
                                         <p class="text-sm text-gray-500" x-text="seva.subtitle"></p>
                                     </div>
                                 </div>
@@ -136,9 +136,9 @@
                     <div>
                         <div class="flex items-center justify-between mb-6">
                             <div class="flex items-center">
-                                <i :class="selectedSeva.icon" class="text-4xl text-orange-500 mr-4"></i>
+                                <i :class="selectedSeva.icon" class="text-4xl text-500 mr-4"></i>
                                 <div>
-                                    <h3 class="text-2xl font-bold text-orange-800" x-text="selectedSeva.title"></h3>
+                                    <h3 class="text-2xl font-bold text-800" x-text="selectedSeva.title"></h3>
                                     <p class="text-gray-600" x-text="selectedSeva.subtitle"></p>
                                 </div>
                             </div>
@@ -201,7 +201,7 @@
         <div class="modal" :class="{'modal-open': showApplicationModal}">
             <div class="modal-box max-w-2xl">
                 <div class="flex items-center justify-between mb-6">
-                    <h3 class="text-2xl font-bold text-orange-800">Apply for Seva</h3>
+                    <h3 class="text-2xl font-bold text-800">Apply for Seva</h3>
                     <button @click="closeApplicationModal()" class="btn btn-sm btn-circle btn-ghost">
                         <i class="fas fa-times"></i>
                     </button>

@@ -5,7 +5,7 @@
             <h1 class="text-4xl md:text-5xl font-bold text-primary mb-4">
                 Frequently Asked Questions
             </h1>
-            <p class="text-lg text-base-content/70 max-w-2xl mx-auto">
+            <p class="text-lg text-base-content max-w-2xl mx-auto">
                 Find answers to common questions about Nimbarka Sampradaya, ashram life, and spiritual practice
             </p>
         </div>
@@ -15,9 +15,9 @@
             <div class="form-control max-w-md mx-auto">
                 <div class="input-group flex">
                     <input type="text" placeholder="Search FAQs..." class="input input-bordered w-full" x-model="searchQuery" @input="filterFAQs">
-                    <svg class="btn btn-square btn-primary ml-2" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    {{-- <svg class="btn btn-square btn-primary ml-2" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21 21-6-6m2-5a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
-                    </svg>
+                    </svg> --}}
                 </div>
             </div>
         </div>
@@ -43,11 +43,11 @@
                     <input type="checkbox" :id="'faq-' + faq.id" />
                     <div class="collapse-title text-lg font-medium flex items-start gap-3">
                         <div class="badge badge-primary badge-sm mt-1 flex-shrink-0" x-text="faq.category"></div>
-                        <span x-text="faq.question" class="flex-1 text-base-content"></span>
+                        <span x-text="faq.question" class="flex-1 text-primary"></span>
                     </div>
                     <div class="collapse-content">
                         <div class="pt-2">
-                            <div class="prose prose-sm max-w-none" x-html="faq.answer"></div>
+                            <div class="prose prose-sm text-base-content max-w-none" x-html="faq.answer"></div>
                             <div class="mt-4 flex flex-wrap gap-2" x-show="faq.tags.length > 0">
                                 <template x-for="tag in faq.tags" :key="tag">
                                     <div class="badge badge-base-content badge-sm" x-text="tag"></div>

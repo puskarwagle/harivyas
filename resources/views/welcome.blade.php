@@ -54,6 +54,10 @@
                     <button class="shree btn-text-base-content" href="{{ route('home') }}" wire:navigate>श्री हरि व्यास</button>
                     {{-- <span class="hidden sm:inline">{{ __('menu.nimbarka') }}</span> --}}
                 </a>
+                <a href="/visual-tailwind-editor">
+                    <button class="btn-text-base-error" href="{{ route('visual-tailwind-editor') }}" wire:navigate>visual-tailwind-editor</button>
+                </a>
+
             </div>
 
             <!-- NAVBAR CENTER - Desktop menu -->
@@ -184,7 +188,7 @@
                 </form>
 
                 <label class="toggle text-base-content m-1">
-                    <input type="checkbox" value="dark" class="theme-controller" />
+                    <input type="checkbox" value="night" class="theme-controller" />
                     <svg aria-label="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
                             <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>

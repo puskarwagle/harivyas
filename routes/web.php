@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
 use App\Livewire\Home;
+use App\Livewire\VisualTailwindEditor;
 use App\Livewire\Kirtan;
 use App\Livewire\Parampara;
 
@@ -43,6 +44,7 @@ use App\Livewire\Contact;
 
 Route::get('/', Home::class)->name('home');
 Route::get('kirtan', Kirtan::class)->name('kirtan');
+Route::get('visual-tailwind-editor', VisualTailwindEditor::class)->name('visual-tailwind-editor');
 Route::get('parampara', Parampara::class)->name('parampara');
 
 Route::get('history', History::class)->name('history');

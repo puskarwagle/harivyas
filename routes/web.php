@@ -16,12 +16,12 @@ use App\Livewire\Philosophy\RadhaKrishnaBhakti;
 use App\Livewire\Philosophy\Sadhana;
 use App\Livewire\Philosophy\Moksha;
 
-use App\Livewire\Parampara\Acharyas\Nimbarkacharya;
-use App\Livewire\Parampara\Acharyas\Shrinivyas;
-use App\Livewire\Parampara\Acharyas\Keshavakashmiri;
-use App\Livewire\Parampara\Acharyas\Bhattadev;
-use App\Livewire\Parampara\Acharyas\Harivyasdev;
-use App\Livewire\Parampara\Acharyas\FullLineage;
+use App\Livewire\Parampara\HarivyasNikunjaParampara\Nimbarkacharya as Nimbarkacharya;
+use App\Livewire\Parampara\HarivyasNikunjaParampara\Keshavakashmiri as Keshavakashmiri;
+use App\Livewire\Parampara\HarivyasNikunjaParampara\Bhattadev as Bhattadev;
+use App\Livewire\Parampara\HarivyasNikunjaParampara\Harivyasdev as Harivyasdev;
+
+use App\Livewire\Parampara\KathiyaBaba\KathiyaBaba;
 
 use App\Livewire\DailyLife\Schedule;
 use App\Livewire\DailyLife\Prasadam;
@@ -53,13 +53,6 @@ Route::get('dvaitaAdvaita', DvaitaAdvaita::class)->name('dvaitaAdvaita');
 Route::get('radha-krishna-bhakti', RadhaKrishnaBhakti::class)->name('radha-krishna-bhakti');
 Route::get('sadhana', Sadhana::class)->name('sadhana');
 Route::get('moksha', Moksha::class)->name('moksha');
-
-Route::get('acharyas/nimbarkacharya', Nimbarkacharya::class)->name('acharyas.nimbarkacharya');
-Route::get('acharyas/shrinivyas', Shrinivyas::class)->name('acharyas.shrinivyas');
-Route::get('acharyas/keshavakashmiri', Keshavakashmiri::class)->name('acharyas.keshavakashmiri');
-Route::get('acharyas/bhattadev', Bhattadev::class)->name('acharyas.bhattadev');
-Route::get('acharyas/harivyasdev', Harivyasdev::class)->name('acharyas.harivyasdev');
-Route::get('acharyas/full-lineage', FullLineage::class)->name('acharyas.full-lineage');
 
 Route::get('schedule', Schedule::class)->name('schedule');
 Route::get('prasadam', Prasadam::class)->name('prasadam');
@@ -100,3 +93,21 @@ Route::get('lang/{lang}', function ($lang) {
 })->name('lang.switch');
 
 require __DIR__.'/auth.php';
+
+// Harivyās Nikuñja Paramparā Routes
+Route::prefix('parampara/harivyas-nikunja')->group(function () {
+    Route::get('nimbarkacharya', Nimbarkacharya::class)->name('parampara.harivyas-nikunja.nimbarkacharya');
+    Route::get('keshavakashmiri', Keshavakashmiri::class)->name('parampara.harivyas-nikunja.keshavakashmiri');
+    Route::get('bhattadev', Bhattadev::class)->name('parampara.harivyas-nikunja.bhattadev');
+    Route::get('harivyasdev', Harivyasdev::class)->name('parampara.harivyas-nikunja.harivyasdev');
+});
+
+// Nimbārkācārya Pīṭha Paramparā Routes
+Route::prefix('parampara/nimbarkacharya-pitha')->group(function () {
+    Route::get('nimbarkacharya', Nimbarkacharya::class)->name('parampara.nimbarkacharya-pitha.nimbarkacharya');
+    Route::get('keshavakashmiri', Keshavakashmiri::class)->name('parampara.nimbarkacharya-pitha.keshavakashmiri');
+    Route::get('bhattadev', Bhattadev::class)->name('parampara.nimbarkacharya-pitha.bhattadev');
+});
+
+// Kāṭhiyā Bābā Paramparā Route
+Route::get('parampara/kathiya-baba/kathiya-baba', KathiyaBaba::class)->name('parampara.kathiya-baba.kathiya-baba');

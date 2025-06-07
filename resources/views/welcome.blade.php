@@ -15,7 +15,7 @@
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari&display=swap" rel="stylesheet">
-    
+
     {{-- Load Tailwind CSS and your JS --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -24,6 +24,7 @@
             font-family: 'Noto Sans Devanagari', sans-serif;
             font-size: 2rem;
         }
+
     </style>
 </head>
 <body style="background-color: #121212; color: #e0e0e0;">
@@ -57,7 +58,7 @@
 
             <!-- NAVBAR CENTER - Desktop menu -->
             <div class="navbar-center hidden lg:flex">
-                <ul class="menu menu-horizontal bg-base-200 rounded-box px-1"  style="z-index: 1000;">
+                <ul class="menu menu-horizontal bg-base-200 rounded-box px-1" style="z-index: 1000;">
                     <li>
                         <a href="{{ route('home') }}" wire:navigate>{{ __('menu.home') }}</a>
                     </li>
@@ -88,13 +89,41 @@
                     <li>
                         <details>
                             <summary>{{ __('menu.parampara') }}</summary>
-                            <ul class="w-56">
-                                <li><a href="{{ route('acharyas.nimbarkacharya') }}" wire:navigate>Shri Nimbark Acharya</a></li>
-                                <li><a href="{{ route('acharyas.shrinivyas') }}" wire:navigate>Shri Shrinivyas Acharya</a></li>
-                                <li><a href="{{ route('acharyas.keshavakashmiri') }}" wire:navigate>Shri Keshavakashmiri Acharya</a></li>
-                                <li><a href="{{ route('acharyas.bhattadev') }}" wire:navigate>Shri Bhattadev Acharya</a></li>
-                                <li><a href="{{ route('acharyas.harivyasdev') }}" wire:navigate>Shri Harivyasdev Acharya</a></li>
-                                <li><a href="{{ route('acharyas.full-lineage') }}" wire:navigate>Full List</a></li>
+                            <ul class="w-64">
+                                <!-- Harivyās Nikuñja Paramparā -->
+                                <li>
+                                    <details>
+                                        <summary>Harivyās Nikuñja Paramparā</summary>
+                                        <ul>
+                                            <li><a href="{{ route('parampara.harivyas-nikunja.nimbarkacharya') }}" wire:navigate>Śrī Nimbārkācārya</a></li>
+                                            <li><a href="{{ route('parampara.harivyas-nikunja.keshavakashmiri') }}" wire:navigate>Śrī Keśavakāśmīri Ācārya</a></li>
+                                            <li><a href="{{ route('parampara.harivyas-nikunja.bhattadev') }}" wire:navigate>Śrī Bhaṭṭadeva Ācārya</a></li>
+                                            <li><a href="{{ route('parampara.harivyas-nikunja.harivyasdev') }}" wire:navigate>Śrī Harivyāsadeva Ācārya</a></li>
+                                        </ul>
+                                    </details>
+                                </li>
+
+                                <!-- Nimbārkācārya Pīṭha Paramparā -->
+                                <li>
+                                    <details>
+                                        <summary>Nimbārkācārya Pīṭha Paramparā</summary>
+                                        <ul>
+                                            <li><a href="{{ route('parampara.nimbarkacharya-pitha.nimbarkacharya') }}" wire:navigate>Śrī Nimbārkācārya</a></li>
+                                            <li><a href="{{ route('parampara.nimbarkacharya-pitha.keshavakashmiri') }}" wire:navigate>Śrī Keśavakāśmīri Ācārya</a></li>
+                                            <li><a href="{{ route('parampara.nimbarkacharya-pitha.bhattadev') }}" wire:navigate>Śrī Bhaṭṭadeva Ācārya</a></li>
+                                        </ul>
+                                    </details>
+                                </li>
+
+                                <!-- Kāṭhiyā Bābā Paramparā -->
+                                <li>
+                                    <details>
+                                        <summary>Kāṭhiyā Pīṭha Paramparā</summary>
+                                        <ul>
+                                            <li><a href="{{ route('parampara.kathiya-baba.kathiya-baba') }}" wire:navigate>Śrī Kāṭhiyā Bābā</a></li>
+                                        </ul>
+                                    </details>
+                                </li>
                             </ul>
                         </details>
                     </li>
@@ -259,13 +288,41 @@
                 <li>
                     <details>
                         <summary>{{ __('menu.parampara') }}</summary>
-                        <ul class="w-56">
-                            <li><a href="{{ route('acharyas.nimbarkacharya') }}" wire:navigate>Shri Nimbark Acharya</a></li>
-                            <li><a href="{{ route('acharyas.shrinivyas') }}" wire:navigate>Shri Shrinivyas Acharya</a></li>
-                            <li><a href="{{ route('acharyas.keshavakashmiri') }}" wire:navigate>Shri Keshavakashmiri Acharya</a></li>
-                            <li><a href="{{ route('acharyas.bhattadev') }}" wire:navigate>Shri Bhattadev Acharya</a></li>
-                            <li><a href="{{ route('acharyas.harivyasdev') }}" wire:navigate>Shri Harivyasdev Acharya</a></li>
-                            <li><a href="{{ route('acharyas.full-lineage') }}" wire:navigate>Full List</a></li>
+                        <ul class="w-64">
+                            <!-- Harivyās Nikuñja Paramparā -->
+                            <li>
+                                <details>
+                                    <summary>Harivyās Nikuñja Paramparā</summary>
+                                    <ul>
+                                        <li><a href="{{ route('parampara.harivyas-nikunja.nimbarkacharya') }}" wire:navigate>Śrī Nimbārkācārya</a></li>
+                                        <li><a href="{{ route('parampara.harivyas-nikunja.keshavakashmiri') }}" wire:navigate>Śrī Keśavakāśmīri Ācārya</a></li>
+                                        <li><a href="{{ route('parampara.harivyas-nikunja.bhattadev') }}" wire:navigate>Śrī Bhaṭṭadeva Ācārya</a></li>
+                                        <li><a href="{{ route('parampara.harivyas-nikunja.harivyasdev') }}" wire:navigate>Śrī Harivyāsadeva Ācārya</a></li>
+                                    </ul>
+                                </details>
+                            </li>
+
+                            <!-- Nimbārkācārya Pīṭha Paramparā -->
+                            <li>
+                                <details>
+                                    <summary>Nimbārkācārya Pīṭha Paramparā</summary>
+                                    <ul>
+                                        <li><a href="{{ route('parampara.nimbarkacharya-pitha.nimbarkacharya') }}" wire:navigate>Śrī Nimbārkācārya</a></li>
+                                        <li><a href="{{ route('parampara.nimbarkacharya-pitha.keshavakashmiri') }}" wire:navigate>Śrī Keśavakāśmīri Ācārya</a></li>
+                                        <li><a href="{{ route('parampara.nimbarkacharya-pitha.bhattadev') }}" wire:navigate>Śrī Bhaṭṭadeva Ācārya</a></li>
+                                    </ul>
+                                </details>
+                            </li>
+
+                            <!-- Kāṭhiyā Bābā Paramparā -->
+                            <li>
+                                <details>
+                                    <summary>Kāṭhiyā Pīṭha Paramparā</summary>
+                                    <ul>
+                                        <li><a href="{{ route('parampara.kathiya-baba.kathiya-baba') }}" wire:navigate>Śrī Kāṭhiyā Bābā</a></li>
+                                    </ul>
+                                </details>
+                            </li>
                         </ul>
                     </details>
                 </li>

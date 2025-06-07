@@ -50,7 +50,7 @@
                             <div class="prose prose-sm max-w-none" x-html="faq.answer"></div>
                             <div class="mt-4 flex flex-wrap gap-2" x-show="faq.tags.length > 0">
                                 <template x-for="tag in faq.tags" :key="tag">
-                                    <div class="badge badge-ghost badge-sm" x-text="tag"></div>
+                                    <div class="badge badge-base-content badge-sm" x-text="tag"></div>
                                 </template>
                             </div>
                         </div>

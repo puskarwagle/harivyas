@@ -323,9 +323,9 @@
     <footer class="footer footer-center p-10 bg-base-200 text-base-content">
         <div>
             <div class="text-3xl mb-4">🕉️</div>
-            <p class="font-bold text-orange-800">श्री हरि व्यास निकुंज मंदिर</p>
-            <p class="text-gray-600">वृंदावन धाम, उत्तर प्रदेश</p>
-            <p class="text-gray-600">Spreading Radha-Krishna Bhakti since 1950</p>
+            <p class="font-bold text-base-800">श्री हरि व्यास निकुंज मंदिर</p>
+            <p class="text-primary">वृंदावन धाम, उत्तर प्रदेश</p>
+            <p class="text-primary">Spreading Radha-Krishna Bhakti since 1950</p>
         </div>
 
         <div>
@@ -338,7 +338,7 @@
         </div>
 
         <div>
-            <p class="text-sm text-gray-500">
+            <p class="text-sm text-primary">
                 © 2024 Shri Hari Vyas Nikunja Mandir. All rights reserved.
             </p>
         </div>

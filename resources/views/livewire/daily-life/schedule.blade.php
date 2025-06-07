@@ -1,12 +1,12 @@
 <div>
     <div x-data="scheduleData()" class="min-h-screen">
         <!-- Hero Section -->
-        <div class="hero bg-gradient-to-r from-orange-50 to-amber-50 py-16">
+        <div class="hero bg-base-100 py-16">
             <div class="hero-content text-center">
                 <div class="max-w-2xl">
-                    <h1 class="text-5xl font-bold text-orange-800 mb-4">दैनिक कार्यक्रम</h1>
-                    <h2 class="text-2xl font-semibold text-orange-700 mb-4">Daily Schedule</h2>
-                    <p class="text-lg text-gray-600">Follow the sacred rhythm of ashram life</p>
+                    <h1 class="text-5xl font-bold text-primary mb-4">दैनिक कार्यक्रम</h1>
+                    <h2 class="text-2xl font-semibold text-primary mb-4">Daily Schedule</h2>
+                    <p class="text-lg text-base-content">Follow the sacred rhythm of ashram life</p>
                 </div>
             </div>
         </div>
@@ -14,16 +14,16 @@
         <!-- Schedule Tabs -->
         <div class="container mx-auto px-4 py-12">
             <!-- Tab Navigation -->
-            <div class="tabs tabs-boxed justify-center mb-8 bg-orange-50">
-                <button class="tab" :class="{'tab-active bg-orange-500 text-white': activeTab === 'daily'}" @click="activeTab = 'daily'">
+            <div class="tabs tabs-boxed justify-center mb-8 bg-base-100">
+                <button class="tab" :class="{'tab-active bg-primary text-base-100': activeTab === 'daily'}" @click="activeTab = 'daily'">
                     <i class="fas fa-sun mr-2"></i>
                     Daily Schedule
                 </button>
-                <button class="tab" :class="{'tab-active bg-orange-500 text-white': activeTab === 'festivals'}" @click="activeTab = 'festivals'">
+                <button class="tab" :class="{'tab-active bg-primary text-base-100': activeTab === 'festivals'}" @click="activeTab = 'festivals'">
                     <i class="fas fa-calendar-alt mr-2"></i>
                     Festival Days
                 </button>
-                <button class="tab" :class="{'tab-active bg-orange-500 text-white': activeTab === 'special'}" @click="activeTab = 'special'">
+                <button class="tab" :class="{'tab-active bg-primary text-base-100': activeTab === 'special'}" @click="activeTab = 'special'">
                     <i class="fas fa-star mr-2"></i>
                     Special Occasions
                 </button>
@@ -38,26 +38,26 @@
                         <span class="font-semibold">Current Time: </span>
                         <span x-text="currentTime"></span>
                         <span class="ml-4 font-semibold">Next Activity: </span>
-                        <span x-text="nextActivity" class="text-orange-600"></span>
+                        <span x-text="nextActivity" class="text-primary"></span>
                     </div>
                 </div>
 
                 <!-- Schedule Table -->
-                <div class="card bg-base-100 shadow-xl border border-orange-100">
+                <div class="card bg-base-100 shadow-xl border border-base-200">
                     <div class="card-body">
-                        <h3 class="card-title text-orange-800 mb-6">
-                            <i class="fas fa-sun text-orange-500"></i>
+                        <h3 class="card-title text-primary mb-6">
+                            <i class="fas fa-sun text-primary"></i>
                             Regular Daily Schedule
                         </h3>
 
                         <div class="overflow-x-auto">
                             <table class="table table-zebra w-full">
                                 <thead>
-                                    <tr class="bg-orange-50">
-                                        <th class="text-orange-800">Time</th>
-                                        <th class="text-orange-800">Activity</th>
-                                        <th class="text-orange-800">Details</th>
-                                        <th class="text-orange-800">Status</th>
+                                    <tr class="bg-base-100">
+                                        <th class="text-primary">Time</th>
+                                        <th class="text-primary">Activity</th>
+                                        <th class="text-primary">Details</th>
+                                        <th class="text-primary">Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -66,10 +66,10 @@
                                             <td class="font-mono font-bold" x-text="activity.time"></td>
                                             <td>
                                                 <div class="flex items-center">
-                                                    <i :class="activity.icon + ' mr-3 text-orange-500'"></i>
+                                                    <i :class="activity.icon + ' mr-3 text-primary'"></i>
                                                     <div>
                                                         <div class="font-semibold" x-text="activity.name"></div>
-                                                        <div class="text-sm text-gray-500" x-text="activity.sanskrit"></div>
+                                                        <div class="text-sm text-base-content" x-text="activity.sanskrit"></div>
                                                     </div>
                                                 </div>
                                             </td>
@@ -91,9 +91,9 @@
 
                 <!-- Important Notes -->
                 <div class="grid md:grid-cols-2 gap-6 mt-8">
-                    <div class="card bg-blue-50 border border-blue-200">
+                    <div class="card bg-base-100 border border-base-200">
                         <div class="card-body">
-                            <h4 class="card-title text-blue-800">
+                            <h4 class="card-title text-primary">
                                 <i class="fas fa-info-circle"></i>
                                 Important Notes
                             </h4>
@@ -106,9 +106,9 @@
                         </div>
                     </div>
 
-                    <div class="card bg-green-50 border border-green-200">
+                    <div class="card bg-base-100 border border-base-200">
                         <div class="card-body">
-                            <h4 class="card-title text-green-800">
+                            <h4 class="card-title text-primary">
                                 <i class="fas fa-hands-praying"></i>
                                 For Visitors
                             </h4>
@@ -125,20 +125,20 @@
 
             <!-- Festival Schedule Tab -->
             <div x-show="activeTab === 'festivals'" x-transition>
-                <div class="card bg-base-100 shadow-xl border border-orange-100">
+                <div class="card bg-base-100 shadow-xl border border-base-200">
                     <div class="card-body">
-                        <h3 class="card-title text-orange-800 mb-6">
-                            <i class="fas fa-calendar-alt text-orange-500"></i>
+                        <h3 class="card-title text-primary mb-6">
+                            <i class="fas fa-calendar-alt text-primary"></i>
                             Festival Day Schedule
                         </h3>
 
                         <div class="overflow-x-auto">
                             <table class="table table-zebra w-full">
                                 <thead>
-                                    <tr class="bg-orange-50">
-                                        <th class="text-orange-800">Time</th>
-                                        <th class="text-orange-800">Activity</th>
-                                        <th class="text-orange-800">Special Features</th>
+                                    <tr class="bg-base-100">
+                                        <th class="text-primary">Time</th>
+                                        <th class="text-primary">Activity</th>
+                                        <th class="text-primary">Special Features</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -147,10 +147,10 @@
                                             <td class="font-mono font-bold" x-text="activity.time"></td>
                                             <td>
                                                 <div class="flex items-center">
-                                                    <i :class="activity.icon + ' mr-3 text-orange-500'"></i>
+                                                    <i :class="activity.icon + ' mr-3 text-primary'"></i>
                                                     <div>
                                                         <div class="font-semibold" x-text="activity.name"></div>
-                                                        <div class="text-sm text-gray-500" x-text="activity.sanskrit"></div>
+                                                        <div class="text-sm text-base-content" x-text="activity.sanskrit"></div>
                                                     </div>
                                                 </div>
                                             </td>
@@ -180,10 +180,10 @@
             <div x-show="activeTab === 'special'" x-transition>
                 <div class="grid md:grid-cols-2 gap-6">
                     <!-- Ekadashi Schedule -->
-                    <div class="card bg-base-100 shadow-xl border border-orange-100">
+                    <div class="card bg-base-100 shadow-xl border border-base-200">
                         <div class="card-body">
-                            <h4 class="card-title text-orange-800">
-                                <i class="fas fa-moon text-orange-500"></i>
+                            <h4 class="card-title text-primary">
+                                <i class="fas fa-moon text-primary"></i>
                                 Ekadashi Days
                             </h4>
                             <div class="overflow-x-auto">
@@ -194,7 +194,7 @@
                                                 <td class="font-mono text-sm" x-text="activity.time"></td>
                                                 <td>
                                                     <div class="text-sm font-semibold" x-text="activity.name"></div>
-                                                    <div class="text-xs text-gray-500" x-text="activity.details"></div>
+                                                    <div class="text-xs text-base-content" x-text="activity.details"></div>
                                                 </td>
                                             </tr>
                                         </template>
@@ -206,10 +206,10 @@
                     </div>
 
                     <!-- Parikrama Schedule -->
-                    <div class="card bg-base-100 shadow-xl border border-orange-100">
+                    <div class="card bg-base-100 shadow-xl border border-base-200">
                         <div class="card-body">
-                            <h4 class="card-title text-orange-800">
-                                <i class="fas fa-walking text-orange-500"></i>
+                            <h4 class="card-title text-primary">
+                                <i class="fas fa-walking text-primary"></i>
                                 Parikrama Days
                             </h4>
                             <div class="overflow-x-auto">
@@ -220,7 +220,7 @@
                                                 <td class="font-mono text-sm" x-text="activity.time"></td>
                                                 <td>
                                                     <div class="text-sm font-semibold" x-text="activity.name"></div>
-                                                    <div class="text-xs text-gray-500" x-text="activity.details"></div>
+                                                    <div class="text-xs text-base-content" x-text="activity.details"></div>
                                                 </td>
                                             </tr>
                                         </template>
@@ -233,15 +233,15 @@
                 </div>
 
                 <!-- Seasonal Variations -->
-                <div class="card bg-base-100 shadow-xl border border-orange-100 mt-6">
+                <div class="card bg-base-100 shadow-xl border border-base-200 mt-6">
                     <div class="card-body">
-                        <h4 class="card-title text-orange-800 mb-4">
-                            <i class="fas fa-calendar-week text-orange-500"></i>
+                        <h4 class="card-title text-primary mb-4">
+                            <i class="fas fa-calendar-week text-primary"></i>
                             Seasonal Variations
                         </h4>
                         <div class="grid md:grid-cols-2 gap-6">
-                            <div class="bg-blue-50 p-4 rounded-lg">
-                                <h5 class="font-semibold text-blue-800 mb-2">
+                            <div class="bg-base-100 p-4 rounded-lg">
+                                <h5 class="font-semibold text-primary mb-2">
                                     <i class="fas fa-snowflake mr-2"></i>
                                     Winter Schedule (Nov - Feb)
                                 </h5>
@@ -252,8 +252,8 @@
                                     <li>• Hot prasadam served</li>
                                 </ul>
                             </div>
-                            <div class="bg-orange-50 p-4 rounded-lg">
-                                <h5 class="font-semibold text-orange-800 mb-2">
+                            <div class="bg-base-100 p-4 rounded-lg">
+                                <h5 class="font-semibold text-primary mb-2">
                                     <i class="fas fa-sun mr-2"></i>
                                     Summer Schedule (Mar - Oct)
                                 </h5>

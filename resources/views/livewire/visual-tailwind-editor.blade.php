@@ -18,7 +18,7 @@
     <div class="border border-accent-300 rounded-lg p-4 mb-4">
         <h2 class="font-semibold mb-2">Page Viewer</h2>
         <div :class="classes" class="transition-all duration-300 border border-accent-300 p-4 rounded-lg min-h-[50px]">
-            Menu Tree 
+            Menu Tree new cms branch testing
         </div>
     </div>
 

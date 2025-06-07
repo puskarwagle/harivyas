@@ -1,12 +1,12 @@
 <div>
     <div x-data="sampradayaPage()" class="min-h-screen">
         <!-- Hero Section -->
-        <div class="hero bg-gradient-to-br from-orange-100 via-amber-50 to-yellow-50 py-20">
+        <div class="hero bg-gradient-to-br from-base-200 via-base-100 to-base-300 py-20">
             <div class="hero-content text-center max-w-4xl">
                 <div>
-                    <h1 class="text-6xl font-bold text-orange-800 mb-4">निम्बार्क सम्प्रदाय</h1>
-                    <h2 class="text-3xl font-semibold text-orange-700 mb-6">Nimbarka Sampradaya</h2>
-                    <p class="text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto">
+                    <h1 class="text-6xl font-bold text-primary mb-4">निम्बार्क सम्प्रदाय</h1>
+                    <h2 class="text-6xl font-semibold text-primary mb-6">Nimbarka Sampradaya</h2>
+                    <p class="text-xl text-base-content leading-relaxed max-w-3xl mx-auto">
                         The ancient Vaishnava tradition founded by Jagadguru Shri Nimbarkacharya,
                         propagating the sublime philosophy of Dvaitadvaita and devotion to Shri Radha-Krishna
                     </p>
@@ -33,21 +33,21 @@
             <!-- Overview Tab -->
             <div x-show="activeTab === 'overview'" x-transition class="space-y-12">
                 <!-- Foundation Card -->
-                <div class="card bg-gradient-to-r from-orange-50 to-amber-50 shadow-xl border border-orange-200">
+                <div class="card bg-base-100 shadow-xl border border-primary">
                     <div class="card-body">
                         <div class="flex items-center mb-6">
-                            <i class="fas fa-om text-orange-500 text-3xl mr-4"></i>
-                            <h3 class="card-title text-2xl text-orange-800">Foundation & History</h3>
+                            <i class="fas fa-om text-primary text-3xl mr-4"></i>
+                            <h3 class="card-title text-2xl text-primary">Foundation & History</h3>
                         </div>
                         <div class="grid md:grid-cols-2 gap-8">
                             <div class="space-y-4">
-                                <p class="text-gray-700 leading-relaxed">
+                                <p class="text-base-content leading-relaxed">
                                     The Nimbarka Sampradaya is one of the four authentic Vaishnava traditions (Sampradayas)
                                     established by Jagadguru Shri Nimbarkacharya in the 11th century CE. Known for its
                                     profound philosophy of Dvaitadvaita (dualistic non-dualism), this sampradaya has
                                     preserved the ancient Vedic wisdom for over a millennium.
                                 </p>
-                                <div class="stats stats-vertical lg:stats-horizontal shadow bg-white">
+                                <div class="stats stats-vertical lg:stats-horizontal shadow bg-base-100">
                                     <div class="stat">
                                         <div class="stat-title">Founded</div>
                                         <div class="stat-value text-primary">11th Century</div>
@@ -55,14 +55,14 @@
                                     </div>
                                     <div class="stat">
                                         <div class="stat-title">Philosophy</div>
-                                        <div class="stat-value text-secondary">Dvaitadvaita</div>
+                                        <div class="stat-value text-primary">Dvaitadvaita</div>
                                         <div class="stat-desc">Dualistic Non-dualism</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="flex justify-center">
-                                <div class="w-64 h-64 bg-gradient-to-br from-orange-200 to-amber-200 rounded-full flex items-center justify-center shadow-lg">
-                                    <i class="fas fa-lotus text-6xl text-orange-600"></i>
+                                <div class="w-64 h-64 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                                    <i class="fas fa-lotus text-6xl text-primary"></i>
                                 </div>
                             </div>
                         </div>
@@ -71,27 +71,27 @@
 
                 <!-- Key Features -->
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="card bg-base-100 shadow-xl border border-blue-100">
+                    <div class="card bg-base-100 shadow-xl border border-info">
                         <div class="card-body text-center">
-                            <i class="fas fa-heart text-pink-500 text-4xl mb-4"></i>
-                            <h4 class="card-title justify-center text-blue-800">Radha-Krishna Worship</h4>
-                            <p class="text-gray-600">Central focus on the divine couple Shri Radha-Krishna as the supreme deity</p>
+                            <i class="fas fa-heart text-info text-4xl mb-4"></i>
+                            <h4 class="card-title justify-center text-info">Radha-Krishna Worship</h4>
+                            <p class="text-base-content">Central focus on the divine couple Shri Radha-Krishna as the supreme deity</p>
                         </div>
                     </div>
 
-                    <div class="card bg-base-100 shadow-xl border border-green-100">
+                    <div class="card bg-base-100 shadow-xl border border-success">
                         <div class="card-body text-center">
-                            <i class="fas fa-book-open text-green-500 text-4xl mb-4"></i>
-                            <h4 class="card-title justify-center text-green-800">Vedic Authority</h4>
-                            <p class="text-gray-600">Based on Vedas, Upanishads, and Brahma Sutras with authentic interpretation</p>
+                            <i class="fas fa-book-open text-success text-4xl mb-4"></i>
+                            <h4 class="card-title justify-center text-success">Vedic Authority</h4>
+                            <p class="text-base-content">Based on Vedas, Upanishads, and Brahma Sutras with authentic interpretation</p>
                         </div>
                     </div>
 
-                    <div class="card bg-base-100 shadow-xl border border-purple-100">
+                    <div class="card bg-base-100 shadow-xl border border-accent">
                         <div class="card-body text-center">
-                            <i class="fas fa-users text-purple-500 text-4xl mb-4"></i>
-                            <h4 class="card-title justify-center text-purple-800">Guru Parampara</h4>
-                            <p class="text-gray-600">Unbroken lineage of spiritual masters preserving pure teachings</p>
+                            <i class="fas fa-users text-error text-4xl mb-4"></i>
+                            <h4 class="card-title justify-center text-error">Guru Parampara</h4>
+                            <p class="text-base-content">Unbroken lineage of spiritual masters preserving pure teachings</p>
                         </div>
                     </div>
                 </div>
@@ -100,10 +100,10 @@
             <!-- Philosophy Tab -->
             <div x-show="activeTab === 'philosophy'" x-transition class="space-y-12">
                 <!-- Dvaitadvaita Explanation -->
-                <div class="card bg-base-100 shadow-xl border border-orange-200">
+                <div class="card bg-base-100 shadow-xl border border-primary">
                     <div class="card-body">
-                        <h3 class="card-title text-2xl text-orange-800 mb-6">
-                            <i class="fas fa-yin-yang text-orange-500 mr-3"></i>
+                        <h3 class="card-title text-2xl text-primary mb-6">
+                            <i class="fas fa-yin-yang text-primary mr-3"></i>
                             Dvaitadvaita Philosophy
                         </h3>
                         <div class="grid lg:grid-cols-2 gap-8">
@@ -112,7 +112,7 @@
                                     <i class="fas fa-lightbulb"></i>
                                     <span><strong>Dvaitadvaita</strong> means "dualistic non-dualism" - the soul is both different and non-different from Brahman simultaneously</span>
                                 </div>
-                                <p class="text-gray-700 leading-relaxed">
+                                <p class="text-base-content leading-relaxed">
                                     This unique philosophical position reconciles the apparent contradiction between
                                     unity and diversity. The individual soul (jiva) is eternally distinct from
                                     Brahman yet inseparably connected, like waves in the ocean - distinct yet
@@ -120,12 +120,12 @@
                                 </p>
                             </div>
                             <div class="space-y-4">
-                                <div class="collapse collapse-arrow bg-orange-50">
+                                <div class="collapse collapse-arrow bg-base-200">
                                     <input type="checkbox" />
-                                    <div class="collapse-title font-medium text-orange-800">
+                                    <div class="collapse-title font-medium text-primary">
                                         Three Eternal Realities
                                     </div>
-                                    <div class="collapse-content text-gray-700">
+                                    <div class="collapse-content text-base-content">
                                         <ul class="list-disc list-inside space-y-2">
                                             <li><strong>Brahman:</strong> The Supreme Reality (Radha-Krishna)</li>
                                             <li><strong>Jiva:</strong> Individual souls</li>
@@ -133,12 +133,12 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="collapse collapse-arrow bg-orange-50">
+                                <div class="collapse collapse-arrow bg-base-200">
                                     <input type="checkbox" />
-                                    <div class="collapse-title font-medium text-orange-800">
+                                    <div class="collapse-title font-medium text-primary">
                                         Relationship Dynamics
                                     </div>
-                                    <div class="collapse-content text-gray-700">
+                                    <div class="collapse-content text-base-content">
                                         <p>The soul is simultaneously one with and different from God -
                                             sharing divine nature while maintaining individual identity for eternal loving service.</p>
                                     </div>
@@ -150,26 +150,26 @@
 
                 <!-- Core Concepts -->
                 <div class="grid md:grid-cols-2 gap-8">
-                    <div class="card bg-gradient-to-br from-pink-50 to-red-50 shadow-xl">
+                    <div class="card bg-secondary shadow-xl">
                         <div class="card-body">
-                            <h4 class="card-title text-pink-800">
+                            <h4 class="card-title text-secondary">
                                 <i class="fas fa-infinity mr-2"></i>
                                 Eternal Relationship
                             </h4>
-                            <p class="text-gray-700">
+                            <p class="text-base-content">
                                 The soul's relationship with God is eternal and natural, not created or achieved.
                                 Liberation means realizing this pre-existing divine connection.
                             </p>
                         </div>
                     </div>
 
-                    <div class="card bg-gradient-to-br from-blue-50 to-indigo-50 shadow-xl">
+                    <div class="card bg-info shadow-xl">
                         <div class="card-body">
-                            <h4 class="card-title text-blue-800">
+                            <h4 class="card-title text-info">
                                 <i class="fas fa-praying-hands mr-2"></i>
                                 Bhakti as Means
                             </h4>
-                            <p class="text-gray-700">
+                            <p class="text-base-content">
                                 Pure devotion (bhakti) is both the means and the end. Through loving service,
                                 the soul awakens to its eternal nature and divine relationship.
                             </p>
@@ -181,45 +181,45 @@
             <!-- Practices Tab -->
             <div x-show="activeTab === 'practices'" x-transition class="space-y-12">
                 <!-- Sadhana Framework -->
-                <div class="card bg-base-100 shadow-xl border border-green-200">
+                <div class="card bg-base-100 shadow-xl border border-success">
                     <div class="card-body">
-                        <h3 class="card-title text-2xl text-green-800 mb-6">
-                            <i class="fas fa-meditation text-green-500 mr-3"></i>
+                        <h3 class="card-title text-2xl text-success mb-6">
+                            <i class="fas fa-meditation text-success mr-3"></i>
                             Spiritual Practices (Sadhana)
                         </h3>
                         <div class="grid lg:grid-cols-3 gap-6">
                             <div class="space-y-4">
-                                <h4 class="font-bold text-green-700 text-lg">Daily Worship</h4>
+                                <h4 class="font-bold text-success text-lg">Daily Worship</h4>
                                 <div class="badge-group">
                                     <div class="badge badge-primary">Deity Seva</div>
                                     <div class="badge badge-secondary">Aarti</div>
                                     <div class="badge badge-accent">Bhajans</div>
                                 </div>
-                                <p class="text-gray-600 text-sm">
+                                <p class="text-base-content text-sm">
                                     Regular worship of Shri Radha-Krishna through traditional rituals,
                                     ceremonies, and devotional singing.
                                 </p>
                             </div>
 
                             <div class="space-y-4">
-                                <h4 class="font-bold text-green-700 text-lg">Mantra Japa</h4>
+                                <h4 class="font-bold text-success text-lg">Mantra Japa</h4>
                                 <div class="badge-group">
                                     <div class="badge badge-primary">Radha-Krishna Mantras</div>
                                     <div class="badge badge-secondary">Guru Mantras</div>
                                 </div>
-                                <p class="text-gray-600 text-sm">
+                                <p class="text-base-content text-sm">
                                     Repetition of sacred mantras for purification of consciousness
                                     and deepening divine connection.
                                 </p>
                             </div>
 
                             <div class="space-y-4">
-                                <h4 class="font-bold text-green-700 text-lg">Study & Reflection</h4>
+                                <h4 class="font-bold text-success text-lg">Study & Reflection</h4>
                                 <div class="badge-group">
                                     <div class="badge badge-primary">Scripture Study</div>
                                     <div class="badge badge-secondary">Satsang</div>
                                 </div>
-                                <p class="text-gray-600 text-sm">
+                                <p class="text-base-content text-sm">
                                     Regular study of sampradaya texts and participation in
                                     spiritual discussions with fellow devotees.
                                 </p>
@@ -230,34 +230,34 @@
 
                 <!-- Lifestyle Guidelines -->
                 <div class="grid md:grid-cols-2 gap-8">
-                    <div class="card bg-yellow-50 shadow-xl border border-yellow-200">
+                    <div class="card bg-warning shadow-xl border border-warning">
                         <div class="card-body">
-                            <h4 class="card-title text-yellow-800">
+                            <h4 class="card-title text-warning">
                                 <i class="fas fa-leaf mr-2"></i>
                                 Ethical Living
                             </h4>
-                            <ul class="space-y-2 text-gray-700">
-                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Vegetarian diet</li>
-                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Truthfulness in speech</li>
-                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Compassion to all beings</li>
-                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Charitable giving</li>
-                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Regular fasting</li>
+                            <ul class="space-y-2 text-base-content">
+                                <li class="flex items-center"><i class="fas fa-check text-success mr-2"></i>Vegetarian diet</li>
+                                <li class="flex items-center"><i class="fas fa-check text-success mr-2"></i>Truthfulness in speech</li>
+                                <li class="flex items-center"><i class="fas fa-check text-success mr-2"></i>Compassion to all beings</li>
+                                <li class="flex items-center"><i class="fas fa-check text-success mr-2"></i>Charitable giving</li>
+                                <li class="flex items-center"><i class="fas fa-check text-success mr-2"></i>Regular fasting</li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="card bg-purple-50 shadow-xl border border-purple-200">
+                    <div class="card bg-accent shadow-xl border border-accent">
                         <div class="card-body">
-                            <h4 class="card-title text-purple-800">
+                            <h4 class="card-title text-accent">
                                 <i class="fas fa-calendar-alt mr-2"></i>
                                 Festival Observances
                             </h4>
-                            <ul class="space-y-2 text-gray-700">
-                                <li class="flex items-center"><i class="fas fa-star text-purple-500 mr-2"></i>Janmashtami</li>
-                                <li class="flex items-center"><i class="fas fa-star text-purple-500 mr-2"></i>Radhashtami</li>
-                                <li class="flex items-center"><i class="fas fa-star text-purple-500 mr-2"></i>Nimbarka Jayanti</li>
-                                <li class="flex items-center"><i class="fas fa-star text-purple-500 mr-2"></i>Holi & Diwali</li>
-                                <li class="flex items-center"><i class="fas fa-star text-purple-500 mr-2"></i>Ekadashi fasting</li>
+                            <ul class="space-y-2 text-base-content">
+                                <li class="flex items-center"><i class="fas fa-star text-accent mr-2"></i>Janmashtami</li>
+                                <li class="flex items-center"><i class="fas fa-star text-accent mr-2"></i>Radhashtami</li>
+                                <li class="flex items-center"><i class="fas fa-star text-accent mr-2"></i>Nimbarka Jayanti</li>
+                                <li class="flex items-center"><i class="fas fa-star text-accent mr-2"></i>Holi & Diwali</li>
+                                <li class="flex items-center"><i class="fas fa-star text-accent mr-2"></i>Ekadashi fasting</li>
                             </ul>
                         </div>
                     </div>
@@ -267,18 +267,18 @@
             <!-- Texts Tab -->
             <div x-show="activeTab === 'texts'" x-transition class="space-y-12">
                 <!-- Primary Texts -->
-                <div class="card bg-base-100 shadow-xl border border-indigo-200">
+                <div class="card bg-base-100 shadow-xl border border-info">
                     <div class="card-body">
-                        <h3 class="card-title text-2xl text-indigo-800 mb-6">
-                            <i class="fas fa-scroll text-indigo-500 mr-3"></i>
+                        <h3 class="card-title text-2xl text-info mb-6">
+                            <i class="fas fa-scroll text-info mr-3"></i>
                             Authoritative Texts
                         </h3>
                         <div class="grid lg:grid-cols-2 gap-8">
                             <div class="space-y-6">
-                                <div class="card bg-indigo-50 shadow-lg">
+                                <div class="card bg-info shadow-lg">
                                     <div class="card-body">
-                                        <h4 class="card-title text-indigo-700">Vedanta Parijata Saurabha</h4>
-                                        <p class="text-gray-600">
+                                        <h4 class="card-title text-info">Vedanta Parijata Saurabha</h4>
+                                        <p class="text-base-content">
                                             Nimbarkacharya's commentary on the Brahma Sutras, establishing
                                             the philosophical foundation of Dvaitadvaita.
                                         </p>
@@ -286,10 +286,10 @@
                                     </div>
                                 </div>
 
-                                <div class="card bg-indigo-50 shadow-lg">
+                                <div class="card bg-info shadow-lg">
                                     <div class="card-body">
-                                        <h4 class="card-title text-indigo-700">Dasha Shloki</h4>
-                                        <p class="text-gray-600">
+                                        <h4 class="card-title text-info">Dasha Shloki</h4>
+                                        <p class="text-base-content">
                                             Ten essential verses summarizing the core principles
                                             of Nimbarka philosophy and practice.
                                         </p>
@@ -299,10 +299,10 @@
                             </div>
 
                             <div class="space-y-6">
-                                <div class="card bg-indigo-50 shadow-lg">
+                                <div class="card bg-info shadow-lg">
                                     <div class="card-body">
-                                        <h4 class="card-title text-indigo-700">Shri Krishna Karnamrita</h4>
-                                        <p class="text-gray-600">
+                                        <h4 class="card-title text-info">Shri Krishna Karnamrita</h4>
+                                        <p class="text-base-content">
                                             Devotional poetry celebrating the divine pastimes
                                             and qualities of Lord Krishna.
                                         </p>
@@ -310,10 +310,10 @@
                                     </div>
                                 </div>
 
-                                <div class="card bg-indigo-50 shadow-lg">
+                                <div class="card bg-info shadow-lg">
                                     <div class="card-body">
-                                        <h4 class="card-title text-indigo-700">Mahavani</h4>
-                                        <p class="text-gray-600">
+                                        <h4 class="card-title text-info">Mahavani</h4>
+                                        <p class="text-base-content">
                                             Comprehensive compilation of teachings by later
                                             acharyas of the sampradaya.
                                         </p>
@@ -339,21 +339,21 @@
             <!-- Centers Tab -->
             <div x-show="activeTab === 'centers'" x-transition class="space-y-12">
                 <!-- Major Centers -->
-                <div class="card bg-base-100 shadow-xl border border-orange-200">
+                <div class="card bg-base-100 shadow-xl border border-primary">
                     <div class="card-body">
-                        <h3 class="card-title text-2xl text-orange-800 mb-6">
-                            <i class="fas fa-map-marked-alt text-orange-500 mr-3"></i>
+                        <h3 class="card-title text-2xl text-primary mb-6">
+                            <i class="fas fa-map-marked-alt text-primary mr-3"></i>
                             Major Centers Worldwide
                         </h3>
                         <div class="grid lg:grid-cols-2 gap-8">
                             <div class="space-y-6">
-                                <div class="card bg-orange-50 shadow-lg">
+                                <div class="card bg-primary shadow-lg">
                                     <div class="card-body">
                                         <div class="flex items-center mb-3">
-                                            <i class="fas fa-map-marker-alt text-red-500 mr-3"></i>
-                                            <h4 class="card-title text-orange-700">Vrindavan, India</h4>
+                                            <i class="fas fa-map-marker-alt text-error mr-3"></i>
+                                            <h4 class="card-title text-primary">Vrindavan, India</h4>
                                         </div>
-                                        <p class="text-gray-600 mb-3">
+                                        <p class="text-base-content mb-3">
                                             The spiritual heart of the sampradaya, home to numerous temples
                                             and ashrams including Shri Hari Vyas Nikunja Mandir.
                                         </p>
@@ -361,13 +361,13 @@
                                     </div>
                                 </div>
 
-                                <div class="card bg-orange-50 shadow-lg">
+                                <div class="card bg-primary shadow-lg">
                                     <div class="card-body">
                                         <div class="flex items-center mb-3">
-                                            <i class="fas fa-map-marker-alt text-red-500 mr-3"></i>
-                                            <h4 class="card-title text-orange-700">Nimbgram, Rajasthan</h4>
+                                            <i class="fas fa-map-marker-alt text-error mr-3"></i>
+                                            <h4 class="card-title text-primary">Nimbgram, Rajasthan</h4>
                                         </div>
-                                        <p class="text-gray-600 mb-3">
+                                        <p class="text-base-content mb-3">
                                             Birthplace of Jagadguru Nimbarkacharya,
                                             an important pilgrimage destination.
                                         </p>
@@ -377,13 +377,13 @@
                             </div>
 
                             <div class="space-y-6">
-                                <div class="card bg-orange-50 shadow-lg">
+                                <div class="card bg-primary shadow-lg">
                                     <div class="card-body">
                                         <div class="flex items-center mb-3">
-                                            <i class="fas fa-map-marker-alt text-red-500 mr-3"></i>
-                                            <h4 class="card-title text-orange-700">Salempet, Telangana</h4>
+                                            <i class="fas fa-map-marker-alt text-error mr-3"></i>
+                                            <h4 class="card-title text-primary">Salempet, Telangana</h4>
                                         </div>
-                                        <p class="text-gray-600 mb-3">
+                                        <p class="text-base-content mb-3">
                                             Historic center where Nimbarkacharya established
                                             his philosophical teachings.
                                         </p>
@@ -391,13 +391,13 @@
                                     </div>
                                 </div>
 
-                                <div class="card bg-orange-50 shadow-lg">
+                                <div class="card bg-primary shadow-lg">
                                     <div class="card-body">
                                         <div class="flex items-center mb-3">
-                                            <i class="fas fa-globe text-blue-500 mr-3"></i>
-                                            <h4 class="card-title text-orange-700">International Centers</h4>
+                                            <i class="fas fa-globe text-info mr-3"></i>
+                                            <h4 class="card-title text-primary">International Centers</h4>
                                         </div>
-                                        <p class="text-gray-600 mb-3">
+                                        <p class="text-base-content mb-3">
                                             Active communities in USA, UK, Australia, and other countries
                                             spreading Nimbarka teachings globally.
                                         </p>
@@ -442,19 +442,19 @@
         </div>
 
         <!-- Call to Action -->
-        <div class="bg-gradient-to-r from-orange-500 to-amber-500 py-16">
+        <div class="bg-gradient-to-r from-primary to-secondary py-16">
             <div class="container mx-auto px-4 text-center">
-                <h3 class="text-3xl font-bold text-white mb-6">Experience the Living Tradition</h3>
-                <p class="text-xl text-orange-100 mb-8 max-w-2xl mx-auto">
+                <h3 class="text-3xl font-bold text-base-100 mb-6">Experience the Living Tradition</h3>
+                <p class="text-xl text-base-200 mb-8 max-w-2xl mx-auto">
                     Join us in preserving and practicing this ancient wisdom tradition.
                     Discover the profound joy of Radha-Krishna bhakti.
                 </p>
                 <div class="flex flex-wrap justify-center gap-4">
-                    <button class="btn btn-primary btn-lg bg-white text-orange-600 border-white hover:bg-orange-50">
+                    <button class="btn btn-primary btn-lg bg-base-100 text-primary border-base-100 hover:bg-base-200">
                         <i class="fas fa-book-open mr-2"></i>
                         Explore Teachings
                     </button>
-                    <button class="btn btn-outline btn-lg text-white border-white hover:bg-white hover:text-orange-600">
+                    <button class="btn btn-outline btn-lg text-base-100 border-base-100 hover:bg-base-100 hover:text-primary">
                         <i class="fas fa-hands-praying mr-2"></i>
                         Visit Our Ashram
                     </button>

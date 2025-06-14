@@ -1,5 +1,5 @@
 <div>
-    <div x-data="contactForm()" class="min-h-screen">
+    <div class="min-h-screen">
         <!-- Hero Section -->
         <div class="hero bg-gradient-to-r from-orange-50 to-amber-50 py-16">
             <div class="hero-content text-center">

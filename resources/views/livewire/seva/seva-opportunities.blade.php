@@ -1,7 +1,7 @@
 <div>
     <div x-data="sevaOpportunities()" class="min-h-screen">
         <!-- Hero Section -->
-        <div class="hero bg-gradient-to-r from-50 to-amber-50 py-20">
+        <div class="hero py-20">
             <div class="hero-content text-center">
                 <div class="max-w-2xl">
                     <h1 class="text-5xl font-bold text-800 mb-4">सेवा के अवसर</h1>
@@ -10,7 +10,7 @@
                         Join our sacred mission through selfless service. Every act of seva is an offering to Radha Krishna and a step towards spiritual growth.
                     </p>
                     <div class="flex justify-center mt-8">
-                        <div class="stats stats-horizontal shadow bg-white">
+                        <div class="stats stats-horizontal shadow">
                             <div class="stat text-center">
                                 <div class="stat-value text-600">50+</div>
                                 <div class="stat-desc">Active Sevaks</div>

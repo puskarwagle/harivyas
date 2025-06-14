@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Texts;
+namespace App\Livewire\SacredTexts;
 
 use Livewire\Component;
 
@@ -8,6 +8,6 @@ class Mahavani extends Component
 {
     public function render()
     {
-        return view('livewire.texts.mahavani')->layout('welcome');
+        return view('livewire.sacred_texts.mahavani')->layout('welcome');
     }
 }

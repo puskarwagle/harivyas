@@ -150,9 +150,9 @@
 
                 <!-- Core Concepts -->
                 <div class="grid md:grid-cols-2 gap-8">
-                    <div class="card bg-secondary shadow-xl">
+                    <div class="card bg-info shadow-xl">
                         <div class="card-body">
-                            <h4 class="card-title text-secondary">
+                            <h4 class="card-title">
                                 <i class="fas fa-infinity mr-2"></i>
                                 Eternal Relationship
                             </h4>
@@ -165,7 +165,7 @@
 
                     <div class="card bg-info shadow-xl">
                         <div class="card-body">
-                            <h4 class="card-title text-info">
+                            <h4 class="card-title">
                                 <i class="fas fa-praying-hands mr-2"></i>
                                 Bhakti as Means
                             </h4>
@@ -230,7 +230,8 @@
 
                 <!-- Lifestyle Guidelines -->
                 <div class="grid md:grid-cols-2 gap-8">
-                    <div class="card bg-warning shadow-xl border border-warning">
+
+                    <div class="card bg-accent shadow-xl border border-warning">
                         <div class="card-body">
                             <h4 class="card-title text-warning">
                                 <i class="fas fa-leaf mr-2"></i>
@@ -248,16 +249,16 @@
 
                     <div class="card bg-accent shadow-xl border border-accent">
                         <div class="card-body">
-                            <h4 class="card-title text-accent">
+                            <h4 class="card-title text-warning">
                                 <i class="fas fa-calendar-alt mr-2"></i>
                                 Festival Observances
                             </h4>
                             <ul class="space-y-2 text-base-content">
-                                <li class="flex items-center"><i class="fas fa-star text-accent mr-2"></i>Janmashtami</li>
-                                <li class="flex items-center"><i class="fas fa-star text-accent mr-2"></i>Radhashtami</li>
-                                <li class="flex items-center"><i class="fas fa-star text-accent mr-2"></i>Nimbarka Jayanti</li>
-                                <li class="flex items-center"><i class="fas fa-star text-accent mr-2"></i>Holi & Diwali</li>
-                                <li class="flex items-center"><i class="fas fa-star text-accent mr-2"></i>Ekadashi fasting</li>
+                                <li class="flex items-center"><i class="fas fa-star text-success mr-2"></i>Janmashtami</li>
+                                <li class="flex items-center"><i class="fas fa-star text-success mr-2"></i>Radhashtami</li>
+                                <li class="flex items-center"><i class="fas fa-star text-success mr-2"></i>Nimbarka Jayanti</li>
+                                <li class="flex items-center"><i class="fas fa-star text-success mr-2"></i>Holi & Diwali</li>
+                                <li class="flex items-center"><i class="fas fa-star text-success mr-2"></i>Ekadashi fasting</li>
                             </ul>
                         </div>
                     </div>
@@ -277,7 +278,7 @@
                             <div class="space-y-6">
                                 <div class="card bg-info shadow-lg">
                                     <div class="card-body">
-                                        <h4 class="card-title text-info">Vedanta Parijata Saurabha</h4>
+                                        <h4 class="card-title text-primary">Vedanta Parijata Saurabha</h4>
                                         <p class="text-base-content">
                                             Nimbarkacharya's commentary on the Brahma Sutras, establishing
                                             the philosophical foundation of Dvaitadvaita.
@@ -288,7 +289,7 @@
 
                                 <div class="card bg-info shadow-lg">
                                     <div class="card-body">
-                                        <h4 class="card-title text-info">Dasha Shloki</h4>
+                                        <h4 class="card-title text-primary">Dasha Shloki</h4>
                                         <p class="text-base-content">
                                             Ten essential verses summarizing the core principles
                                             of Nimbarka philosophy and practice.
@@ -301,7 +302,7 @@
                             <div class="space-y-6">
                                 <div class="card bg-info shadow-lg">
                                     <div class="card-body">
-                                        <h4 class="card-title text-info">Shri Krishna Karnamrita</h4>
+                                        <h4 class="card-title text-primary">Shri Krishna Karnamrita</h4>
                                         <p class="text-base-content">
                                             Devotional poetry celebrating the divine pastimes
                                             and qualities of Lord Krishna.
@@ -312,7 +313,7 @@
 
                                 <div class="card bg-info shadow-lg">
                                     <div class="card-body">
-                                        <h4 class="card-title text-info">Mahavani</h4>
+                                        <h4 class="card-title text-primary">Mahavani</h4>
                                         <p class="text-base-content">
                                             Comprehensive compilation of teachings by later
                                             acharyas of the sampradaya.

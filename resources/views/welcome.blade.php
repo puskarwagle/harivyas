@@ -24,7 +24,6 @@
             font-family: 'Noto Sans Devanagari', sans-serif;
             font-size: 2rem;
         }
-
     </style>
 </head>
 <body style="background-color: #121212; color: #e0e0e0;">
@@ -33,7 +32,7 @@
         <div class="navbar bg-base-100 shadow-sm">
             <!-- NAVBAR START - Mobile hamburger + Logo -->
             <div class="navbar-start">
-                <!-- Mobile Hamburger -->
+                <!-- Mobile Hamburger Icon -->
                 <div class="lg:hidden">
                     <button class="btn btn-circle swap swap-rotate" @click="menuOpen = !menuOpen">
                         <svg x-show="!menuOpen" class="fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
@@ -47,25 +46,19 @@
 
                 <!-- Logo - Always visible -->
                 <a class="btn btn-ghost text-xl ml-2 lg:ml-0" href="/">
-                    <svg width="40" height="40" viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg" class="lg:w-[50px] lg:h-[50px]">
+                    {{-- <svg width="40" height="40" viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg" class="lg:w-[50px] lg:h-[50px]">
                         <path d="M30 20 C30 60, 30 120, 50 120 C70 120, 70 60, 70 20" stroke="goldenrod" stroke-width="8" fill="none" />
                         <circle cx="50" cy="70" r="5" fill="red" />
-                    </svg>
-                    <button class="shree btn-text-base-content" href="{{ route('home') }}" wire:navigate>श्री हरि व्यास</button>
+                    </svg> --}}
+                    <img src="/images/harivyas.jpeg" alt="harivyas" class="w-12 h-12 lg:w-16 lg:h-16 rounded-full">
+                    <button class="shree btn-text-base-content" href="{{ route('home') }}" wire:navigate>श्री हरिव्यास</button>
                     {{-- <span class="hidden sm:inline">{{ __('menu.nimbarka') }}</span> --}}
                 </a>
-                <a href="/visual-tailwind-editor">
-                    <button class="btn-text-base-error" href="{{ route('visual-tailwind-editor') }}" wire:navigate>visual-tailwind-editor</button>
-                </a>
-
             </div>
 
             <!-- NAVBAR CENTER - Desktop menu -->
             <div class="navbar-center hidden lg:flex">
                 <ul class="menu menu-horizontal bg-base-200 rounded-box px-1" style="z-index: 1000;">
-                    <li>
-                        <a href="{{ route('home') }}" wire:navigate>{{ __('menu.home') }}</a>
-                    </li>
 
                     <li>
                         <details>
@@ -83,7 +76,6 @@
                             <summary>{{ __('menu.philosophy') }}</summary>
                             <ul class="w-48">
                                 <li><a href="{{ route('dvaitaAdvaita') }}" wire:navigate>{{ __('menu.dvaitadvaita') }}</a></li>
-                                <li><a href="{{ route('radha-krishna-bhakti') }}" wire:navigate>{{ __('menu.bhakti') }}</a></li>
                                 <li><a href="{{ route('sadhana') }}" wire:navigate>{{ __('menu.sadhana') }}</a></li>
                                 <li><a href="{{ route('moksha') }}" wire:navigate>{{ __('menu.moksha') }}</a></li>
                             </ul>
@@ -162,22 +154,22 @@
                         <details>
                             <summary>{{ __('menu.texts') }}</summary>
                             <ul class="w-64">
-                                <li><a href="{{ route('texts.vedanta-parijata-saurabha') }}" wire:navigate>{{ __('menu.vedanta') }}</a></li>
-                                <li><a href="{{ route('texts.dasha-shloki') }}" wire:navigate>{{ __('menu.dasha') }}</a></li>
-                                <li><a href="{{ route('texts.mahavani') }}" wire:navigate>{{ __('menu.mahavani') }}</a></li>
+                                <li><a href="{{ route('sacred_texts.vedanta-parijata-saurabha') }}" wire:navigate>{{ __('menu.vedanta') }}</a></li>
+                                <li><a href="{{ route('sacred_texts.dasha-shloki') }}" wire:navigate>{{ __('menu.dasha') }}</a></li>
+                                <li><a href="{{ route('sacred_texts.mahavani') }}" wire:navigate>{{ __('menu.mahavani') }}</a></li>
                             </ul>
                         </details>
                     </li>
 
                     <li><a href="{{ route('gallery') }}" wire:navigate>{{ __('menu.gallery') }}</a></li>
-                    <li><a href="{{ route('digital-media') }}" wire:navigate>{{ __('menu.media') }}</a></li>
+                    <li><a href="{{ route('kirtan') }}" wire:navigate>{{ __('menu.media') }}</a></li>
                     <li><a href="{{ route('faq') }}" wire:navigate>{{ __('menu.faq') }}</a></li>
                     <li><a href="{{ route('contact') }}" wire:navigate>{{ __('menu.contact') }}</a></li>
                 </ul>
             </div>
 
 
-            <!-- NAVBAR END - Theme toggle + User menu -->
+            <!-- Lang switch - Theme toggle - User menu -->
             <div class="navbar-end">
                 <form id="langToggleForm" method="GET" action="{{ route('lang.switch', app()->getLocale() === 'en' ? 'hi' : 'en') }}">
                     <label class="swap cursor-pointer mr-2">
@@ -187,8 +179,9 @@
                     </label>
                 </form>
 
+                {{-- Toggle theme by changing value eg forest --}}
                 <label class="toggle text-base-content m-1">
-                    <input type="checkbox" value="night" class="theme-controller" />
+                    <input type="checkbox" value="forest" class="theme-controller" />
                     <svg aria-label="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
                             <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
@@ -263,10 +256,6 @@
         <div x-show="menuOpen" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 transform -translate-y-2" x-transition:enter-end="opacity-100 transform translate-y-0" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 transform translate-y-0" x-transition:leave-end="opacity-0 transform -translate-y-2" class="lg:hidden absolute top-16 left-0 right-0 z-50">
             <ul class="menu bg-base-200 rounded-box mx-4 shadow-lg">
                 <li>
-                    <a href="{{ route('home') }}" wire:navigate>{{ __('menu.home') }}</a>
-                </li>
-
-                <li>
                     <details>
                         <summary>{{ __('menu.about') }}</summary>
                         <ul class="w-60">
@@ -282,7 +271,6 @@
                         <summary>{{ __('menu.philosophy') }}</summary>
                         <ul class="w-48">
                             <li><a href="{{ route('dvaitaAdvaita') }}" wire:navigate>{{ __('menu.dvaitadvaita') }}</a></li>
-                            <li><a href="{{ route('radha-krishna-bhakti') }}" wire:navigate>{{ __('menu.bhakti') }}</a></li>
                             <li><a href="{{ route('sadhana') }}" wire:navigate>{{ __('menu.sadhana') }}</a></li>
                             <li><a href="{{ route('moksha') }}" wire:navigate>{{ __('menu.moksha') }}</a></li>
                         </ul>
@@ -361,9 +349,9 @@
                     <details>
                         <summary>{{ __('menu.texts') }}</summary>
                         <ul class="w-64">
-                            <li><a href="{{ route('texts.vedanta-parijata-saurabha') }}" wire:navigate>{{ __('menu.vedanta') }}</a></li>
-                            <li><a href="{{ route('texts.dasha-shloki') }}" wire:navigate>{{ __('menu.dasha') }}</a></li>
-                            <li><a href="{{ route('texts.mahavani') }}" wire:navigate>{{ __('menu.mahavani') }}</a></li>
+                            <li><a href="{{ route('sacred_texts.vedanta-parijata-saurabha') }}" wire:navigate>{{ __('menu.vedanta') }}</a></li>
+                            <li><a href="{{ route('sacred_texts.dasha-shloki') }}" wire:navigate>{{ __('menu.dasha') }}</a></li>
+                            <li><a href="{{ route('sacred_texts.mahavani') }}" wire:navigate>{{ __('menu.mahavani') }}</a></li>
                         </ul>
                     </details>
                 </li>

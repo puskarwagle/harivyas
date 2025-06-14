@@ -1,5 +1,5 @@
 <div>
-    <div x-data="kirtanPlayer()" class="min-h-screen">
+    <div class="min-h-screen">
         <!-- Hero Audio Player -->
         <div class="hero bg-gradient-to-r from-orange-50 to-amber-50 py-16">
             <div class="hero-content text-center max-w-4xl">

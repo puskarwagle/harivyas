@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Texts;
+namespace App\Livewire\SacredTexts;
 
 use Livewire\Component;
 
@@ -8,6 +8,6 @@ class DashaShloki extends Component
 {
     public function render()
     {
-        return view('livewire.texts.dasha-shloki')->layout('welcome');
+        return view('livewire.sacred_texts.dasha-shloki')->layout('welcome');
     }
 }

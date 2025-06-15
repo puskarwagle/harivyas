@@ -190,9 +190,8 @@
                 <h3 class="text-3xl font-bold text-orange-800 text-center mb-8">Find Us</h3>
                 <div class="card bg-base-100 shadow-xl border border-orange-100">
                     <div class="card-body p-0">
-                        <div class="w-full h-96 rounded-lg overflow-hidden">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14206.443754573968!2d77.69287137771488!3d27.580970681876426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39736ec8ba9a8b11%3A0x745c48b5a20b1b0!2sVrindavan%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1647875234567!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded-lg">
-                            </iframe>
+                        <div class="w-full h-100 rounded-lg overflow-hidden">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14146.480517212021!2d77.66465682575418!3d27.574297521723995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39736e17b9bbb095%3A0xcbf23f3eb74be6b!2sHari%20Vyas%20Nikunja%20Mandir%20(aashram)!5e0!3m2!1sen!2sin!4v1749968147522!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" class="w-full h-full border-0 rounded-lg block" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                 </div>

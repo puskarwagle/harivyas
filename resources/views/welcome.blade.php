@@ -12,11 +12,14 @@
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
+    <!-- 
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
+    Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari&display=swap" rel="stylesheet">
 
-    {{-- Load Tailwind CSS and your JS --}}
+    <!-- Load Tailwind CSS and your JS -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <style>
@@ -397,5 +400,32 @@
     <div></div>
     @endif
     @livewireScripts
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggle = document.querySelector('.theme-controller');
+            if (!toggle) {
+                console.warn("Toggle not found");
+                return;
+            }
+
+            const lightFace = document.getElementById('lightFace');
+            const darkFace = document.getElementById('darkFace');
+
+            function updateFaces() {
+                if (toggle.checked) {
+                    lightFace.style.display = 'block';
+                    darkFace.style.display = 'none';
+                } else {
+                    lightFace.style.display = 'none';
+                    darkFace.style.display = 'block';
+                }
+            }
+
+            toggle.addEventListener('change', updateFaces);
+            updateFaces();
+        });
+    </script>
+
 </body>
 </html>

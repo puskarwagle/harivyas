@@ -15,34 +15,12 @@
                 <flux:navlist.group :heading="__('Platform')" class="grid">
                     <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
                 </flux:navlist.group>
+                
+                <flux:spacer />
+
+                <flux:navlist.group :heading="__('BADALAV')" class="grid">
+                    <flux:navlist.item icon="home" :href="route('gallery.create')" :current="request()->routeIs('gallery.create')" wire:navigate>{{ __('Gallery') }}</flux:navlist.item>                </flux:navlist.group>
             </flux:navlist>
-
-            {{-- <flux:navlist.item
-                icon="folder-git-2"
-                :href="route('dashboard.pagemanager')"
-                :current="request()->routeIs('dashboard.pagemanager')"
-                wire:navigate
-            >
-                {{ __('Page Manager') }}
-            </flux:navlist.item>
-
-            <flux:navlist.item
-                icon="folder-git-2"
-                :href="route('dashboard.componentstemplatesmanager')"
-                :current="request()->routeIs('dashboard.componentstemplatesmanager')"
-                wire:navigate
-            >
-                {{ __('Components Templates') }}
-            </flux:navlist.item>
-
-            <flux:navlist.item
-                icon="folder-git-2"
-                :href="route('dashboard.componentsmanager')"
-                :current="request()->routeIs('dashboard.componentsmanager')"
-                wire:navigate
-            >
-                {{ __('My Components') }}
-            </flux:navlist.item> --}}
             
             <flux:spacer />
 
@@ -155,5 +133,6 @@
         {{ $slot }}
 
         @fluxScripts
+        @livewireScripts
     </body>
 </html>

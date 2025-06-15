@@ -1,30 +1,30 @@
 <div>
     <div class="min-h-screen">
         <!-- Hero Section -->
-        <div class="hero bg-gradient-to-r from-orange-50 to-amber-50 py-16">
+        <div class="hero bg-base-200 py-16">
             <div class="hero-content text-center">
                 <div class="max-w-md">
-                    <h1 class="text-5xl font-bold text-orange-800 mb-4">संपर्क करें</h1>
-                    <h2 class="text-2xl font-semibold text-orange-700 mb-2">Contact Us</h2>
-                    <p class="text-gray-600">श्री हरि व्यास निकुंज मंदिर, वृंदावन</p>
+                    <h1 class="text-5xl font-bold text-primary mb-4">संपर्क करें</h1>
+                    <h2 class="text-base-content text-opacity-70">श्री हरि व्यास निकुंज मंदिर, वृंदावन</h2>
                 </div>
             </div>
         </div>
+
 
         <!-- Main Content -->
         <div class="container mx-auto px-4 py-12">
             <div class="grid lg:grid-cols-2 gap-12">
 
-                <!-- Contact Information -->
+                <!-- संपर्क जानकारी -->
                 <div class="space-y-8">
-                    <!-- Address Card -->
-                    <div class="card bg-base-100 shadow-xl border border-orange-100">
+                    <!-- पता कार्ड -->
+                    <div class="card bg-base-100 shadow-xl border border-base-300">
                         <div class="card-body">
                             <div class="flex items-center mb-4">
-                                <i class="fas fa-map-marker-alt text-orange-500 text-2xl mr-4"></i>
-                                <h3 class="card-title text-orange-800">Address</h3>
+                                <i class="fas fa-map-marker-alt text-primary text-2xl mr-4"></i>
+                                <h3 class="card-title text-primary">पता</h3>
                             </div>
-                            <p class="text-gray-700 leading-relaxed">
+                            <p class="text-base-content leading-relaxed">
                                 श्री हरि व्यास निकुंज मंदिर<br>
                                 वृंदावन, मथुरा जिला<br>
                                 उत्तर प्रदेश - 281121<br>
@@ -33,151 +33,149 @@
                         </div>
                     </div>
 
-                    <!-- Contact Details -->
-                    <div class="card bg-base-100 shadow-xl border border-orange-100">
+                    <!-- संपर्क विवरण -->
+                    <div class="card bg-base-100 shadow-xl border border-base-300">
                         <div class="card-body">
-                            <h3 class="card-title text-orange-800 mb-6">Get in Touch</h3>
+                            <h3 class="card-title text-primary mb-6">संपर्क करें</h3>
 
-                            <!-- Phone -->
+                            <!-- फोन -->
                             <div class="flex items-center mb-4">
-                                <i class="fas fa-phone text-orange-500 text-xl mr-4"></i>
+                                <i class="fas fa-phone text-primary text-xl mr-4"></i>
                                 <div>
-                                    <p class="font-semibold text-gray-800">Phone</p>
-                                    <a href="tel:+919876543210" class="text-orange-600 hover:text-orange-800">+91 98765 43210</a>
+                                    <p class="font-semibold text-base-content">फोन</p>
+                                    <a href="tel:+919876543210" class="text-primary hover:underline">+91 98765 43210</a>
                                 </div>
                             </div>
 
-                            <!-- WhatsApp -->
+                            <!-- व्हाट्सएप -->
                             <div class="flex items-center mb-4">
-                                <i class="fab fa-whatsapp text-green-500 text-xl mr-4"></i>
+                                <i class="fab fa-whatsapp text-success text-xl mr-4"></i>
                                 <div>
-                                    <p class="font-semibold text-gray-800">WhatsApp</p>
-                                    <a href="https://wa.me/919876543210" class="text-green-600 hover:text-green-800">+91 98765 43210</a>
+                                    <p class="font-semibold text-base-content">WhatsApp</p>
+                                    <a href="https://wa.me/919876543210" class="text-success hover:underline">+91 98765 43210</a>
                                 </div>
                             </div>
 
-                            <!-- Email -->
+                            <!-- ईमेल -->
                             <div class="flex items-center mb-4">
-                                <i class="fas fa-envelope text-orange-500 text-xl mr-4"></i>
+                                <i class="fas fa-envelope text-primary text-xl mr-4"></i>
                                 <div>
-                                    <p class="font-semibold text-gray-800">Email</p>
-                                    <a href="mailto:contact@harinikunj.org" class="text-orange-600 hover:text-orange-800">contact@harinikunj.org</a>
+                                    <p class="font-semibold text-base-content">ईमेल</p>
+                                    <a href="mailto:contact@harinikunj.org" class="text-primary hover:underline">contact@harinikunj.org</a>
                                 </div>
                             </div>
 
-                            <!-- Timings -->
+                            <!-- समय -->
                             <div class="flex items-start">
-                                <i class="fas fa-clock text-orange-500 text-xl mr-4 mt-1"></i>
+                                <i class="fas fa-clock text-primary text-xl mr-4 mt-1"></i>
                                 <div>
-                                    <p class="font-semibold text-gray-800">Visiting Hours</p>
-                                    <p class="text-gray-600">Daily: 5:00 AM - 8:00 PM</p>
-                                    <p class="text-gray-600">Aarti Times: 6:00 AM, 12:00 PM, 7:00 PM</p>
+                                    <p class="font-semibold text-base-content">दर्शन समय</p>
+                                    <p class="text-base-content text-opacity-70">रोजाना: सुबह 5:00 - रात 8:00</p>
+                                    <p class="text-base-content text-opacity-70">आरती समय: 6:00 सुबह, 12:00 दोपहर, 7:00 शाम</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Quick Actions -->
+                    <!-- त्वरित कार्य -->
                     <div class="flex flex-wrap gap-4">
-                        <a href="tel:+919876543210" class="btn btn-primary btn-outline flex-1 min-w-0">
+                        <a href="tel:+919876543210" class="btn btn-warning btn-outline flex-1 min-w-0">
                             <i class="fas fa-phone mr-2"></i>
-                            Call Now
+                            अभी कॉल करें
                         </a>
                         <a href="https://wa.me/919876543210" class="btn btn-success btn-outline flex-1 min-w-0">
                             <i class="fab fa-whatsapp mr-2"></i>
-                            WhatsApp
+                            WhatsApp करें
                         </a>
                     </div>
                 </div>
 
-                <!-- Contact Form -->
-                <div class="card bg-base-100 shadow-xl border border-orange-100">
+                <!-- संपर्क फ़ॉर्म -->
+                <div class="card bg-base-100 shadow-xl border border-base-300">
                     <div class="card-body">
-                        <h3 class="card-title text-orange-800 mb-6">Send us a Message</h3>
+                        <h3 class="card-title text-primary mb-6">संदेश भेजें</h3>
 
-                        <!-- Success Alert -->
+                        <!-- सफलता संदेश -->
                         <div x-show="showSuccess" x-transition class="alert alert-success mb-6">
                             <i class="fas fa-check-circle"></i>
-                            <span>Your message has been sent successfully! We'll get back to you soon.</span>
+                            <span>आपका संदेश सफलतापूर्वक भेजा गया है! हम जल्द ही संपर्क करेंगे।</span>
                         </div>
 
-                        <!-- Error Alert -->
+                        <!-- त्रुटि संदेश -->
                         <div x-show="showError" x-transition class="alert alert-error mb-6">
                             <i class="fas fa-exclamation-triangle"></i>
-                            <span>Please fill in all required fields correctly.</span>
+                            <span>कृपया सभी आवश्यक फ़ील्ड सही से भरें।</span>
                         </div>
 
                         <form @submit.prevent="submitForm" class="space-y-6">
-                            <!-- Name -->
+                            <!-- नाम -->
                             <div class="form-control">
                                 <label class="label">
-                                    <span class="label-text font-semibold">Name *</span>
+                                    <span class="label-text font-semibold">नाम *</span>
                                 </label>
-                                <input type="text" x-model="form.name" class="input input-bordered focus:input-primary" :class="{'input-error': errors.name}" placeholder="Your full name" required>
+                                <input type="text" x-model="form.name" class="input input-bordered focus:input-primary" :class="{'input-error': errors.name}" placeholder="अपना पूरा नाम" required>
                                 <label x-show="errors.name" class="label">
-                                    <span class="label-text-alt text-error">Name is required</span>
+                                    <span class="label-text-alt text-error">नाम आवश्यक है</span>
                                 </label>
                             </div>
 
-                            <!-- Email -->
+                            <!-- ईमेल -->
                             <div class="form-control">
                                 <label class="label">
-                                    <span class="label-text font-semibold">Email *</span>
+                                    <span class="label-text font-semibold">ईमेल *</span>
                                 </label>
-                                <input type="email" x-model="form.email" class="input input-bordered focus:input-primary" :class="{'input-error': errors.email}" placeholder="your.email@example.com" required>
+                                <input type="email" x-model="form.email" class="input input-bordered focus:input-primary" :class="{'input-error': errors.email}" placeholder="aapka.email@udaharan.com" required>
                                 <label x-show="errors.email" class="label">
-                                    <span class="label-text-alt text-error">Valid email is required</span>
+                                    <span class="label-text-alt text-error">सही ईमेल आवश्यक है</span>
                                 </label>
                             </div>
 
-                            <!-- Phone -->
+                            <!-- फोन -->
                             <div class="form-control">
                                 <label class="label">
-                                    <span class="label-text font-semibold">Phone</span>
+                                    <span class="label-text font-semibold">फ़ोन</span>
                                 </label>
                                 <input type="tel" x-model="form.phone" class="input input-bordered focus:input-primary" placeholder="+91 98765 43210">
                             </div>
 
-                            <!-- Subject -->
+                            <!-- विषय -->
                             <div class="form-control">
                                 <label class="label">
-                                    <span class="label-text font-semibold">Subject *</span>
+                                    <span class="label-text font-semibold">विषय *</span>
                                 </label>
                                 <select x-model="form.subject" class="select select-bordered focus:select-primary" :class="{'select-error': errors.subject}" required>
-                                    <option value="">Select a subject</option>
-                                    <option value="general">General Inquiry</option>
-                                    <option value="visit">Planning a Visit</option>
-                                    <option value="seva">Seva Opportunities</option>
-                                    <option value="donation">Donations</option>
-                                    <option value="ashram-life">Ashram Life</option>
-                                    <option value="texts">Texts & Teachings</option>
-                                    <option value="festivals">Festivals & Events</option>
-                                    <option value="other">Other</option>
+                                    <option value="">विषय चुनें</option>
+                                    <option value="general">सामान्य पूछताछ</option>
+                                    <option value="visit">दर्शन योजना</option>
+                                    <option value="seva">सेवा के अवसर</option>
+                                    <option value="donation">दान</option>
+                                    <option value="ashram-life">आश्रम जीवन</option>
+                                    <option value="texts">ग्रंथ एवं शिक्षाएं</option>
+                                    <option value="festivals">त्योहार एवं कार्यक्रम</option>
+                                    <option value="other">अन्य</option>
                                 </select>
                                 <label x-show="errors.subject" class="label">
-                                    <span class="label-text-alt text-error">Please select a subject</span>
+                                    <span class="label-text-alt text-error">कृपया विषय चुनें</span>
                                 </label>
                             </div>
 
-                            <!-- Message -->
+                            <!-- संदेश -->
                             <div class="form-control">
                                 <label class="label">
-                                    <span class="label-text font-semibold">Message *</span>
+                                    <span class="label-text font-semibold">संदेश *</span>
                                 </label>
-                                <textarea x-model="form.message" class="textarea textarea-bordered h-32 focus:textarea-primary" :class="{'textarea-error': errors.message}" placeholder="Please share your message, questions, or how we can assist you..." required></textarea>
+                                <textarea x-model="form.message" class="textarea textarea-bordered h-32 focus:textarea-primary" :class="{'textarea-error': errors.message}" placeholder="कृपया अपना संदेश, प्रश्न, या किसी प्रकार की सहायता लिखें..." required></textarea>
                                 <label x-show="errors.message" class="label">
-                                    <span class="label-text-alt text-error">Message is required</span>
+                                    <span class="label-text-alt text-error">संदेश आवश्यक है</span>
                                 </label>
                             </div>
 
-                            <!-- Submit Button -->
+                            <!-- सबमिट बटन -->
                             <div class="form-control">
                                 <button type="submit" class="btn btn-primary" :class="{'loading': isSubmitting}" :disabled="isSubmitting">
-                                    <span x-show="!isSubmitting">
                                         <i class="fas fa-paper-plane mr-2"></i>
-                                        Send Message
+                                        संदेश भेजें
                                     </span>
-                                    <span x-show="isSubmitting">Sending...</span>
                                 </button>
                             </div>
                         </form>
@@ -185,18 +183,19 @@
                 </div>
             </div>
 
-            <!-- Map Section -->
+            <!-- मानचित्र अनुभाग -->
             <div class="mt-16">
-                <h3 class="text-3xl font-bold text-orange-800 text-center mb-8">Find Us</h3>
-                <div class="card bg-base-100 shadow-xl border border-orange-100">
+                <h3 class="text-3xl font-bold text-center mb-8 text-primary">हमें यहां पाएं</h3>
+                <div class="card bg-base-100 shadow-xl">
                     <div class="card-body p-0">
-                        <div class="w-full h-100 rounded-lg overflow-hidden">
+                        <div class="w-full h-96 rounded-lg overflow-hidden">
                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14146.480517212021!2d77.66465682575418!3d27.574297521723995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39736e17b9bbb095%3A0xcbf23f3eb74be6b!2sHari%20Vyas%20Nikunja%20Mandir%20(aashram)!5e0!3m2!1sen!2sin!4v1749968147522!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" class="w-full h-full border-0 rounded-lg block" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
 
     <script>

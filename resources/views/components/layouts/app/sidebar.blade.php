@@ -19,7 +19,7 @@
                 <flux:spacer />
 
                 <flux:navlist.group :heading="__('BADALAV')" class="grid">
-                    <flux:navlist.item icon="home" :href="route('gallery.create')" :current="request()->routeIs('gallery.create')" wire:navigate>{{ __('Gallery') }}</flux:navlist.item>                </flux:navlist.group>
+                    <flux:navlist.item icon="home" :href="route('gallerymanager.create')" :current="request()->routeIs('gallerymanager.create')" wire:navigate>{{ __('Gallery') }}</flux:navlist.item>                </flux:navlist.group>
             </flux:navlist>
             
             <flux:spacer />
@@ -133,6 +133,5 @@
         {{ $slot }}
 
         @fluxScripts
-        @livewireScripts
     </body>
 </html>

@@ -3,7 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
+// Language Switch Controllers
+use App\Http\Controllers\LangController;
 
+// Frontend Routes
 use App\Livewire\Home;
 use App\Livewire\Kirtan;
 use App\Livewire\Parampara;
@@ -41,13 +44,8 @@ use App\Livewire\DigitalMedia;
 use App\Livewire\Faq;
 use App\Livewire\Contact;
 
-// Backend Routes
-// use App\Livewire\Backend\GalleryManager;
+// Backend Controllers
 use App\Http\Controllers\GalleryController;
-Route::get('/gallerymanager/upload', [GalleryController::class, 'create'])->name('gallery.create');
-Route::post('/gallerymanager/upload', [GalleryController::class, 'store'])->name('gallery.store');
-
-use App\Http\Controllers\LangController;
 
 Route::get('lang/{lang}', [LangController::class, 'switch'])->name('lang.switch');
 
@@ -100,8 +98,8 @@ Route::get('faq', Faq::class)->name('faq');
 Route::get('contact', Contact::class)->name('contact');
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::view('dashboard', 'livewire.backend.dashboard')->name('dashboard');
-    // Route::get('gallery', GalleryManager::class)->name('gallery');
+    Route::view('dashboard', 'backend.dashboard')->name('dashboard');
+    Route::resource('gallerymanager', GalleryController::class);
 });
 
 Route::middleware(['auth'])->group(function () {

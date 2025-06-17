@@ -100,6 +100,8 @@ Route::get('contact', Contact::class)->name('contact');
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('dashboard', 'backend.dashboard')->name('dashboard');
     Route::resource('gallerymanager', GalleryController::class);
+    Route::delete('/gallerymanager/{id}/trash', [GalleryController::class, 'trash'])->name('gallerymanager.trash');
+    Route::patch('/gallerymanager/{id}/restore', [GalleryController::class, 'restore'])->name('gallerymanager.restore');
 });
 
 Route::middleware(['auth'])->group(function () {

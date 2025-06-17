@@ -30,6 +30,10 @@ class GalleryController extends Controller
      */
     public function store(Request $request)
     {
+        $request->merge([
+            'tags' => array_filter(array_map('trim', explode(',', $request->input('tags')))),
+        ]);
+
         $request->validate([
             'photo' => 'required|image|max:2048',
             'title' => 'required|string|max:255',
@@ -38,6 +42,7 @@ class GalleryController extends Controller
             'tags.*' => 'string|max:50',
             'show_in_homepage' => 'nullable|boolean',
             'location' => 'nullable|string|max:255',
+            'year' => 'nullable|string',
         ]);
 
         $filename = Str::uuid() . '.' . $request->photo->getClientOriginalExtension();
@@ -50,6 +55,7 @@ class GalleryController extends Controller
             'tags' => $request->tags ?? [],
             'show_in_homepage' => $request->boolean('show_in_homepage'),
             'location' => $request->location,
+            'year' => $request->year,
         ]);
 
         return redirect()->back()->with('success', 'Image uploaded.');
@@ -80,10 +86,45 @@ class GalleryController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Move the specified resource to the trash (soft delete).
+     */
+    public function trash(string $id)
+    {
+        $image = GalleryImage::findOrFail($id);
+        $image->delete();
+
+        return redirect()->back()->with('success', 'Image moved to trash.');
+    }
+
+    /**
+     * Get all trashed images.
+     */
+    public function getTrash()
+    {
+        $trashedImages = GalleryImage::onlyTrashed()->latest()->get();
+
+        return view('gallery.trash', compact('trashedImages'));
+    }
+
+    /**
+     * Restore a soft-deleted image.
+     */
+    public function restore(string $id)
+    {
+        $image = GalleryImage::onlyTrashed()->findOrFail($id);
+        $image->restore();
+
+        return redirect()->back()->with('success', 'Image restored successfully.');
+    }
+
+    /**
+     * Permanently delete the specified resource.
      */
     public function destroy(string $id)
     {
-        //
+        $image = GalleryImage::onlyTrashed()->findOrFail($id);
+        $image->forceDelete();
+
+        return redirect()->back()->with('success', 'Image permanently deleted.');
     }
 }

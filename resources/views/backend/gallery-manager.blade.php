@@ -15,7 +15,7 @@
             </div>
         </div>
 
-        <div class="container mx-auto py-8">
+        <div class="container min-h-screen mx-auto py-8">
             <!-- Upload Form Card -->
             <div class="max-w-4xl mx-auto">
                 <div class="bg-base-100/70 backdrop-blur-sm rounded-2xl shadow-xl border border-base-300 overflow-hidden">
@@ -106,169 +106,194 @@
                                         <span class="label-text font-medium text-base-content" x-show="lang === 'hi'">श्रेणी</span>
                                     </label>
                                     <input type="text" name="category" id="category" value="{{ old('category') }}" class="input input-bordered w-full" placeholder="e.g., Janmoutsav, Holi, Bhandara">
-                                </div> --}}
+                            </div> --}}
 
-                                <!-- Location -->
-                                <div class="form-control">
-                                    <label for="location" class="label">
-                                        <span class="label-text font-medium text-base-content" x-show="lang === 'en'">Location</span>
-                                        <span class="label-text font-medium text-base-content" x-show="lang === 'hi'">स्थान</span>
-                                    </label>
-                                    <input type="text" name="location" id="location" value="{{ old('location') }}" class="input input-bordered w-full" placeholder="e.g., Vrindavan, Bhaktapur, Ashram">
-                                </div>
-
-                                <!-- Tags -->
-                                <div class="form-control md:col-span-2">
-                                    <label for="tags" class="label">
-                                        <span class="label-text font-medium text-base-content" x-show="lang === 'en'">Tags #</span>
-                                        <span class="label-text font-medium text-base-content" x-show="lang === 'hi'">टैग #</span>
-                                    </label>
-                                    <input type="text" name="tags" id="tags" value="{{ old('tags') }}" class="input input-bordered w-full" placeholder="radha, krishna, vrindavan, temple (comma separated)">
-                                </div>
-
-                                <!-- Description -->
-                                <div class="form-control md:col-span-2">
-                                    <label for="description" class="label">
-                                        <span class="label-text font-medium text-base-content" x-show="lang === 'en'">Description</span>
-                                        <span class="label-text font-medium text-base-content" x-show="lang === 'hi'">विवरण</span>
-                                    </label>
-                                    <textarea name="description" id="description" rows="4" class="textarea textarea-bordered w-full resize-none" placeholder="Describe the spiritual significance or context of this image...">{{ old('description') }}</textarea>
-                                </div>
+                            <!-- Location -->
+                            <div class="form-control">
+                                <label for="location" class="label">
+                                    <span class="label-text font-medium text-base-content" x-show="lang === 'en'">Location</span>
+                                    <span class="label-text font-medium text-base-content" x-show="lang === 'hi'">स्थान</span>
+                                </label>
+                                <input type="text" name="location" id="location" value="{{ old('location') }}" class="input input-bordered w-full" placeholder="e.g., Vrindavan, Bhaktapur, Ashram">
                             </div>
 
-                            <!-- Toggle & Submit -->
-                            <div class="flex items-center justify-between pt-6 border-t border-base-300">
-                                <div class="form-control">
-                                    <label class="label cursor-pointer flex items-center space-x-3">
-                                        <input type="checkbox" name="show_in_homepage" class="toggle toggle-accent" {{ old('show_in_homepage') ? 'checked' : '' }}>
-                                        <span class="label-text font-medium text-base-content" x-show="lang === 'en'">Feature on homepage</span>
-                                        <span class="label-text font-medium text-base-content" x-show="lang === 'hi'">होमपेज पर विशेषता</span>
-                                    </label>
-                                </div>
-
-                                <button type="submit" class="btn btn-primary px-8 gap-2" x-show="lang === 'en'">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                                    </svg>
-                                    Upload Image
-                                </button>
-                                <button type="submit" class="btn btn-primary px-8 gap-2" x-show="lang === 'hi'">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                                    </svg>
-                                    चित्र अपलोड करें
-                                </button>
+                            <!-- Year -->
+                            <div class="form-control">
+                                <label for="year" class="label">
+                                    <span class="label-text font-medium text-base-content" x-show="lang === 'en'">Year</span>
+                                    <span class="label-text font-medium text-base-content" x-show="lang === 'hi'">वर्ष</span>
+                                </label>
+                                <input type="text" name="year" id="year" value="{{ old('year') }}" class="input input-bordered w-full" placeholder="e.g., 2023, 2063 BS">
                             </div>
-                        </form>
+
+                            <!-- Tags -->
+                            <div class="form-control md:col-span-2">
+                                <label for="tags" class="label">
+                                    <span class="label-text font-medium text-base-content" x-show="lang === 'en'">Tags #</span>
+                                    <span class="label-text font-medium text-base-content" x-show="lang === 'hi'">टैग #</span>
+                                </label>
+                                <input type="text" name="tags" id="tags" value="{{ old('tags') }}" class="input input-bordered w-full" placeholder="radha, krishna, vrindavan, temple (comma separated)">
+                            </div>
+
+                            <!-- Description -->
+                            <div class="form-control md:col-span-2">
+                                <label for="description" class="label">
+                                    <span class="label-text font-medium text-base-content" x-show="lang === 'en'">Description</span>
+                                    <span class="label-text font-medium text-base-content" x-show="lang === 'hi'">विवरण</span>
+                                </label>
+                                <textarea name="description" id="description" rows="4" class="textarea textarea-bordered w-full resize-none" placeholder="Describe the spiritual significance or context of this image...">{{ old('description') }}</textarea>
+                            </div>
                     </div>
-                </div>
 
-
-                <!-- Gallery Table -->
-                @if($images->count())
-                <div class="mt-8">
-                    <div class="bg-base-100 backdrop-blur-sm rounded-2xl shadow-xl border border-base-300 overflow-hidden">
-                        <div class="p-6 border-b border-base-300">
-                            <h3 class="text-lg font-semibold text-base-content" x-show="lang === 'en'">Gallery Images</h3>
-                            <h3 class="text-lg font-semibold text-base-content" x-show="lang === 'hi'">गैलरी चित्र</h3>
-                            <p class="text-sm text-base-content/70 mt-1" x-show="lang === 'en'">{{ $images->count() }} images uploaded</p>
-                            <p class="text-sm text-base-content/70 mt-1" x-show="lang === 'hi'">{{ $images->count() }} चित्र अपलोड किए गए</p>
+                    <!-- Toggle & Submit -->
+                    <div class="flex items-center justify-between pt-6 border-t border-base-300">
+                        <div class="form-control">
+                            <label class="label cursor-pointer flex items-center space-x-3">
+                                <input type="hidden" name="show_in_homepage" value="0">
+                                <input type="checkbox" name="show_in_homepage" class="toggle toggle-accent" value="1" {{ old('show_in_homepage') ? 'checked' : '' }}>
+                                <span class="label-text font-medium text-base-content" x-show="lang === 'en'">Feature on homepage</span>
+                                <span class="label-text font-medium text-base-content" x-show="lang === 'hi'">होमपेज पर विशेषता</span>
+                            </label>
                         </div>
 
-                        <div class="overflow-x-auto">
-                            <table class="table w-full">
-                                <thead class="bg-base-200/70 sticky">
-                                    <tr>
-                                        <th class="font-medium text-base-content" x-show="lang === 'en'">Image</th>
-                                        <th class="font-medium text-base-content" x-show="lang === 'en'">Title</th>
-                                        <th class="font-medium text-base-content" x-show="lang === 'en'">Details</th>
-                                        {{-- <th class="font-medium text-base-content" x-show="lang === 'en'">Category</th> --}}
-                                        <th class="font-medium text-base-content" x-show="lang === 'en'">Status</th>
-                                        {{-- <th class="font-medium text-base-content" x-show="lang === 'en'">Date</th> --}}
-                                        <th class="font-medium text-base-content" x-show="lang === 'en'">Options</th>
-                                        <th class="font-medium text-base-content" x-show="lang === 'hi'">चित्र</th>
-                                        <th class="font-medium text-base-content" x-show="lang === 'hi'">शीर्षक</th>
-                                        <th class="font-medium text-base-content" x-show="lang === 'hi'">विवरण</th>
-                                        {{-- <th class="font-medium text-base-content" x-show="lang === 'hi'">श्रेणी</th> --}}
-                                        <th class="font-medium text-base-content" x-show="lang === 'hi'">स्थिति</th>
-                                        {{-- <th class="font-medium text-base-content" x-show="lang === 'hi'">तारीख</th> --}}
-                                        <th class="font-medium text-base-content" x-show="lang === 'hi'">विकल्प</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($images as $image)
-                                    <tr class="hover:bg-base-200/60">
-                                        {{-- image --}}
-                                        <td>
-                                            <div class="w-16 h-16 rounded-xl overflow-hidden bg-base-200">
-                                                <img src="{{ asset($image->url) }}" alt="{{ $image->title }}" class="w-full h-full object-cover">
-                                            </div>
-                                        </td>
-                                        {{-- title --}}
-                                        <td>
-                                            <div class="font-medium text-base-content">{{ $image->title }}</div>
-                                        </td>
-                                        {{-- description --}}
-                                        <td>
-                                            <div class="space-y-1">
-                                                <div class="text-sm text-base-content/60">{{ Str::limit($image->description, 60) }}</div>
-                                                @if($image->tags && is_array($image->tags))
-                                                <div class="flex flex-wrap gap-1 mt-2">
-                                                    @foreach(array_slice($image->tags, 0, 3) as $tag)
-                                                    <span class="badge badge-sm bg-primary/10 text-primary border-primary/30">{{ $tag }}</span>
-                                                    @endforeach
-                                                    @if(count($image->tags) > 3)
-                                                    <span class="badge badge-sm badge-ghost">+{{ count($image->tags) - 3 }}</span>
-                                                    @endif
-                                                </div>
+                        <button type="submit" class="btn btn-primary px-8 gap-2" x-show="lang === 'en'">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                            </svg>
+                            Upload Image
+                        </button>
+                        <button type="submit" class="btn btn-primary px-8 gap-2" x-show="lang === 'hi'">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                            </svg>
+                            चित्र अपलोड करें
+                        </button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+
+
+            <!-- Gallery Table -->
+            @if($images->count())
+            <div class="mt-8">
+                <div class="bg-base-100 backdrop-blur-sm rounded-2xl shadow-xl border border-base-300 overflow-hidden">
+                    <div class="p-6 border-b border-base-300">
+                        <h3 class="text-lg font-semibold text-base-content" x-show="lang === 'en'">Gallery Images</h3>
+                        <h3 class="text-lg font-semibold text-base-content" x-show="lang === 'hi'">गैलरी चित्र</h3>
+                        <p class="text-sm text-base-content/70 mt-1" x-show="lang === 'en'">{{ $images->count() }} images uploaded</p>
+                        <p class="text-sm text-base-content/70 mt-1" x-show="lang === 'hi'">{{ $images->count() }} चित्र अपलोड किए गए</p>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="table w-full">
+                            <thead class="bg-base-200/70 sticky">
+                                <tr>
+                                    <th class="font-medium text-base-content" x-show="lang === 'en'">Image</th>
+                                    <th class="font-medium text-base-content" x-show="lang === 'en'">Title</th>
+                                    <th class="font-medium text-base-content" x-show="lang === 'en'">Details</th>
+                                    {{-- <th class="font-medium text-base-content" x-show="lang === 'en'">Category</th> --}}
+                                    <th class="font-medium text-base-content" x-show="lang === 'en'">Status</th>
+                                    <th class="font-medium text-base-content" x-show="lang === 'en'">Year</th>
+                                    <th class="font-medium text-base-content" x-show="lang === 'en'">Options</th>
+                                    <th class="font-medium text-base-content" x-show="lang === 'hi'">चित्र</th>
+                                    <th class="font-medium text-base-content" x-show="lang === 'hi'">शीर्षक</th>
+                                    <th class="font-medium text-base-content" x-show="lang === 'hi'">विवरण</th>
+                                    {{-- <th class="font-medium text-base-content" x-show="lang === 'hi'">श्रेणी</th> --}}
+                                    <th class="font-medium text-base-content" x-show="lang === 'hi'">स्थिति</th>
+                                    <th class="font-medium text-base-content" x-show="lang === 'hi'">वर्ष</th>
+                                    <th class="font-medium text-base-content" x-show="lang === 'hi'">विकल्प</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($images as $image)
+                                <tr class="hover:bg-base-200/60">
+                                    {{-- image --}}
+                                    <td>
+                                        <div class="w-16 h-16 rounded-xl overflow-hidden bg-base-200">
+                                            <img src="{{ asset($image->url) }}" alt="{{ $image->title }}" class="w-full h-full object-cover">
+                                        </div>
+                                    </td>
+                                    {{-- title --}}
+                                    <td>
+                                        <div class="font-medium text-base-content">{{ $image->title }}</div>
+                                    </td>
+                                    {{-- description --}}
+                                    <td>
+                                        <div class="space-y-1">
+                                            <div class="text-sm text-base-content/60">{{ Str::limit($image->description, 60) }}</div>
+                                            @if($image->tags && is_array($image->tags))
+                                            <div class="flex flex-wrap gap-1 mt-2">
+                                                @foreach(array_slice($image->tags, 0, 3) as $tag)
+                                                <span class="badge badge-sm bg-primary/10 text-primary border-primary/30">{{ $tag }}</span>
+                                                @endforeach
+                                                @if(count($image->tags) > 3)
+                                                <span class="badge badge-sm badge-ghost">+{{ count($image->tags) - 3 }}</span>
                                                 @endif
                                             </div>
-                                        </td>
-                                        {{-- category --}}
-                                        {{-- <td>
+                                            @endif
+                                        </div>
+                                    </td>
+                                    {{-- category --}}
+                                    {{-- <td>
                                             @if($image->category)
                                             <span class="badge badge-outline">{{ $image->category }}</span>
-                                            @endif
-                                            @if($image->location)
-                                            <div class="text-sm text-base-content/50 mt-1 flex items-center">
-                                                <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                                </svg>
-                                                {{ $image->location }}
-                                            </div>
-                                            @endif
-                                        </td> --}}
-                                        {{-- status --}}
-                                        <td>
-                                            <div class="flex items-center space-x-2">
-                                                <span class="badge {{ $image->show_in_homepage ? 'badge-success' : 'badge-ghost' }}">
-                                                    {{ $image->show_in_homepage ? 'Homepage+' : 'Only gallery' }}
-                                                </span>
-                                            </div>
-                                        </td>
-                                        {{-- date --}}
-                                        {{-- <td class="text-sm text-base-content/60">
-                                            {{ $image->created_at->format('M j, Y') }}
-                                        </td> --}}
-                                        {{-- options --}}
-                                        <td>
-                                            <div class="flex justify-end">
-                                                <button class="btn btn-sm text-warning">Edit</button>
-                                                <button class="btn btn-sm text-error">Delete</button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
+                                    @endif
+                                    @if($image->location)
+                                    <div class="text-sm text-base-content/50 mt-1 flex items-center">
+                                        <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        </svg>
+                                        {{ $image->location }}
+                                    </div>
+                                    @endif
+                                    </td> --}}
+                                    {{-- status --}}
+                                    <td>
+                                        <div class="flex items-center space-x-2">
+                                            <span class="badge {{ $image->show_in_homepage ? 'badge-success' : 'badge-ghost' }}">
+                                                {{ $image->show_in_homepage ? 'Homepage+' : 'Only gallery' }}
+                                            </span>
+                                        </div>
+                                    </td>
+                                    {{-- Year --}}
+                                    <td>
+                                        <div class="text-sm text-base-content/60">
+                                            {{ $image->year }}
+                                        </div>
+                                    </td>
+                                    {{-- options --}}
+                                    <td>
+                                        <div class="flex space-x-2">
+                                            <button class="btn btn-soft btn-warning btn-sm">
+                                                <img src="{{ asset('icons/edit-svgrepo-com.svg') }}" alt="Edit" class="w-5 h-5">
+                                            </button>
+                                            <form
+                                                action="{{ route('gallerymanager.trash', $image->id) }}"
+                                                method="POST"
+                                                onsubmit="return confirm('Are you sure you want to move this image to trash?')"
+                                                class="inline-block"
+                                            >
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-soft btn-error btn-sm text-error">
+                                                    <img src="{{ asset('icons/delete-svgrepo-com.svg') }}" alt="Trash" class="w-12 h-12 inline-block">
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-
-                @endif
             </div>
+
+            @endif
         </div>
+    </div>
     </div>
 
     <script>

@@ -10,8 +10,9 @@ class GalleryImage extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'title', 'description', 'url', 'category',
+        'title', 'description', 'url',
         'tags', 'show_in_homepage', 'location',
+        'year'
     ];
 
     protected $casts = [

@@ -1,34 +1,18 @@
 <div>
-<style>
+    <style>
         .shree {
             font-family: 'Noto Sans Devanagari', sans-serif;
-            font-size: 2rem;
         }
     </style>
-    <div class="min-h-screen bg-gradient-to-br from-base-250 via-base-150 to-base-100">
+    <div class="snap-y snap-mandatory overflow-y-scroll h-screen bg-gradient-to-br from-base-250 via-base-150 to-base-100">
         <!-- Hero Section -->
-        <div class="hero min-h-screen relative overflow-hidden">
-            <!-- Background Pattern -->
-            <div class="absolute inset-0 opacity-0">
-                <div class="absolute top-10 left-10 text-8xl text-primary">🕉️</div>
-                <div class="absolute top-32 right-20 text-6xl text-primary">🪷</div>
-                <div class="absolute bottom-40 left-1/4 text-7xl text-primary">🙏</div>
-                <div class="absolute bottom-20 right-10 text-5xl text-primary">🔱</div>
-            </div>
-
+        <section class="hero snap-start min-h-[calc(100vh-100px)] relative overflow-hidden">
             <div class="hero-content text-center z-10">
                 <div class="max-w-4xl">
                     <div class="mb-8">
                         <h1 class="text-6xl md:text-8xl font-bold text-primary mb-4 font-serif">{{ __('home.title_main') }}</h1>
                         <h2 class="shree text-4xl md:text-6xl font-bold text-primary mb-2">{{ __('home.temple_name') }}</h2>
-                        {{-- <div class="text-lg text-base-content mb-6">
-                            <p class="mb-2">{{ __('home.nimbarka') }}</p>
-                        </div> --}}
                     </div>
-
-                    {{-- <div class="mb-8">
-                        <p class="text-xl md:text-2xl text-base-content leading-relaxed max-w-3xl mx-auto">{{ __('home.tagline') }}</p>
-                    </div> --}}
 
                     <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
                         <a href="/philosophy/dvaita-advaita" class="btn btn-neutral btn-lg">
@@ -45,7 +29,7 @@
                         </a>
                     </div>
 
-                    <div class="stats stats-vertical lg:stats-horizontal shadow-lg bg-base-100/80 backdrop-blur-sm">
+                    <div class="stats stats-vertical lg:stats-horizontal md:stats-horizontal shadow-lg bg-base-100/80 backdrop-blur-sm">
                         <div class="stat place-items-center">
                             <div class="stat-title text-primary">{{ __('home.daily_aartis') }}</div>
                             <div class="stat-value text-3xl text-primary">3</div>
@@ -62,16 +46,16 @@
                             <div class="stat-desc">{{ __('home.years_of_tradition') }}</div>
                         </div>
                     </div>
+
+                    <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer" onclick="document.getElementById('section2').scrollIntoView({ behavior: 'smooth' })">
+                        <i class="fas fa-chevron-down text-2xl text-primary"></i>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-                <i class="fas fa-chevron-down text-2xl text-primary"></i>
-            </div>
-        </div>
-
-        <section class="py-20">
-            <div class="container mx-auto px-4">
+        <section id="section2" class="snap-start min-h-screen flex items-center">
+            <div class="container mx-auto px-4 py-20">
                 <h2 class="text-4xl font-bold text-center text-primary mb-4">{{ __('home.discover_our_ashram') }}</h2>
                 <p class="text-center text-base-content/80 mb-12 max-w-2xl mx-auto">{{ __('home.ashram_description') }}</p>
 
@@ -111,8 +95,8 @@
             </div>
         </section>
 
-        <section class="py-20">
-            <div class="container mx-auto px-4">
+        <section class="snap-start min-h-screen flex items-center">
+            <div class="container mx-auto px-4 py-20">
                 <div class="max-w-4xl mx-auto">
                     <h2 class="text-4xl font-bold text-center text-primary mb-12">{{ __('home.todays_schedule') }}</h2>
 
@@ -158,8 +142,8 @@
             </div>
         </section>
 
-        <section class="py-20">
-            <div class="container mx-auto px-4 text-center">
+        <section class="snap-start min-h-screen flex items-center">
+            <div class="container mx-auto px-4 py-20 text-center">
                 <h2 class="text-4xl font-bold text-primary mb-12">{{ __('home.sacred_teachings') }}</h2>
 
                 <div class="card shadow-xl">
@@ -173,9 +157,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="divider"></div>
 
-                <div class="space-y-4">
+                <div class="space-y-4 hidden">
                     <div class="flex items-center p-4 bg-base-100 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer" @click="window.location.href='/sacred_texts/vedanta-parijata-saurabha'">
                         <div class="text-3xl mr-4">📖</div>
                         <div>
@@ -215,7 +198,7 @@
             </div>
         </section>
 
-        <section class="py-20 text-base-content">
+        <section class="snap-start min-h-screen flex items-center">
             <div class="container mx-auto px-4 text-center">
                 <h2 class="text-4xl font-bold text-primary mb-6">{{ __('home.join_community') }}</h2>
                 <p class="text-xl mb-8 max-w-3xl mx-auto opacity-90">

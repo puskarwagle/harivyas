@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>Harivyas</title>
 
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -15,8 +15,8 @@
     <!-- 
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
     Fonts -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> --}}
+
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari&display=swap" rel="stylesheet">
 
     <!-- Load Tailwind CSS and your JS -->
@@ -25,13 +25,11 @@
     <style>
         .shree {
             font-family: 'Noto Sans Devanagari', sans-serif;
-            font-size: 2rem;
         }
     </style>
 </head>
-<body style="background-color: #121212; color: #e0e0e0;">
-
-    <header x-data="{ menuOpen: false }">
+<body class="caret-secondary">
+    <header class="h-16" x-data="{ menuOpen: false }">
         <div class="navbar bg-base-100 shadow-sm">
             <!-- NAVBAR START - Mobile hamburger + Logo -->
             <div class="navbar-start">
@@ -48,14 +46,9 @@
                 </div>
 
                 <!-- Logo - Always visible -->
-                <a class="btn btn-ghost text-xl ml-2 lg:ml-0" href="/">
-                    {{-- <svg width="40" height="40" viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg" class="lg:w-[50px] lg:h-[50px]">
-                        <path d="M30 20 C30 60, 30 120, 50 120 C70 120, 70 60, 70 20" stroke="goldenrod" stroke-width="8" fill="none" />
-                        <circle cx="50" cy="70" r="5" fill="red" />
-                    </svg> --}}
-                    <img src="/images/harivyas.jpeg" alt="harivyas" class="w-12 h-12 lg:w-16 lg:h-16 rounded-full">
-                    <button class="shree btn-text-base-content" href="{{ route('home') }}" wire:navigate>श्री हरिव्यास</button>
-                    {{-- <span class="hidden sm:inline">{{ __('menu.nimbarka') }}</span> --}}
+                <a class="btn btn-ghost ml-2 lg:ml-0 flex items-center gap-2 px-2" href="{{ route('home') }}" wire:navigate>
+                    <img src="/images/harivyas.jpeg" alt="harivyas" class="w-8 h-8 lg:w-10 lg:h-10 rounded-full">
+                    <span class="shree text-lg">श्री हरिव्यास</span>
                 </a>
             </div>
 
@@ -213,13 +206,13 @@
                     <div class="dropdown dropdown-end">
                         <div tabindex="0" role="button" class="m-1">
                             {{-- light Mode SVG --}}
-                            <svg id="lightFace" class="theme-face" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 100 100" style="border-radius: 50%; display: block;">
+                            <svg id="lightFace" class="theme-face" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 100 100" style="border-radius: 50%; display: block;">
                                 <circle cx="50" cy="50" r="48" style="stroke:#ccc; stroke-width:4; fill:#eee;" />
                                 <circle cx="50" cy="35" r="12" style="fill:#bbb;" />
                                 <path d="M30,75 Q50,55 70,75" style="fill:#bbb;" />
                             </svg>
                             {{-- dark Mode SVG --}}
-                            <svg id="darkFace" class="theme-face" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 100 100" style="border-radius: 50%; display: block;">
+                            <svg id="darkFace" class="theme-face" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 100 100" style="border-radius: 50%; display: block;">
                                 <circle cx="50" cy="50" r="48" style="stroke:#444; stroke-width:4; fill:#222;" />
                                 <circle cx="50" cy="35" r="12" style="fill:#555;" />
                                 <path d="M30,75 Q50,55 70,75" style="fill:#555;" />
@@ -402,7 +395,7 @@
     @livewireScripts
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function() {
             const toggle = document.querySelector('.theme-controller');
             if (!toggle) {
                 console.warn("Toggle not found");
@@ -425,6 +418,7 @@
             toggle.addEventListener('change', updateFaces);
             updateFaces();
         });
+
     </script>
 
 </body>

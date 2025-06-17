@@ -100,13 +100,13 @@
                                 </div>
 
                                 <!-- Category -->
-                                <div class="form-control">
+                                {{-- <div class="form-control">
                                     <label for="category" class="label">
                                         <span class="label-text font-medium text-base-content" x-show="lang === 'en'">Category</span>
                                         <span class="label-text font-medium text-base-content" x-show="lang === 'hi'">श्रेणी</span>
                                     </label>
                                     <input type="text" name="category" id="category" value="{{ old('category') }}" class="input input-bordered w-full" placeholder="e.g., Janmoutsav, Holi, Bhandara">
-                                </div>
+                                </div> --}}
 
                                 <!-- Location -->
                                 <div class="form-control">
@@ -120,8 +120,8 @@
                                 <!-- Tags -->
                                 <div class="form-control md:col-span-2">
                                     <label for="tags" class="label">
-                                        <span class="label-text font-medium text-base-content" x-show="lang === 'en'">Tags</span>
-                                        <span class="label-text font-medium text-base-content" x-show="lang === 'hi'">टैग</span>
+                                        <span class="label-text font-medium text-base-content" x-show="lang === 'en'">Tags #</span>
+                                        <span class="label-text font-medium text-base-content" x-show="lang === 'hi'">टैग #</span>
                                     </label>
                                     <input type="text" name="tags" id="tags" value="{{ old('tags') }}" class="input input-bordered w-full" placeholder="radha, krishna, vrindavan, temple (comma separated)">
                                 </div>
@@ -180,28 +180,37 @@
                                 <thead class="bg-base-200/70 sticky">
                                     <tr>
                                         <th class="font-medium text-base-content" x-show="lang === 'en'">Image</th>
+                                        <th class="font-medium text-base-content" x-show="lang === 'en'">Title</th>
                                         <th class="font-medium text-base-content" x-show="lang === 'en'">Details</th>
-                                        <th class="font-medium text-base-content" x-show="lang === 'en'">Category</th>
+                                        {{-- <th class="font-medium text-base-content" x-show="lang === 'en'">Category</th> --}}
                                         <th class="font-medium text-base-content" x-show="lang === 'en'">Status</th>
-                                        <th class="font-medium text-base-content" x-show="lang === 'en'">Date</th>
+                                        {{-- <th class="font-medium text-base-content" x-show="lang === 'en'">Date</th> --}}
+                                        <th class="font-medium text-base-content" x-show="lang === 'en'">Options</th>
                                         <th class="font-medium text-base-content" x-show="lang === 'hi'">चित्र</th>
+                                        <th class="font-medium text-base-content" x-show="lang === 'hi'">शीर्षक</th>
                                         <th class="font-medium text-base-content" x-show="lang === 'hi'">विवरण</th>
-                                        <th class="font-medium text-base-content" x-show="lang === 'hi'">श्रेणी</th>
+                                        {{-- <th class="font-medium text-base-content" x-show="lang === 'hi'">श्रेणी</th> --}}
                                         <th class="font-medium text-base-content" x-show="lang === 'hi'">स्थिति</th>
-                                        <th class="font-medium text-base-content" x-show="lang === 'hi'">तारीख</th>
+                                        {{-- <th class="font-medium text-base-content" x-show="lang === 'hi'">तारीख</th> --}}
+                                        <th class="font-medium text-base-content" x-show="lang === 'hi'">विकल्प</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach($images as $image)
                                     <tr class="hover:bg-base-200/60">
+                                        {{-- image --}}
                                         <td>
                                             <div class="w-16 h-16 rounded-xl overflow-hidden bg-base-200">
                                                 <img src="{{ asset($image->url) }}" alt="{{ $image->title }}" class="w-full h-full object-cover">
                                             </div>
                                         </td>
+                                        {{-- title --}}
+                                        <td>
+                                            <div class="font-medium text-base-content">{{ $image->title }}</div>
+                                        </td>
+                                        {{-- description --}}
                                         <td>
                                             <div class="space-y-1">
-                                                <div class="font-medium text-base-content">{{ $image->title }}</div>
                                                 <div class="text-sm text-base-content/60">{{ Str::limit($image->description, 60) }}</div>
                                                 @if($image->tags && is_array($image->tags))
                                                 <div class="flex flex-wrap gap-1 mt-2">
@@ -215,7 +224,8 @@
                                                 @endif
                                             </div>
                                         </td>
-                                        <td>
+                                        {{-- category --}}
+                                        {{-- <td>
                                             @if($image->category)
                                             <span class="badge badge-outline">{{ $image->category }}</span>
                                             @endif
@@ -228,16 +238,25 @@
                                                 {{ $image->location }}
                                             </div>
                                             @endif
-                                        </td>
+                                        </td> --}}
+                                        {{-- status --}}
                                         <td>
                                             <div class="flex items-center space-x-2">
                                                 <span class="badge {{ $image->show_in_homepage ? 'badge-success' : 'badge-ghost' }}">
-                                                    {{ $image->show_in_homepage ? 'Featured' : 'Standard' }}
+                                                    {{ $image->show_in_homepage ? 'Homepage+' : 'Only gallery' }}
                                                 </span>
                                             </div>
                                         </td>
-                                        <td class="text-sm text-base-content/60">
+                                        {{-- date --}}
+                                        {{-- <td class="text-sm text-base-content/60">
                                             {{ $image->created_at->format('M j, Y') }}
+                                        </td> --}}
+                                        {{-- options --}}
+                                        <td>
+                                            <div class="flex justify-end">
+                                                <button class="btn btn-sm text-warning">Edit</button>
+                                                <button class="btn btn-sm text-error">Delete</button>
+                                            </div>
                                         </td>
                                     </tr>
                                     @endforeach

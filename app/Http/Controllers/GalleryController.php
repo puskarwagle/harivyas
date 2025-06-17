@@ -34,14 +34,22 @@ class GalleryController extends Controller
             'photo' => 'required|image|max:2048',
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
+            'tags' => 'nullable|array',
+            'tags.*' => 'string|max:50',
+            'show_in_homepage' => 'nullable|boolean',
+            'location' => 'nullable|string|max:255',
         ]);
 
         $filename = Str::uuid() . '.' . $request->photo->getClientOriginalExtension();
         $request->photo->storeAs('gallery', $filename, 'public');
+
         GalleryImage::create([
             'title' => $request->title,
             'description' => $request->description,
             'url' => "storage/gallery/{$filename}",
+            'tags' => $request->tags ?? [],
+            'show_in_homepage' => $request->boolean('show_in_homepage'),
+            'location' => $request->location,
         ]);
 
         return redirect()->back()->with('success', 'Image uploaded.');

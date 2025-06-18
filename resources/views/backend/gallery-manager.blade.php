@@ -174,6 +174,7 @@
                 </div>
             </div>
 
+            @include('backend.gallery-trash', ['trashedImages' => $trashedImages])
 
             <!-- Gallery Table -->
             @if($images->count())

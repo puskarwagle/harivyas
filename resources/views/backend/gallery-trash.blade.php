@@ -4,7 +4,7 @@
         <input type="checkbox" x-model="open" class="peer" />
         <div class="collapse-title text-xl font-medium bg-primary text-primary-content cursor-pointer">
             <div class="flex items-center justify-between">
-                <span>🗑️ Trash Gallery ({{ count($trashedImages) }} items)</span>
+                <span>🗑️ Trash Gallery ({{ $trashedImages->count() }} items)</span>
                 <svg class="w-5 h-5 transition-transform duration-200" 
                      :class="{ 'rotate-180': open }"
                      fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -61,7 +61,7 @@
                                         </td>
                                         <td>
                                             <div class="flex gap-2">
-                                                <form action="{{ route('gallery.restore', $image->id) }}" method="POST" class="inline">
+                                                <form action="{{ route('gallerymanager.restore', $image->id) }}" method="POST" class="inline">
                                                     @csrf
                                                     @method('PATCH')
                                                     <button type="submit" class="btn btn-success btn-xs" title="Restore">
@@ -70,7 +70,7 @@
                                                         </svg>
                                                     </button>
                                                 </form>
-                                                <form action="{{ route('gallery.destroy', $image->id) }}" method="POST" class="inline" 
+                                                <form action="{{ route('gallerymanager.destroy', $image->id) }}" method="POST" class="inline" 
                                                       onsubmit="return confirm('Permanently delete this image? This cannot be undone.')">
                                                     @csrf
                                                     @method('DELETE')
@@ -111,7 +111,7 @@
                                     </div>
                                 @endif
                                 <div class="card-actions justify-center mt-2">
-                                    <form action="{{ route('gallery.restore', $image->id) }}" method="POST" class="inline">
+                                    <form action="{{ route('gallerymanager.restore', $image->id) }}" method="POST" class="inline">
                                         @csrf
                                         @method('PATCH')
                                         <button type="submit" class="btn btn-success btn-xs">
@@ -120,7 +120,7 @@
                                             </svg>
                                         </button>
                                     </form>
-                                    <form action="{{ route('gallery.destroy', $image->id) }}" method="POST" class="inline" 
+                                    <form action="{{ route('gallerymanager.destroy', $image->id) }}" method="POST" class="inline" 
                                           onsubmit="return confirm('Delete forever?')">
                                         @csrf
                                         @method('DELETE')

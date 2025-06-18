@@ -22,7 +22,8 @@ class GalleryController extends Controller
     public function create()
     {
         $images = GalleryImage::latest()->get();
-        return view('backend.gallery-manager', compact('images'));
+        $trashedImages = GalleryImage::onlyTrashed()->latest()->get();
+        return view('backend.gallery-manager', compact('images', 'trashedImages'));
     }
 
     /**

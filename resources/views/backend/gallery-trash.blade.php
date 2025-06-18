@@ -14,13 +14,13 @@
         </div>
         
         <!-- Dropdown Content -->
-        <div class="collapse-content bg-base-100">
-            <div class="max-h-96 overflow-y-auto p-4">
+        <div class="collapse-content bg-base-100 !p-0">
+            <div class="max-h-96 overflow-y-auto">
                 @if($trashedImages->count() > 0)
                     <!-- Desktop Table View -->
                     <div class="hidden lg:block">
                         <div class="overflow-x-auto">
-                            <table class="table table-zebra w-full">
+                            <table class="table w-full">
                                 <thead>
                                     <tr class="bg-base-300">
                                         <th class="w-20">Image</th>

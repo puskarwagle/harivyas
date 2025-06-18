@@ -194,14 +194,14 @@
                                     <th class="font-medium text-base-content" x-show="lang === 'en'">Image</th>
                                     <th class="font-medium text-base-content" x-show="lang === 'en'">Title</th>
                                     <th class="font-medium text-base-content" x-show="lang === 'en'">Details</th>
-                                    {{-- <th class="font-medium text-base-content" x-show="lang === 'en'">Category</th> --}}
+                                    <th class="font-medium text-base-content" x-show="lang === 'en'">Location</th>
                                     <th class="font-medium text-base-content" x-show="lang === 'en'">Status</th>
                                     <th class="font-medium text-base-content" x-show="lang === 'en'">Year</th>
                                     <th class="font-medium text-base-content" x-show="lang === 'en'">Options</th>
                                     <th class="font-medium text-base-content" x-show="lang === 'hi'">चित्र</th>
                                     <th class="font-medium text-base-content" x-show="lang === 'hi'">शीर्षक</th>
                                     <th class="font-medium text-base-content" x-show="lang === 'hi'">विवरण</th>
-                                    {{-- <th class="font-medium text-base-content" x-show="lang === 'hi'">श्रेणी</th> --}}
+                                    <th class="font-medium text-base-content" x-show="lang === 'hi'">स्थान</th>
                                     <th class="font-medium text-base-content" x-show="lang === 'hi'">स्थिति</th>
                                     <th class="font-medium text-base-content" x-show="lang === 'hi'">वर्ष</th>
                                     <th class="font-medium text-base-content" x-show="lang === 'hi'">विकल्प</th>
@@ -212,7 +212,7 @@
                                 <tr class="hover:bg-base-200/60">
                                     {{-- image --}}
                                     <td>
-                                        <div class="w-16 h-16 rounded-xl overflow-hidden bg-base-200">
+                                        <div class="w-16 h-16 rounded-xl overflow-hidden bg-base-200 cursor-pointer hover:opacity-80 transition-opacity" onclick="openImageModal('{{ $image->id }}', '{{ asset($image->url) }}', '{{ $image->title }}', '{{ $image->description }}', '{{ $image->location }}', '{{ $image->year }}', {{ json_encode($image->tags) }})">
                                             <img src="{{ asset($image->url) }}" alt="{{ $image->title }}" class="w-full h-full object-cover">
                                         </div>
                                     </td>
@@ -236,21 +236,12 @@
                                             @endif
                                         </div>
                                     </td>
-                                    {{-- category --}}
-                                    {{-- <td>
-                                            @if($image->category)
-                                            <span class="badge badge-outline">{{ $image->category }}</span>
-                                    @endif
-                                    @if($image->location)
-                                    <div class="text-sm text-base-content/50 mt-1 flex items-center">
-                                        <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                        </svg>
-                                        {{ $image->location }}
-                                    </div>
-                                    @endif
-                                    </td> --}}
+                                    {{-- Location --}}
+                                    <td>
+                                        <div class="text-sm text-base-content/60">
+                                            {{ $image->location ?: 'N/A' }}
+                                        </div>
+                                    </td>
                                     {{-- status --}}
                                     <td>
                                         <div class="flex items-center space-x-2">
@@ -268,13 +259,10 @@
                                     {{-- options --}}
                                     <td>
                                         <div class="flex space-x-2">
-                                            <button class="btn btn-soft btn-warning btn-sm">
-                                                <img src="{{ asset('icons/edit-svgrepo-com.svg') }}" alt="Edit" class="w-5 h-5">
-                                            </button>
                                             <form action="{{ route('gallerymanager.trash', $image->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to move this image to trash?')" class="inline-block">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-soft btn-error btn-sm text-error">
+                                                <button type="submit" class="btn btn-error btn-sm text-error">
                                                     <img src="{{ asset('icons/delete-svgrepo-com.svg') }}" alt="Trash" class="w-12 h-12">
                                                 </button>
                                             </form>
@@ -287,10 +275,68 @@
                     </div>
                 </div>
             </div>
-
             @endif
         </div>
+
+        <!-- Modal (place this once at the bottom of your page) -->
+        <div id="imageModal" class="modal">
+            <div class="modal-box max-w-4xl w-full h-full max-h-[90vh] p-0 overflow-hidden">
+                <!-- Close button -->
+                <div class="absolute top-4 right-4 z-10">
+                    <button class="btn btn-circle btn-ghost bg-black/20 text-white hover:bg-black/40" onclick="closeImageModal()">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Image container -->
+                <div class="bg-black flex items-center justify-center h-4/5 relative">
+                    <img id="modalImage" src="" alt="" class="max-w-full max-h-full object-contain">
+                </div>
+
+                <!-- Details section -->
+                <div class="p-2 bg-base-100 h-1/5 overflow-y-auto">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex-1">
+                            <h3 id="modalTitle" class="text-2xl font-bold text-base-content mb-2"></h3>
+                            <p id="modalDescription" class="text-base-content/70 mb-3"></p>
+                        </div>
+                        <!-- Download button -->
+                        <button id="downloadBtn" class="btn btn-primary btn-sm ml-4" onclick="downloadImage()">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-4-4m4 4l4-4m5-5v8a2 2 0 01-2 2H5a2 2 0 01-2-2v-8a2 2 0 012-2h2m10 0V7a2 2 0 00-2-2H9a2 2 0 00-2 2v2h10z"></path>
+                            </svg>
+                            Download
+                        </button>
+                    </div>
+
+                    <!-- Metadata grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <span class="text-sm font-medium text-base-content/60">Location:</span>
+                            <span id="modalLocation" class="text-sm text-base-content ml-2">-</span>
+                        </div>
+                        <div>
+                            <span class="text-sm font-medium text-base-content/60">Year:</span>
+                            <span id="modalYear" class="text-sm text-base-content ml-2">-</span>
+                        </div>
+                    </div>
+
+                    <!-- Tags -->
+                    <div class="mt-4">
+                        <span class="text-sm font-medium text-base-content/60">Tags:</span>
+                        <div id="modalTags" class="flex flex-wrap gap-2 mt-2"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal backdrop -->
+            <div class="modal-backdrop" onclick="closeImageModal()"></div>
+        </div>
     </div>
+
+
 
     <script>
         function galleryManager() {
@@ -317,6 +363,58 @@
                 }
             }
         }
+
+        function openImageModal(id, url, title, description, location, year, tags) {
+            let currentImageUrl = '';
+            // Set image
+            document.getElementById('modalImage').src = url;
+            document.getElementById('modalImage').alt = title;
+
+            // Set details
+            document.getElementById('modalTitle').textContent = title || 'Untitled';
+            document.getElementById('modalDescription').textContent = description || 'No description available';
+            document.getElementById('modalLocation').textContent = location || 'N/A';
+            document.getElementById('modalYear').textContent = year || 'N/A';
+
+            // Set tags
+            const tagsContainer = document.getElementById('modalTags');
+            tagsContainer.innerHTML = '';
+            if (tags && tags.length > 0) {
+                tags.forEach(tag => {
+                    const tagEl = document.createElement('span');
+                    tagEl.className = 'badge badge-outline badge-sm';
+                    tagEl.textContent = tag;
+                    tagsContainer.appendChild(tagEl);
+                });
+            } else {
+                tagsContainer.innerHTML = '<span class="text-base-content/50 text-sm">No tags</span>';
+            }
+
+            // Show modal
+            document.getElementById('imageModal').classList.add('modal-open');
+        }
+
+        function closeImageModal() {
+            document.getElementById('imageModal').classList.remove('modal-open');
+        }
+
+        function downloadImage() {
+            if (!currentImageUrl) return;
+
+            const link = document.createElement('a');
+            link.href = currentImageUrl;
+            link.download = document.getElementById('modalTitle').textContent || 'image';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeImageModal();
+            }
+        });
 
     </script>
 </x-layouts.app>

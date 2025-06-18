@@ -15,6 +15,7 @@
             </div>
         </div>
 
+        {{-- Upload Form and Gallery Table --}}
         <div class="container min-h-screen mx-auto py-8">
             <!-- Upload Form Card -->
             <div class="max-w-4xl mx-auto">
@@ -132,7 +133,7 @@
                                     <span class="label-text font-medium text-base-content" x-show="lang === 'en'">Tags #</span>
                                     <span class="label-text font-medium text-base-content" x-show="lang === 'hi'">टैग #</span>
                                 </label>
-                                <input type="text" name="tags" id="tags" value="{{ old('tags') }}" class="input input-bordered w-full" placeholder="radha, krishna, vrindavan, temple (comma separated)">
+                                <input type="text" name="tags" id="tags" value="{{ is_array(old('tags')) ? implode(', ', old('tags')) : old('tags') }}" class="input input-bordered w-full" placeholder="radha, krishna, vrindavan, temple (comma separated)">
                             </div>
 
                             <!-- Description -->
@@ -269,16 +270,11 @@
                                             <button class="btn btn-soft btn-warning btn-sm">
                                                 <img src="{{ asset('icons/edit-svgrepo-com.svg') }}" alt="Edit" class="w-5 h-5">
                                             </button>
-                                            <form
-                                                action="{{ route('gallerymanager.trash', $image->id) }}"
-                                                method="POST"
-                                                onsubmit="return confirm('Are you sure you want to move this image to trash?')"
-                                                class="inline-block"
-                                            >
+                                            <form action="{{ route('gallerymanager.trash', $image->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to move this image to trash?')" class="inline-block">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-soft btn-error btn-sm text-error">
-                                                    <img src="{{ asset('icons/delete-svgrepo-com.svg') }}" alt="Trash" class="w-12 h-12 inline-block">
+                                                    <img src="{{ asset('icons/delete-svgrepo-com.svg') }}" alt="Trash" class="w-12 h-12">
                                                 </button>
                                             </form>
                                         </div>
@@ -293,7 +289,6 @@
 
             @endif
         </div>
-    </div>
     </div>
 
     <script>

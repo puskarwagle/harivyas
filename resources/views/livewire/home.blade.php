@@ -10,7 +10,7 @@
             <div class="hero-content text-center z-10">
                 <div class="max-w-4xl">
                     <div class="mb-8">
-                        <h1 class="text-6xl md:text-8xl font-bold text-primary mb-4 font-serif">{{ __('home.title_main') }}</h1>
+                        {{-- <h1 class="text-6xl md:text-8xl font-bold text-primary mb-4 font-serif">{{ __('home.title_main') }}</h1> --}}
                         <h2 class="shree text-4xl md:text-6xl font-bold text-primary mb-2">{{ __('home.temple_name') }}</h2>
                     </div>
 

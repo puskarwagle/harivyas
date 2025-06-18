@@ -35,7 +35,7 @@ class GalleryController extends Controller
         ]);
 
         $request->validate([
-            'photo' => 'required|image|max:2048',
+            'photo' => 'required|image|max:20480',
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
             'tags' => 'nullable|array',

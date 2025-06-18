@@ -1,8 +1,8 @@
 <div x-data="{ open: false }" class="w-full">
     <!-- Dropdown Toggle -->
-    <div class="collapse bg-base-200">
+    <div class="collapse bg-base-100/70 backdrop-blur-sm rounded-2xl shadow-xl border border-base-300 mt-8">
         <input type="checkbox" x-model="open" class="peer" />
-        <div class="collapse-title text-xl font-medium bg-primary text-primary-content cursor-pointer">
+        <div class="collapse-title text-xl font-medium text-primary-content cursor-pointer">
             <div class="flex items-center justify-between">
                 <span>🗑️ Trash Gallery ({{ $trashedImages->count() }} items)</span>
                 <svg class="w-5 h-5 transition-transform duration-200" 

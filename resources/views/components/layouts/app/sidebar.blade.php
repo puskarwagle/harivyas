@@ -19,7 +19,9 @@
                 <flux:spacer />
 
                 <flux:navlist.group :heading="__('BADALAV')" class="grid">
-                    <flux:navlist.item icon="home" :href="route('gallerymanager.create')" :current="request()->routeIs('gallerymanager.create')" wire:navigate>{{ __('Gallery') }}</flux:navlist.item>                </flux:navlist.group>
+                    <flux:navlist.item icon="home" :href="route('gallerymanager.create')" :current="request()->routeIs('gallerymanager.create')" wire:navigate>{{ __('Gallery') }}</flux:navlist.item>
+                    <flux:navlist.item icon="home" :href="route('faqmanager')" :current="request()->routeIs('faqmanager')" wire:navigate>{{ __('FAQ') }}</flux:navlist.item>
+                </flux:navlist.group>
             </flux:navlist>
             
             <flux:spacer />

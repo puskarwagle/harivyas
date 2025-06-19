@@ -46,6 +46,7 @@ use App\Livewire\Contact;
 
 // Backend Controllers
 use App\Http\Controllers\GalleryController;
+use App\Livewire\Backend\FaqManager;
 
 Route::get('lang/{lang}', [LangController::class, 'switch'])->name('lang.switch');
 
@@ -97,11 +98,15 @@ Route::get('digital-media', DigitalMedia::class)->name('digital-media');
 Route::get('faq', FaqFront::class)->name('faq');
 Route::get('contact', Contact::class)->name('contact');
 
+// Backend Routes
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('dashboard', 'backend.dashboard')->name('dashboard');
+    // Gallery Manager
     Route::resource('gallerymanager', GalleryController::class);
     Route::delete('/gallerymanager/{id}/trash', [GalleryController::class, 'trash'])->name('gallerymanager.trash');
     Route::patch('/gallerymanager/{id}/restore', [GalleryController::class, 'restore'])->name('gallerymanager.restore');
+    // Faq Manager
+    Route::get('faqmanager', FaqManager::class)->name('faqmanager');
 });
 
 Route::middleware(['auth'])->group(function () {

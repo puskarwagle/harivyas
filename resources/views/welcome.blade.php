@@ -28,7 +28,7 @@
         }
     </style>
 </head>
-<body class="caret-secondary">
+<body class="caret-secondary min-h-screen">
     <header class="h-16" x-data="{ menuOpen: false }">
         <div class="navbar bg-base-100 shadow-sm">
             <!-- NAVBAR START - Mobile hamburger + Logo -->
@@ -365,7 +365,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer footer-center p-10 bg-base-200 text-base-content">
+    <footer class="footer p-10 bg-base-200 text-base-content">
         <div>
             <div class="text-3xl mb-4">🕉️</div>
             <p class="font-bold text-base-content">श्री हरि व्यास निकुंज मंदिर</p>

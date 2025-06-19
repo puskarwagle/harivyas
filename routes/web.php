@@ -41,7 +41,7 @@ use App\Livewire\SacredTexts\Mahavani;
 use App\Livewire\Festivals;
 use App\Livewire\Gallery;
 use App\Livewire\DigitalMedia;
-use App\Livewire\Faq;
+use App\Livewire\FaqFront;
 use App\Livewire\Contact;
 
 // Backend Controllers
@@ -94,7 +94,7 @@ Route::get('sacred_texts/mahavani', Mahavani::class)->name('sacred_texts.mahavan
 Route::get('festivals', Festivals::class)->name('festivals');
 Route::get('gallery', Gallery::class)->name('gallery');
 Route::get('digital-media', DigitalMedia::class)->name('digital-media');
-Route::get('faq', Faq::class)->name('faq');
+Route::get('faq', FaqFront::class)->name('faq');
 Route::get('contact', Contact::class)->name('contact');
 
 Route::middleware(['auth', 'verified'])->group(function () {

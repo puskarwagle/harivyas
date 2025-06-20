@@ -7,9 +7,6 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 trait HasTranslations
 {
-    protected static $defaultLocale = 'en';
-    protected static $fallbackLocale = 'hi';
-    
     // Cache translations in memory to avoid repeated queries
     protected $translationCache = [];
 
@@ -21,100 +18,36 @@ trait HasTranslations
     public function translate(string $field, string $locale = null): ?string
     {
         $locale = $locale ?? app()->getLocale();
-        
-        // Check memory cache first
-        $cacheKey = "{$field}.{$locale}";
+
+        $cacheKey = "{$field}.{$locale}.exact";
         if (isset($this->translationCache[$cacheKey])) {
             return $this->translationCache[$cacheKey];
         }
-        
+
         $result = null;
-        
-        // Use relationship cache if loaded (performance optimization)
+
         if ($this->relationLoaded('translations')) {
-            $result = $this->translateFromCollection($field, $locale);
+            $translation = $this->translations->first(function ($t) use ($field, $locale) {
+                return $t->field === $field && $t->locale === $locale;
+            });
+            $result = $translation?->content;
         } else {
-            $result = $this->translateFromDatabase($field, $locale);
+            $translation = $this->translations()
+                ->where('field', $field)
+                ->where('locale', $locale)
+                ->first();
+            $result = $translation?->content;
         }
-        
-        // Cache the result
+
         $this->translationCache[$cacheKey] = $result;
-        
+
         return $result;
-    }
-
-    protected function translateFromCollection(string $field, string $locale): ?string
-    {
-        $translations = $this->translations;
-        
-        // Try requested locale
-        $translation = $translations->where('field', $field)->where('locale', $locale)->first();
-        if ($translation) {
-            return $translation->content;
-        }
-        
-        // Fallback to default locale
-        if ($locale !== static::$defaultLocale) {
-            $translation = $translations->where('field', $field)->where('locale', static::$defaultLocale)->first();
-            if ($translation) {
-                return $translation->content;
-            }
-        }
-        
-        // Fallback to Hindi if not English and different from default
-        if ($locale !== static::$fallbackLocale && static::$defaultLocale !== static::$fallbackLocale) {
-            $translation = $translations->where('field', $field)->where('locale', static::$fallbackLocale)->first();
-            if ($translation) {
-                return $translation->content;
-            }
-        }
-        
-        return null;
-    }
-
-    protected function translateFromDatabase(string $field, string $locale): ?string
-    {
-        // Try requested locale
-        $translation = $this->translations()
-            ->where('field', $field)
-            ->where('locale', $locale)
-            ->first();
-            
-        if ($translation) {
-            return $translation->content;
-        }
-        
-        // Fallback to default locale
-        if ($locale !== static::$defaultLocale) {
-            $translation = $this->translations()
-                ->where('field', $field)
-                ->where('locale', static::$defaultLocale)
-                ->first();
-                
-            if ($translation) {
-                return $translation->content;
-            }
-        }
-        
-        // Fallback to Hindi if not English
-        if ($locale !== static::$fallbackLocale && static::$defaultLocale !== static::$fallbackLocale) {
-            $translation = $this->translations()
-                ->where('field', $field)
-                ->where('locale', static::$fallbackLocale)
-                ->first();
-                
-            if ($translation) {
-                return $translation->content;
-            }
-        }
-        
-        return null;
     }
 
     public function setTranslation(string $field, string $content, string $locale = null): void
     {
         $locale = $locale ?? app()->getLocale();
-        
+
         $this->translations()->updateOrCreate(
             [
                 'field' => $field,
@@ -124,11 +57,11 @@ trait HasTranslations
                 'content' => $content
             ]
         );
-        
+
         // Clear cache for this field/locale
         $cacheKey = "{$field}.{$locale}";
         unset($this->translationCache[$cacheKey]);
-        
+
         // Refresh the relationship if it was loaded
         if ($this->relationLoaded('translations')) {
             $this->unsetRelation('translations');
@@ -147,11 +80,11 @@ trait HasTranslations
     public function hasTranslation(string $field, string $locale = null): bool
     {
         $locale = $locale ?? app()->getLocale();
-        
+
         if ($this->relationLoaded('translations')) {
-            return $this->translations->where('field', $field)->where('locale', $locale)->isNotEmpty();
+            return $this->translations->contains(fn($t) => $t->field === $field && $t->locale === $locale);
         }
-        
+
         return $this->translations()
             ->where('field', $field)
             ->where('locale', $locale)
@@ -167,31 +100,26 @@ trait HasTranslations
     public function scopeWithTranslations($query, string $locale = null)
     {
         $locale = $locale ?? app()->getLocale();
-        
+
         return $query->with([
-            'translations' => function ($q) use ($locale) {
-                $q->whereIn('locale', [$locale, static::$defaultLocale, static::$fallbackLocale])
-                  ->orderByRaw("FIELD(locale, '{$locale}', '" . static::$defaultLocale . "', '" . static::$fallbackLocale . "')");
-            }
+            'translations' => fn($q) => $q->where('locale', $locale)
         ]);
     }
 
-    // Helper method to get all translations for a model
     public function getAllTranslations(): array
     {
         $result = [];
-        $translations = $this->relationLoaded('translations') 
-            ? $this->translations 
+        $translations = $this->relationLoaded('translations')
+            ? $this->translations
             : $this->translations()->get();
-            
+
         foreach ($translations as $translation) {
             $result[$translation->field][$translation->locale] = $translation->content;
         }
-        
+
         return $result;
     }
 
-    // Bulk set translations (useful for forms)
     public function setTranslations(array $translations): void
     {
         foreach ($translations as $field => $localeData) {
@@ -205,7 +133,6 @@ trait HasTranslations
         }
     }
 
-    // Clear translation cache (useful for testing)
     public function clearTranslationCache(): void
     {
         $this->translationCache = [];

@@ -2,7 +2,6 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark" data-theme="dark">
 <head>
     @include('partials.head')
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 <body class="min-h-screen bg-base-100">
     <div x-data="{

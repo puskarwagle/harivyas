@@ -43,7 +43,7 @@
                                 <i class="fas fa-phone text-primary text-xl mr-4"></i>
                                 <div>
                                     <p class="font-semibold text-base-content">फोन</p>
-                                    <a href="tel:+919876543210" class="text-primary hover:underline">+91 98765 43210</a>
+                                    <a href="tel:+918070525204" class="text-primary hover:underline">+91 8070525204</a>
                                 </div>
                             </div>
 
@@ -52,7 +52,7 @@
                                 <i class="fab fa-whatsapp text-success text-xl mr-4"></i>
                                 <div>
                                     <p class="font-semibold text-base-content">WhatsApp</p>
-                                    <a href="https://wa.me/919876543210" class="text-success hover:underline">+91 98765 43210</a>
+                                    <a href="https://wa.me/919456812155" class="text-success hover:underline">+91 9456812155</a>
                                 </div>
                             </div>
 
@@ -61,7 +61,7 @@
                                 <i class="fas fa-envelope text-primary text-xl mr-4"></i>
                                 <div>
                                     <p class="font-semibold text-base-content">ईमेल</p>
-                                    <a href="mailto:contact@harinikunj.org" class="text-primary hover:underline">contact@harinikunj.org</a>
+                                    <a href="mailto:muraridass1976@gmail.com" class="text-primary hover:underline">muraridass1976@gmail.com</a>
                                 </div>
                             </div>
 
@@ -70,8 +70,8 @@
                                 <i class="fas fa-clock text-primary text-xl mr-4 mt-1"></i>
                                 <div>
                                     <p class="font-semibold text-base-content">दर्शन समय</p>
-                                    <p class="text-base-content text-opacity-70">रोजाना: सुबह 5:00 - रात 8:00</p>
-                                    <p class="text-base-content text-opacity-70">आरती समय: 6:00 सुबह, 12:00 दोपहर, 7:00 शाम</p>
+                                    <p class="text-base-content text-opacity-70">रोजाना: सुबह 9:00 - दोपहर 12:00</p>
+                                    <p class="text-base-content text-opacity-70">आरती समय: 9:00 सुबह, 5:00 दोपहर, 7:00 शाम</p>
                                 </div>
                             </div>
                         </div>
@@ -79,11 +79,11 @@
 
                     <!-- त्वरित कार्य -->
                     <div class="flex flex-wrap gap-4">
-                        <a href="tel:+919876543210" class="btn btn-warning btn-outline flex-1 min-w-0">
+                        <a href="tel:+918070525204" class="btn btn-warning btn-outline flex-1 min-w-0">
                             <i class="fas fa-phone mr-2"></i>
                             अभी कॉल करें
                         </a>
-                        <a href="https://wa.me/919876543210" class="btn btn-success btn-outline flex-1 min-w-0">
+                        <a href="https://wa.me/918070525204" class="btn btn-success btn-outline flex-1 min-w-0">
                             <i class="fab fa-whatsapp mr-2"></i>
                             WhatsApp करें
                         </a>

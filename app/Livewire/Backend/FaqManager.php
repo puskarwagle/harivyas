@@ -12,12 +12,14 @@ class FaqManager extends Component
     public $faqs;
     public $categories;
     public $tags;
-    public $selectedLocale = 'en';
+    public $faqLocales = [];
+    public $selectedLocale;
     public $availableLocales = [];
+    public $faqAvailableLocales = [];
 
     public function mount()
-    {
-        $this->loadAvailableLocales();
+    {   
+        $this->selectedLocale = app()->getLocale(); // or 'en' as default
         $this->loadFaqs();
         $this->categories = FaqCategory::withTranslations()->ordered()->get();
         $this->tags = FaqTag::withTranslations()->get();
@@ -29,27 +31,14 @@ class FaqManager extends Component
         $this->loadFaqs();
     }
 
-    private function loadAvailableLocales()
+    public function getAvailableLocalesForFaq($faq)
     {
-        // Get unique locales from translations table
-        $locales = \DB::table('translations')
-            ->select('locale')
-            ->distinct()
+        return \DB::table('translations')
+            ->where('translatable_type', Faq::class)
+            ->where('translatable_id', $faq->id)
             ->pluck('locale')
-            ->toArray();
-
-        // Map to readable names
-        $localeNames = [
-            'en' => 'English',
-            'hi' => 'Hindi',
-            'ne' => 'Nepali',
-            'bn' => 'Bengali',
-            'ur' => 'Urdu',
-            'sa' => 'Sanskrit'
-        ];
-
-        $this->availableLocales = collect($locales)
-            ->mapWithKeys(fn($locale) => [$locale => $localeNames[$locale] ?? strtoupper($locale)])
+            ->unique()
+            ->values()
             ->toArray();
     }
 
@@ -60,11 +49,30 @@ class FaqManager extends Component
             ->withTags()
             ->ordered()
             ->get();
+
+        foreach ($this->faqs as $faq) {
+            $this->faqLocales[$faq->id] = $this->selectedLocale;
+
+            // Cache the locales once per FAQ
+            $this->faqAvailableLocales[$faq->id] = \DB::table('translations')
+                ->where('translatable_type', Faq::class)
+                ->where('translatable_id', $faq->id)
+                ->pluck('locale')
+                ->unique()
+                ->values()
+                ->toArray();
+        }
+    }
+
+    public function changeFaqLocale($faqId, $locale)
+    {
+        $this->faqLocales[$faqId] = $locale;
     }
 
     public function getTranslatedText($faq, $field)
     {
-        $translation = $faq->translate($field, $this->selectedLocale, false); // No fallback
+        $locale = $this->faqLocales[$faq->id] ?? $this->selectedLocale;
+        $translation = $faq->translate($field, $locale, false);
         return $translation ?? 'No translation available';
     }
 

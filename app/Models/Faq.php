@@ -57,12 +57,10 @@ class Faq extends Model
     public function scopeWithTranslations($query, $locale = null)
     {
         $locale = $locale ?? app()->getLocale();
-        
+
         return $query->with([
             'translations' => function ($query) use ($locale) {
-                $query->where('locale', $locale)
-                      ->orWhere('locale', static::$defaultLocale)
-                      ->orWhere('locale', static::$fallbackLocale);
+                $query->where('locale', $locale);
             }
         ]);
     }

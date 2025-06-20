@@ -1,20 +1,6 @@
 <div class="p-6">
     <div class="flex justify-between items-center mb-6">
         <h1 class="text-2xl font-bold">FAQ Manager</h1>
-
-        <!-- Locale Selector -->
-        <div class="form-control">
-            <label class="label">
-                <span class="label-text font-medium">Language: ({{ $selectedLocale }})</span>
-            </label>
-            <select wire:change="changeLocale($event.target.value)" class="select select-bordered w-40">
-                @foreach($availableLocales as $code => $name)
-                <option value="{{ $code }}" {{ $selectedLocale === $code ? 'selected' : '' }}>
-                    {{ $name }}
-                </option>
-                @endforeach
-            </select>
-        </div>
     </div>
 
     <!-- Header row -->
@@ -34,7 +20,6 @@
             <!-- Header Row -->
             <div class="grid grid-cols-12 gap-4 p-4 items-center">
                 <div class="col-span-1 font-mono text-sm">{{ $faq->id }}</div>
-
                 <div class="col-span-3">
                     <div class="truncate" title="{{ $this->getTranslatedText($faq, 'question') }}">
                         {{ $this->getTranslatedText($faq, 'question') }}
@@ -55,12 +40,25 @@
                     <button class="btn btn-xs btn-outline btn-error">Delete</button>
                 </div>
             </div>
+            {{-- Choose available locales for this FAQ: --}}
+                <div class="flex items-center gap-2 text-xs m-2">
+                    @foreach ($faqAvailableLocales[$faq->id] as $locale)
+                    <button wire:click="changeFaqLocale({{ $faq->id }}, '{{ $locale }}')" class="badge badge-sm 
+                        {{ ($faqLocales[$faq->id] ?? $selectedLocale) === $locale 
+                                ? 'badge-info' 
+                                : 'badge-outline' }}">
+                        {{ $availableLocales[$locale] ?? strtoupper($locale) }}
+                    </button>
+                    @endforeach
+
+                </div>
 
             <!-- Answer Section -->
             <div class="border-t border-base-300 px-4 py-3 bg-base-100">
-                <div class="mb-2">
-                    <strong class="text-sm text-base-content/70">Answer ({{ $availableLocales[$selectedLocale] }}):</strong>
-                </div>
+                <strong class="text-sm text-base-content/70">
+                    Answer ({{ $availableLocales[$selectedLocale] ?? strtoupper($selectedLocale ?? 'N/A') }}):
+                </strong>
+
                 <div class="text-sm text-base-content/90 leading-relaxed">
                     {{ $this->getTranslatedText($faq, 'answer') }}
                 </div>

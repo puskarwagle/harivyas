@@ -47,6 +47,7 @@ use App\Livewire\Contact;
 // Backend Controllers
 use App\Http\Controllers\GalleryController;
 use App\Livewire\Backend\FaqManager;
+use App\Livewire\Backend\FaqForm;
 
 Route::get('lang/{lang}', [LangController::class, 'switch'])->name('lang.switch');
 
@@ -107,6 +108,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::patch('/gallerymanager/{id}/restore', [GalleryController::class, 'restore'])->name('gallerymanager.restore');
     // Faq Manager
     Route::get('faqmanager', FaqManager::class)->name('faqmanager');
+    Route::get('/faqform', FaqForm::class)->name('faqform');
 });
 
 Route::middleware(['auth'])->group(function () {

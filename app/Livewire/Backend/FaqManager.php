@@ -67,12 +67,27 @@ class FaqManager extends Component
     public function changeFaqLocale($faqId, $locale)
     {
         $this->faqLocales[$faqId] = $locale;
+
+        // Re-fetch that FAQ with new translation
+        $faqIndex = $this->faqs->search(fn ($f) => $f->id === $faqId);
+        if ($faqIndex !== false) {
+            $faq = Faq::withTranslations($locale)
+                    ->withCategory()
+                    ->withTags()
+                    ->find($faqId);
+
+            $this->faqs[$faqIndex] = $faq;
+        }
     }
 
     public function getTranslatedText($faq, $field)
     {
         $locale = $this->faqLocales[$faq->id] ?? $this->selectedLocale;
+
+        logger("Translating Faq #{$faq->id} Field: {$field} Locale: {$locale}");
+
         $translation = $faq->translate($field, $locale, false);
+
         return $translation ?? 'No translation available';
     }
 

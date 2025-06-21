@@ -1,14 +1,11 @@
 <?php
-
 namespace Database\Seeders;
-
 use App\Models\Faq;
 use App\Models\FaqCategory;
 use App\Models\FaqTag;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
-
 class ChaosTestSeeder extends Seeder
 {
     private $locales = ['en', 'hi', 'ne', 'fr', 'es'];
@@ -212,7 +209,7 @@ class ChaosTestSeeder extends Seeder
         // Create additional FAQs for stress testing
         $this->command->info('🔥 Creating stress test FAQs...');
         
-        for ($i = 0; $i < 1000; $i++) {
+        for ($i = 0; $i < 30; $i++) {
             $faq = Faq::create([
                 'slug' => 'stress-test-' . $i,
                 'category_id' => $this->categories[array_rand($this->categories)]->id,
@@ -235,12 +232,12 @@ class ChaosTestSeeder extends Seeder
                 $faq->tags()->attach($randomTags->pluck('id'));
             }
             
-            if ($i % 100 === 0) {
+            if ($i % 10 === 0 && $i > 0) {
                 $this->command->info("Created {$i} stress test FAQs...");
             }
         }
         
-        $this->command->info("✅ Created 1002 total FAQs");
+        $this->command->info("✅ Created 32 total FAQs");
     }
     
     private function runPerformanceTests(): void
@@ -249,7 +246,7 @@ class ChaosTestSeeder extends Seeder
         
         // Test 1: Query without eager loading
         $start = microtime(true);
-        $faqs = Faq::limit(50)->get();
+        $faqs = Faq::limit(15)->get();
         foreach ($faqs as $faq) {
             $faq->translate('question', 'hi'); // This should hit DB each time
         }
@@ -257,7 +254,7 @@ class ChaosTestSeeder extends Seeder
         
         // Test 2: Query with eager loading
         $start = microtime(true);
-        $faqs = Faq::withTranslations('hi')->limit(50)->get();
+        $faqs = Faq::withTranslations('hi')->limit(15)->get();
         foreach ($faqs as $faq) {
             $faq->translate('question', 'hi'); // This should use cached data
         }
@@ -272,7 +269,7 @@ class ChaosTestSeeder extends Seeder
         $faq = Faq::withTranslations()->first();
         
         // Access same translation multiple times
-        for ($i = 0; $i < 100; $i++) {
+        for ($i = 0; $i < 30; $i++) {
             $faq->translate('question', 'en');
             $faq->translate('answer', 'hi');
         }

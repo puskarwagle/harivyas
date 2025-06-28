@@ -139,7 +139,7 @@
                 </div>
                 
                 {{-- Reply Button --}}
-                <div class="chat-footer opacity-50 text-xs mt-1">
+                <div class="chat-footer opacity-40 text-xs mt-1">
                     <button wire:click="setReplyTo({{ $message->id }})" class="hover:text-primary">
                         Reply
                     </button>

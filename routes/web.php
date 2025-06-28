@@ -11,6 +11,10 @@ use App\Livewire\Frontend as F;
 use App\Livewire\Backend as B;
 use App\Livewire\Backend\Gallery as BG;
 
+use App\Livewire\ChatArea;
+
+Route::get('/chat', ChatArea::class);
+
 // 🏠 Home
 Route::get('/', F\Home::class)->name('home');
 
@@ -54,6 +58,7 @@ Route::get('/language', F\LanguageSwitcher::class)->name('language');
 // Backend Gallery Routes
 Route::get('/gallery/posts/create', BG\CreatePostWithImages::class)->name('galleryManager.posts.create');
 Route::get('/faqManager', B\FaqManagement::class)->name('faqManager');
+Route::get('/usersManager', B\UserManagement::class)->name('usersManager');
 
 Route::prefix('galleryManager')->name('galleryManager.')->group(function () {
     // Gallery Dashboard

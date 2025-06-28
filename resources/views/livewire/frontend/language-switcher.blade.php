@@ -1,4 +1,4 @@
-<div x-data="languageSwitcher()" x-init="init()" class="tooltip tooltip-bottom" data-tip="भाषा/Language">
+<div x-data="languageSwitcher()" class="tooltip tooltip-bottom" data-tip="भाषा/Language">
     <div class="dropdown dropdown-end">
         <div tabindex="0" role="button" class="btn btn-sm">
             <span x-text="supportedLanguages[currentLang].flag"></span>
@@ -17,51 +17,41 @@
 </div>
 
 <script>
-    // Global Alpine store
-    document.addEventListener('alpine:init', () => {
-        Alpine.store('lang', {
-            currentLang: localStorage.getItem('locale') || 'en'
-            , translations: @json($translations),
+// Register store BEFORE Alpine starts
+Alpine.store('lang', {
+    currentLang: localStorage.getItem('locale') || 'en',
+    translations: @json($translations),
 
-            switchLanguage(lang) {
-                this.currentLang = lang;
-                localStorage.setItem('locale', lang);
-            },
+    switchLanguage(lang) {
+        this.currentLang = lang;
+        localStorage.setItem('locale', lang);
+        
+        // Optional: Trigger page reload for server-side locale change
+        // window.location.reload();
+    },
 
-            trans(key) {
-                const translation = this.translations[key];
-                if (!translation) return key;
-                return translation[this.currentLang] || translation['en'] || key;
-            }
-        });
-    });
-
-    function languageSwitcher() {
-        return {
-            currentLang: 'en'
-            , supportedLanguages: {
-                'en': {
-                    flag: '🇺🇸'
-                    , native: 'English'
-                }
-                , 'hi': {
-                    flag: '🇮🇳'
-                    , native: 'हिन्दी'
-                }
-                , 'ne': {
-                    flag: '🇳🇵'
-                    , native: 'नेपाली'
-                }
-            },
-
-            get currentLang() {
-                return this.$store.lang.currentLang;
-            },
-
-            switchLanguage(lang) {
-                this.$store.lang.switchLanguage(lang);
-            }
-        }
+    trans(key) {
+        const translation = this.translations[key];
+        if (!translation) return key;
+        return translation[this.currentLang] || translation['en'] || key;
     }
+});
 
+function languageSwitcher() {
+    return {
+        supportedLanguages: {
+            'en': { flag: '🇺🇸', native: 'English' },
+            'hi': { flag: '🇮🇳', native: 'हिन्दी' },
+            'ne': { flag: '🇳🇵', native: 'नेपाली' }
+        },
+
+        get currentLang() {
+            return this.$store.lang.currentLang;
+        },
+
+        switchLanguage(code) {
+            this.$store.lang.switchLanguage(code);
+        }
+    };
+}
 </script>

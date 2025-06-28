@@ -228,30 +228,48 @@
         </ul>
     </div>
     <script>
-            // 🌗 Theme Toggle (lightFace / darkFace)
-            document.addEventListener("DOMContentLoaded", function() {
-                const themeToggle = document.getElementById('theme-controller');
-                const lightFace = document.getElementById('lightFace');
-                const darkFace = document.getElementById('darkFace');
+        // 🌗 Theme Toggle (lightFace / darkFace)
+        document.addEventListener("DOMContentLoaded", function() {
+            const themeToggle = document.getElementById('theme-controller');
+            const lightFace = document.getElementById('lightFace');
+            const darkFace = document.getElementById('darkFace');
 
-                if (!themeToggle || !lightFace || !darkFace) {
-                    console.warn("Theme toggle setup incomplete.");
-                    return;
+            if (!themeToggle || !lightFace || !darkFace) {
+                console.warn("Theme toggle setup incomplete.");
+                return;
+            }
+
+            function updateFaces() {
+                if (themeToggle.checked) {
+                    lightFace.style.display = 'block';
+                    darkFace.style.display = 'none';
+                } else {
+                    lightFace.style.display = 'none';
+                    darkFace.style.display = 'block';
                 }
+            }
 
-                function updateFaces() {
-                    if (themeToggle.checked) {
-                        lightFace.style.display = 'block';
-                        darkFace.style.display = 'none';
-                    } else {
-                        lightFace.style.display = 'none';
-                        darkFace.style.display = 'block';
-                    }
-                }
+            themeToggle.addEventListener('change', updateFaces);
+            updateFaces();
+        });
 
-                themeToggle.addEventListener('change', updateFaces);
-                updateFaces();
-            });
+    </script>
+    <div style="
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    background-color: black;
+    color: white;
+    opacity: 0.6;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-family: sans-serif;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    z-index: 9999;
+">
+        Beta Version
+    </div>
 
-        </script>
 </header>

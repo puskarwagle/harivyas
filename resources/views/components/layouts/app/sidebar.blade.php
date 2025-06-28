@@ -12,13 +12,20 @@
         </a>
 
         <flux:navlist variant="outline">
+            {{-- Dashboard --}}
             <flux:navlist.group :heading="__('Platform')" class="grid">
                 <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>
                     {{ __('Dashboard') }}
                 </flux:navlist.item>
             </flux:navlist.group>
-
-            <flux:navlist.group :heading="__('Gallery')" class="grid">
+            {{-- User Management --}}
+            <flux:navlist.group :heading="__('Users Management')" class="grid">
+                <flux:navlist.item icon="plus" :href="route('usersManager')" :current="request()->routeIs('usersManager')" wire:navigate>
+                    {{ __('User Manager') }}
+                </flux:navlist.item>
+            </flux:navlist.group>
+            {{-- Gallery Management --}}
+            <flux:navlist.group :heading="__('Gallery Management')" class="grid">
                 <flux:navlist.item icon="plus" :href="route('galleryManager.posts.create')" :current="request()->routeIs('galleryManager.posts.create')" wire:navigate>
                     {{ __('Create posts') }}
                 </flux:navlist.item>
@@ -31,10 +38,10 @@
                     {{ __('All Images') }}
                 </flux:navlist.item>
             </flux:navlist.group>
-
-            <flux:navlist.group :heading="__('faqManager')" class="grid">
+            {{-- FAQ Management --}}
+            <flux:navlist.group :heading="__('FAQ Management')" class="grid">
                 <flux:navlist.item icon="home" :href="route('faqManager')" :current="request()->routeIs('faqManager')" wire:navigate>
-                    {{ __('faqManager') }}
+                    {{ __('Question Answers') }}
                 </flux:navlist.item>
             </flux:navlist.group>
 

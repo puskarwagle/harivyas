@@ -26,11 +26,11 @@
                 <!-- Core Info -->
                 <li>
                     <details>
-                        <summary>{{ __('menu.about') }}</summary>
+                        <summary data-trans="menu.about"></summary>
                         <ul class="w-60">
-                            <li><a href="/history" wire:navigate>{{ __('menu.history') }}</a></li>
-                            <li><a href="/maharaj-ji" wire:navigate>{{ __('menu.maharaj') }}</a></li>
-                            <li><a href="/nimbarka-sampradaya" wire:navigate>{{ __('menu.sampradaya') }}</a></li>
+                            <li><a href="/history" wire:navigate data-trans="menu.history"></a></li>
+                            <li><a href="/maharaj-ji" wire:navigate data-trans="menu.maharaj"></a></li>
+                            <li><a href="/nimbarka-sampradaya" wire:navigate data-trans="menu.sampradaya"></a></li>
                         </ul>
                     </details>
                 </li>
@@ -38,7 +38,7 @@
                 <!-- Lineage -->
                 <li>
                     <details>
-                        <summary>{{ __('menu.parampara') }}</summary>
+                        <summary data-trans="menu.parampara"></summary>
                         <ul class="w-72">
                             <li><a href="/parampara/nimbarkacharya" wire:navigate>Śrī Nimbārkācārya</a></li>
                             <li><a href="/parampara/keshavakashmiri" wire:navigate>Śrī Keśavakāśmīri</a></li>
@@ -51,15 +51,15 @@
                 <!-- Living Practice -->
                 <li>
                     <details>
-                        <summary>Ashram Life</summary>
+                        <summary data-trans="menu.ashram_life"></summary>
                         <ul class="w-56">
-                            <li><a href="/festivals" wire:navigate>{{ __('menu.festivals') }}</a></li>
-                            <li><a href="/schedule" wire:navigate>{{ __('menu.schedule') }}</a></li>
-                            <li><a href="/prasadam" wire:navigate>{{ __('menu.prasadam') }}</a></li>
-                            <li><a href="/rules" wire:navigate>{{ __('menu.rules') }}</a></li>
-                            <li><a href="/seva-opportunities" wire:navigate>{{ __('menu.volunteer') }}</a></li>
-                            <li><a href="/ashram-life" wire:navigate>{{ __('menu.ashram_life') }}</a></li>
-                            <li><a href="/donate" wire:navigate>{{ __('menu.donate') }}</a></li>
+                            <li><a href="/festivals" wire:navigate data-trans="menu.festivals"></a></li>
+                            <li><a href="/schedule" wire:navigate data-trans="menu.schedule"></a></li>
+                            <li><a href="/prasadam" wire:navigate data-trans="menu.prasadam"></a></li>
+                            <li><a href="/rules" wire:navigate data-trans="menu.rules"></a></li>
+                            <li><a href="/seva-opportunities" wire:navigate data-trans="menu.volunteer"></a></li>
+                            <li><a href="/ashram-life" wire:navigate data-trans="menu.ashram_life"></a></li>
+                            <li><a href="/donate" wire:navigate data-trans="menu.donate"></a></li>
                         </ul>
                     </details>
                 </li>
@@ -67,22 +67,24 @@
                 <!-- Resources -->
                 <li>
                     <details>
-                        <summary>Resources</summary>
+                        <summary data-trans="menu.media"></summary>
                         <ul class="w-64">
-                            <li><a href="/sacred_texts/vedanta-parijata-saurabha" wire:navigate>{{ __('menu.vedanta') }}</a></li>
-                            <li><a href="/sacred_texts/dasha-shloki" wire:navigate>{{ __('menu.dasha') }}</a></li>
-                            <li><a href="/sacred_texts/mahavani" wire:navigate>{{ __('menu.mahavani') }}</a></li>
-                            <li><a href="/kirtan" wire:navigate>{{ __('menu.kirtan') }}</a></li>
-                            <li><a href="/dvaitaAdvaita" wire:navigate>{{ __('menu.dvaitadvaita') }}</a></li>
-                            <li><a href="/sadhana" wire:navigate>{{ __('menu.sadhana') }}</a></li>
-                            <li><a href="/media" wire:navigate>{{ __('menu.media') }}</a></li>
+                            <li><a href="/sacred_texts/vedanta-parijata-saurabha" wire:navigate data-trans="menu.vedanta"></a></li>
+                            <li><a href="/sacred_texts/dasha-shloki" wire:navigate data-trans="menu.dasha"></a></li>
+                            <li><a href="/sacred_texts/mahavani" wire:navigate data-trans="menu.mahavani"></a></li>
+                            <li><a href="/kirtan" wire:navigate data-trans="menu.kirtan"></a></li>
+                            <li><a href="/dvaitaAdvaita" wire:navigate data-trans="menu.dvaitadvaita"></a></li>
+                            <li><a href="/sadhana" wire:navigate data-trans="menu.sadhana"></a></li>
+                            <li><a href="/media" wire:navigate data-trans="menu.media"></a></li>
                         </ul>
                     </details>
                 </li>
-                <li><a href="/gallery" wire:navigate>{{ __('menu.gallery') }}</a></li>
-                <li><a href="/faq" wire:navigate>{{ __('menu.faq') }}</a></li>
+
+                <li><a href="/gallery" wire:navigate data-trans="menu.gallery"></a></li>
+                <li><a href="/faq" wire:navigate data-trans="menu.faq"></a></li>
+
                 <!-- Contact (standalone - always accessible) -->
-                <li><a href="/contact" wire:navigate>{{ __('menu.contact') }}</a></li>
+                <li><a href="/contact" wire:navigate data-trans="menu.contact"></a></li>
             </ul>
         </div>
 
@@ -164,15 +166,15 @@
 
     <!-- Mobile Menu Overlay -->
     <div x-show="menuOpen" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 transform -translate-y-2" x-transition:enter-end="opacity-100 transform translate-y-0" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 transform translate-y-0" x-transition:leave-end="opacity-0 transform -translate-y-2" class="lg:hidden absolute top-16 left-0 right-0 z-50">
-        <ul class="menu bg-base-200 rounded-box px-1" style="z-index: 1000;">
+        <ul class="menu bg-base-200 rounded-box px-1" style="z-index: 1000;"">
             <!-- Core Info -->
             <li>
                 <details>
-                    <summary>{{ __('menu.about') }}</summary>
+                    <summary data-trans="menu.about"></summary>
                     <ul class="w-60">
-                        <li><a href="/history" wire:navigate>{{ __('menu.history') }}</a></li>
-                        <li><a href="/maharaj-ji" wire:navigate>{{ __('menu.maharaj') }}</a></li>
-                        <li><a href="/nimbarka-sampradaya" wire:navigate>{{ __('menu.sampradaya') }}</a></li>
+                        <li><a href="/history" wire:navigate data-trans="menu.history"></a></li>
+                        <li><a href="/maharaj-ji" wire:navigate data-trans="menu.maharaj"></a></li>
+                        <li><a href="/nimbarka-sampradaya" wire:navigate data-trans="menu.sampradaya"></a></li>
                     </ul>
                 </details>
             </li>
@@ -180,7 +182,7 @@
             <!-- Lineage -->
             <li>
                 <details>
-                    <summary>{{ __('menu.parampara') }}</summary>
+                    <summary data-trans="menu.parampara"></summary>
                     <ul class="w-72">
                         <li><a href="/parampara/nimbarkacharya" wire:navigate>Śrī Nimbārkācārya</a></li>
                         <li><a href="/parampara/keshavakashmiri" wire:navigate>Śrī Keśavakāśmīri</a></li>
@@ -193,15 +195,15 @@
             <!-- Living Practice -->
             <li>
                 <details>
-                    <summary>Ashram Life</summary>
+                    <summary data-trans="menu.ashram_life"></summary>
                     <ul class="w-56">
-                        <li><a href="/festivals" wire:navigate>{{ __('menu.festivals') }}</a></li>
-                        <li><a href="/schedule" wire:navigate>{{ __('menu.schedule') }}</a></li>
-                        <li><a href="/prasadam" wire:navigate>{{ __('menu.prasadam') }}</a></li>
-                        <li><a href="/rules" wire:navigate>{{ __('menu.rules') }}</a></li>
-                        <li><a href="/seva-opportunities" wire:navigate>{{ __('menu.volunteer') }}</a></li>
-                        <li><a href="/ashram-life" wire:navigate>{{ __('menu.ashram_life') }}</a></li>
-                        <li><a href="/donate" wire:navigate>{{ __('menu.donate') }}</a></li>
+                        <li><a href="/festivals" wire:navigate data-trans="menu.festivals"></a></li>
+                        <li><a href="/schedule" wire:navigate data-trans="menu.schedule"></a></li>
+                        <li><a href="/prasadam" wire:navigate data-trans="menu.prasadam"></a></li>
+                        <li><a href="/rules" wire:navigate data-trans="menu.rules"></a></li>
+                        <li><a href="/seva-opportunities" wire:navigate data-trans="menu.volunteer"></a></li>
+                        <li><a href="/ashram-life" wire:navigate data-trans="menu.ashram_life"></a></li>
+                        <li><a href="/donate" wire:navigate data-trans="menu.donate"></a></li>
                     </ul>
                 </details>
             </li>
@@ -209,22 +211,24 @@
             <!-- Resources -->
             <li>
                 <details>
-                    <summary>Resources</summary>
+                    <summary data-trans="menu.media"></summary>
                     <ul class="w-64">
-                        <li><a href="/sacred_texts/vedanta-parijata-saurabha" wire:navigate>{{ __('menu.vedanta') }}</a></li>
-                        <li><a href="/sacred_texts/dasha-shloki" wire:navigate>{{ __('menu.dasha') }}</a></li>
-                        <li><a href="/sacred_texts/mahavani" wire:navigate>{{ __('menu.mahavani') }}</a></li>
-                        <li><a href="/kirtan" wire:navigate>{{ __('menu.kirtan') }}</a></li>
-                        <li><a href="/dvaitaAdvaita" wire:navigate>{{ __('menu.dvaitadvaita') }}</a></li>
-                        <li><a href="/sadhana" wire:navigate>{{ __('menu.sadhana') }}</a></li>
-                        <li><a href="/media" wire:navigate>{{ __('menu.media') }}</a></li>
+                        <li><a href="/sacred_texts/vedanta-parijata-saurabha" wire:navigate data-trans="menu.vedanta"></a></li>
+                        <li><a href="/sacred_texts/dasha-shloki" wire:navigate data-trans="menu.dasha"></a></li>
+                        <li><a href="/sacred_texts/mahavani" wire:navigate data-trans="menu.mahavani"></a></li>
+                        <li><a href="/kirtan" wire:navigate data-trans="menu.kirtan"></a></li>
+                        <li><a href="/dvaitaAdvaita" wire:navigate data-trans="menu.dvaitadvaita"></a></li>
+                        <li><a href="/sadhana" wire:navigate data-trans="menu.sadhana"></a></li>
+                        <li><a href="/media" wire:navigate data-trans="menu.media"></a></li>
                     </ul>
                 </details>
             </li>
-            <li><a href="/gallery" wire:navigate>{{ __('menu.gallery') }}</a></li>
-            <li><a href="/faq" wire:navigate>{{ __('menu.faq') }}</a></li>
+
+            <li><a href="/gallery" wire:navigate data-trans="menu.gallery"></a></li>
+            <li><a href="/faq" wire:navigate data-trans="menu.faq"></a></li>
+
             <!-- Contact (standalone - always accessible) -->
-            <li><a href="/contact" wire:navigate>{{ __('menu.contact') }}</a></li>
+            <li><a href="/contact" wire:navigate data-trans="menu.contact"></a></li>
         </ul>
     </div>
     <script>

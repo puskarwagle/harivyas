@@ -3,7 +3,7 @@
     <head>
         @include('partials.kaid')
     </head>
-    <body class="caret-secondary min-h-screen">
+    <body class="caret-secondary min-h-screen bg-base-100 text-base-content">
         <livewire:frontend.header />
 
         <main>

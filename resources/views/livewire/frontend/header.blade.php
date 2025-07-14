@@ -96,7 +96,7 @@
             {{-- Toggle theme by changing value eg forest --}}
             <div class="tooltip tooltip-bottom" data-tip="Change Theme">
                 <label class="toggle text-base-content m-1">
-                    <input type="checkbox" value="light" id="theme-controller" />
+                    <input type="checkbox" value="pastel" id="theme-controller" />
                     <svg aria-label="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
                             <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
@@ -232,29 +232,47 @@
         </ul>
     </div>
     <script>
-        // 🌗 Theme Toggle (lightFace / darkFace)
         document.addEventListener("DOMContentLoaded", function() {
             const themeToggle = document.getElementById('theme-controller');
             const lightFace = document.getElementById('lightFace');
             const darkFace = document.getElementById('darkFace');
 
-            if (!themeToggle || !lightFace || !darkFace) {
-                console.warn("Theme toggle setup incomplete.");
+            if (!themeToggle) {
+                console.warn("Theme toggle not found.");
                 return;
             }
 
-            function updateFaces() {
-                if (themeToggle.checked) {
-                    lightFace.style.display = 'block';
-                    darkFace.style.display = 'none';
-                } else {
-                    lightFace.style.display = 'none';
-                    darkFace.style.display = 'block';
+            // Load saved theme or default to luxury
+            const savedTheme = localStorage.getItem('theme') || 'luxury';
+            const isForest = savedTheme === 'acid';
+
+            // Set initial state
+            themeToggle.checked = isForest;
+            document.documentElement.setAttribute('data-theme', savedTheme);
+
+            function updateTheme() {
+                const theme = themeToggle.checked ? 'acid' : 'luxury';
+
+                // Update theme
+                document.documentElement.setAttribute('data-theme', theme);
+
+                // Save to localStorage
+                localStorage.setItem('theme', theme);
+
+                // Update face icons if they exist
+                if (lightFace && darkFace) {
+                    if (themeToggle.checked) {
+                        lightFace.style.display = 'block';
+                        darkFace.style.display = 'none';
+                    } else {
+                        lightFace.style.display = 'none';
+                        darkFace.style.display = 'block';
+                    }
                 }
             }
 
-            themeToggle.addEventListener('change', updateFaces);
-            updateFaces();
+            themeToggle.addEventListener('change', updateTheme);
+            updateTheme(); // Set initial face state
         });
 
     </script>

@@ -93,7 +93,7 @@
 	            <div class="container mx-auto px-4 py-20 text-center">
 	                <h2 class="shree text-4xl font-bold text-primary mb-12" data-trans="home.sacred_teachings"></h2>
 
-					<livewire:frontend.quote-display />
+	                <livewire:frontend.quote-display />
 
 	            </div>
 	        </section>

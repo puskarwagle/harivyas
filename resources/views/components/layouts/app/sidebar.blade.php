@@ -99,8 +99,10 @@
     <!-- Mobile User Menu -->
     <flux:header class="lg:hidden">
         <flux:sidebar.toggle class="lg:hidden" icon="bars-2" inset="left" />
+        <a href="{{ route('dashboard') }}" class="btn bg-base-100 border">घर</a>
 
         <flux:spacer />
+        <a href="{{ route('home') }}" class="btn btn-success mx-5">वेबसाइट</a>
 
         <flux:dropdown position="top" align="end">
             <flux:profile :initials="auth()->user()->initials()" icon-trailing="chevron-down" />

@@ -225,7 +225,7 @@
             </li>
 
             <li><a href="/gallery" wire:navigate data-trans="menu.gallery"></a></li>
-            <li><a href="/faq" wire:navigate data-trans="menu.faq"></a></li>
+            <li><a href="/faqs" wire:navigate data-trans="menu.faq"></a></li>
 
             <!-- Contact (standalone - always accessible) -->
             <li><a href="/contact" wire:navigate data-trans="menu.contact"></a></li>

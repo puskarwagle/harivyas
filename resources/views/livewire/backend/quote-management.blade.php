@@ -1,7 +1,7 @@
 <div class="max-w-6xl mx-auto p-4 space-y-6">
-    <div class="language-switcher flex justify-end mb-4">
+    {{-- <div class="language-switcher flex justify-end mb-4">
         <button id="lang-toggle" class="btn btn-sm btn-outline">Switch to English</button>
-    </div>
+    </div> --}}
     <!-- Form Section -->
     <div class="card bg-base-100 shadow-xl">
         <div class="card-body">
@@ -22,10 +22,10 @@
 
             <form wire:submit.prevent="save" class="space-y-4">
                 <div class="form-control">
-                    <label class="label">
-                        <span class="label-text font-semibold">कोट</span>
-                    </label>
-                    <textarea wire:model="quote" class="textarea textarea-bordered h-24 w-full @error('quote') textarea-error @enderror" placeholder="यहाँ कोट दर्ज करें..." rows="3"></textarea>
+                    {{-- <label class="label">
+                        <span class="label-text font-semibold">उद्धरण</span>
+                    </label> --}}
+                    <textarea wire:model="quote" class="textarea textarea-bordered h-24 w-full @error('quote') textarea-error @enderror" placeholder="यहाँ उद्धरण दर्ज करें..." rows="3"></textarea>
                     @error('quote')
                     <label class="label">
                         <span class="label-text-alt text-error">{{ $message }}</span>
@@ -73,7 +73,7 @@
                     </button>
                     @endif
                     <button type="submit" class="btn btn-primary">
-                        @if($editingId) कोट अपडेट करें @else कोट जोड़ें @endif
+                        @if($editingId) उद्धरण अपडेट करें @else उद्धरण जोड़ें @endif
                     </button>
                 </div>
             </form>
@@ -83,12 +83,12 @@
     <!-- Table Section -->
     <div class="card bg-base-100 shadow-xl">
         <div class="card-body">
-            <h2 class="card-title text-2xl mb-4">सभी कोट्स</h2>
+            <h2 class="card-title text-2xl mb-4">सभी उद्धरण</h2>
             <div class="overflow-x-auto">
                 <table class="table table-zebra w-full">
                     <thead>
                         <tr>
-                            <th>कोट</th>
+                            <th>उद्धरण</th>
                             <th>लेखक</th>
                             <th>प्रदर्शित तिथि</th>
                             {{-- <th>स्थिति</th> --}}
@@ -158,6 +158,8 @@
         </div>
     </div>
 
+    {{-- 
+    Use this script to make the page multi lingual
     <script>
         const langToggle = document.getElementById('lang-toggle');
         let currentLang = 'hi';
@@ -176,5 +178,5 @@
             document.getElementById('submit-btn').textContent = currentLang === 'hi' ? 'उद्धरण जोड़ें' : 'Add Quote';
         });
 
-    </script>
+    </script> --}}
 </div>

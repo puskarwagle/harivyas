@@ -89,54 +89,6 @@
 	            </div>
 	        </section>
 
-	        {{-- <section class="snap-start min-h-screen flex items-center">
-	            <div class="container mx-auto px-4 py-20">
-	                <div class="max-w-4xl mx-auto">
-	                    <h2 class="text-4xl font-bold text-center text-primary mb-12" data-trans="home.todays_schedule"></h2>
-
-	                    <div class="grid md:grid-cols-3 gap-6">
-	                        <div class="card bg-base-100 shadow-xl">
-	                            <div class="card-body text-center">
-	                                <div class="text-3xl mb-4">🌅</div>
-	                                <h3 class="card-title justify-center text-primary" data-trans="home.morning_aarti"></h3>
-	                                <div class="text-2xl font-bold text-primary my-4">6:00 AM</div>
-	                                <p class="text-base-content/80" data-trans="home.mangala_aarti"></p>
-	                                <p class="text-sm text-base-content/70 mt-2" data-trans="home.start_day_blessings"></p>
-	                            </div>
-	                        </div>
-
-	                        <div class="card bg-base-100 shadow-xl">
-	                            <div class="card-body text-center">
-	                                <div class="text-3xl mb-4">☀️</div>
-	                                <h3 class="card-title justify-center text-primary" data-trans="home.noon_bhog"></h3>
-	                                <div class="text-2xl font-bold text-primary my-4">12:00 PM</div>
-	                                <p class="text-base-content/80" data-trans="home.rajbhog_aarti"></p>
-	                                <p class="text-sm text-base-content/70 mt-2" data-trans="home.sacred_offering"></p>
-	                            </div>
-	                        </div>
-
-	                        <div class="card bg-base-100 shadow-xl">
-	                            <div class="card-body text-center">
-	                                <div class="text-3xl mb-4">🌙</div>
-	                                <h3 class="card-title justify-center text-primary" data-trans="home.evening_aarti"></h3>
-	                                <div class="text-2xl font-bold text-primary my-4">7:00 PM</div>
-	                                <p class="text-base-content/80" data-trans="home.sayan_aarti"></p>
-	                                <p class="text-sm text-base-content/70 mt-2" data-trans="home.conclude_evening"></p>
-	                            </div>
-	                        </div>
-	                    </div>
-
-	                    <div class="text-center mt-8">
-	                        <a href="/daily-life/schedule" class="btn btn-primary">
-	                            <i class="fas fa-calendar mr-2"></i>
-	                            <span data-trans="home.view_full_schedule"></span>
-	                        </a>
-	                    </div>
-	                </div>
-	            </div>
-	        </section> --}}
-
-
 	        <section class="snap-start min-h-screen flex items-center">
 	            <div class="container mx-auto px-4 py-20 text-center">
 	                <h2 class="shree text-4xl font-bold text-primary mb-12" data-trans="home.sacred_teachings"></h2>

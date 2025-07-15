@@ -58,6 +58,7 @@ Route::get('/language', F\LanguageSwitcher::class)->name('language');
 // Backend Gallery Routes
 Route::get('/gallery/posts/create', BG\CreatePostWithImages::class)->name('galleryManager.posts.create');
 Route::get('/faqManager', B\FaqManagement::class)->name('faqManager');
+Route::get('/quoteManager', B\QuoteManagement::class)->name('quoteManager');
 Route::get('/usersManager', B\UserManagement::class)->name('usersManager');
 
 Route::prefix('galleryManager')->name('galleryManager.')->group(function () {

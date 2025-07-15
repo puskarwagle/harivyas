@@ -89,7 +89,7 @@
 	            </div>
 	        </section>
 
-	        <section class="snap-start min-h-screen flex items-center">
+	        {{-- <section class="snap-start min-h-screen flex items-center">
 	            <div class="container mx-auto px-4 py-20">
 	                <div class="max-w-4xl mx-auto">
 	                    <h2 class="text-4xl font-bold text-center text-primary mb-12" data-trans="home.todays_schedule"></h2>
@@ -134,105 +134,77 @@
 	                    </div>
 	                </div>
 	            </div>
-	        </section>
+	        </section> --}}
 
 
 	        <section class="snap-start min-h-screen flex items-center">
 	            <div class="container mx-auto px-4 py-20 text-center">
 	                <h2 class="shree text-4xl font-bold text-primary mb-12" data-trans="home.sacred_teachings"></h2>
 
-	                {{-- @php
-	                $todaysQuote = \App\Models\Quote::getTodaysOrLatestQuote();
-	                @endphp
+					<livewire:frontend.quote-display />
 
+	                {{-- <div class="space-y-4">
+	                    <div class="flex items-center p-4 bg-base-100 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer" @click="window.location.href='/sacred_texts/vedanta-parijata-saurabha'">
+	                        <div class="text-3xl mr-4">📖</div>
+	                        <div>
+	                            <h3 class="font-semibold text-base-content" data-trans="home.vedanta_title"></h3>
+	                            <p class="text-sm text-base-content/80" data-trans="home.vedanta"></p>
+	                        </div>
+	                        <i class="fas fa-chevron-right ml-auto text-primary"></i>
+	                    </div>
 
-	                @if($todaysQuote)
-	                <div class="card shadow-xl">
-	                    <div class="card-body bg-base-100">
-	                        <div class="text-6xl text-primary/60 mb-4">"</div>
+	                    <div class="flex items-center p-4 bg-base-100 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer" @click="window.location.href='/sacred_texts/dasha-shloki'">
+	                        <div class="text-3xl mr-4">📜</div>
+	                        <div>
+	                            <h3 class="font-semibold text-base-content" data-trans="home.dasha_title"></h3>
+	                            <p class="text-sm text-base-content/80" data-trans="home.dasha"></p>
+	                        </div>
+	                        <i class="fas fa-chevron-right ml-auto text-primary"></i>
+	                    </div>
 
-	                        <blockquote id="quote-hi" class="text-xl text-base-content italic mb-6 leading-relaxed">
-	                            {{ $todaysQuote->quote_hi }}
-	                </blockquote>
+	                    <div class="flex items-center p-4 bg-base-100 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer" @click="window.location.href='/kirtan'">
+	                        <div class="text-3xl mr-4">🎵</div>
+	                        <div>
+	                            <h3 class="font-semibold text-base-content" data-trans="home.kirtan_title"></h3>
+	                            <p class="text-sm text-base-content/80" data-trans="home.kirtan"></p>
+	                        </div>
+	                        <i class="fas fa-chevron-right ml-auto text-primary"></i>
+	                    </div>
 
-	                <blockquote id="quote-en" class="text-xl text-base-content italic mb-6 leading-relaxed">
-	                    {{ $todaysQuote->quote_en }}
-	                </blockquote>
+	                    <div class="flex items-center p-4 bg-base-100 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer" @click="window.location.href='/festivals'">
+	                        <div class="text-3xl mr-4">🎉</div>
+	                        <div>
+	                            <h3 class="font-semibold text-base-content" data-trans="home.festivals_title"></h3>
+	                            <p class="text-sm text-base-content/80" data-trans="home.festivals"></p>
+	                        </div>
+	                        <i class="fas fa-chevron-right ml-auto text-primary"></i>
+	                    </div>
+	                </div> --}}
 
-	                <div class="text-right space-y-1">
-	                    <cite id="author-hi" class="block text-primary font-semibold">
-	                        - {{ $todaysQuote->author_hindi }}
-	                    </cite>
-	                    <cite id="author-en" class="block text-primary font-semibold">
-	                        - {{ $todaysQuote->author_english }}
-	                    </cite>
+	            </div>
+	        </section>
+
+	        <section class="snap-start min-h-screen flex items-center">
+	            <div class="container mx-auto px-4 text-center">
+	                <h2 class="shree text-4xl font-bold text-primary mb-6" data-trans="home.join_community"></h2>
+	                <p class="shree text-xl mb-8 max-w-3xl mx-auto opacity-90" data-trans="home.join_community_desc"></p>
+
+	                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+	                    <a href="/contact" class="btn btn-secondary btn-lg border-base-100 hover:bg-base-100">
+	                        <i class="fas fa-map-marker-alt mr-2"></i>
+	                        <span data-trans="home.visit_us"></span>
+	                    </a>
+	                    <a href="/seva/ashram-life" class="btn btn-neutral btn-lg border-base-100 text-primary hover:bg-base-100 hover:text-primary">
+	                        <i class="fas fa-home mr-2"></i>
+	                        <span data-trans="home.ashram_life"></span>
+	                    </a>
+	                    <a href="/seva/donate" class="btn btn-accent btn-lg border-base-100 hover:bg-base-100">
+	                        <i class="fas fa-heart mr-2"></i>
+	                        <span data-trans="home.donate"></span>
+	                    </a>
 	                </div>
 	            </div>
+	        </section>
+
 	    </div>
-	    @endif --}}
-
-	    <div class="space-y-4">
-	        <div class="flex items-center p-4 bg-base-100 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer" @click="window.location.href='/sacred_texts/vedanta-parijata-saurabha'">
-	            <div class="text-3xl mr-4">📖</div>
-	            <div>
-	                <h3 class="font-semibold text-base-content" data-trans="home.vedanta_title"></h3>
-	                <p class="text-sm text-base-content/80" data-trans="home.vedanta"></p>
-	            </div>
-	            <i class="fas fa-chevron-right ml-auto text-primary"></i>
-	        </div>
-
-	        <div class="flex items-center p-4 bg-base-100 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer" @click="window.location.href='/sacred_texts/dasha-shloki'">
-	            <div class="text-3xl mr-4">📜</div>
-	            <div>
-	                <h3 class="font-semibold text-base-content" data-trans="home.dasha_title"></h3>
-	                <p class="text-sm text-base-content/80" data-trans="home.dasha"></p>
-	            </div>
-	            <i class="fas fa-chevron-right ml-auto text-primary"></i>
-	        </div>
-
-	        <div class="flex items-center p-4 bg-base-100 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer" @click="window.location.href='/kirtan'">
-	            <div class="text-3xl mr-4">🎵</div>
-	            <div>
-	                <h3 class="font-semibold text-base-content" data-trans="home.kirtan_title"></h3>
-	                <p class="text-sm text-base-content/80" data-trans="home.kirtan"></p>
-	            </div>
-	            <i class="fas fa-chevron-right ml-auto text-primary"></i>
-	        </div>
-
-	        <div class="flex items-center p-4 bg-base-100 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer" @click="window.location.href='/festivals'">
-	            <div class="text-3xl mr-4">🎉</div>
-	            <div>
-	                <h3 class="font-semibold text-base-content" data-trans="home.festivals_title"></h3>
-	                <p class="text-sm text-base-content/80" data-trans="home.festivals"></p>
-	            </div>
-	            <i class="fas fa-chevron-right ml-auto text-primary"></i>
-	        </div>
-	    </div>
-
-	</div>
-	</section>
-
-	<section class="snap-start min-h-screen flex items-center">
-	    <div class="container mx-auto px-4 text-center">
-	        <h2 class="shree text-4xl font-bold text-primary mb-6" data-trans="home.join_community"></h2>
-	        <p class="shree text-xl mb-8 max-w-3xl mx-auto opacity-90" data-trans="home.join_community_desc"></p>
-
-	        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-	            <a href="/contact" class="btn btn-secondary btn-lg border-base-100 hover:bg-base-100">
-	                <i class="fas fa-map-marker-alt mr-2"></i>
-	                <span data-trans="home.visit_us"></span>
-	            </a>
-	            <a href="/seva/ashram-life" class="btn btn-neutral btn-lg border-base-100 text-primary hover:bg-base-100 hover:text-primary">
-	                <i class="fas fa-home mr-2"></i>
-	                <span data-trans="home.ashram_life"></span>
-	            </a>
-	            <a href="/seva/donate" class="btn btn-accent btn-lg border-base-100 hover:bg-base-100">
-	                <i class="fas fa-heart mr-2"></i>
-	                <span data-trans="home.donate"></span>
-	            </a>
-	        </div>
-	    </div>
-	</section>
-
-	</div>
 	</div>

@@ -15,6 +15,7 @@ class QuoteManagement extends Component
     public $display_date = '';
     public $is_active = true;
     public $editingId = null;
+    public $lang = 'hi';
 
     protected $rules = [
         'quote' => 'required|min:10|max:1000',

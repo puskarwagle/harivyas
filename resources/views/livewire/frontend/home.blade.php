@@ -95,44 +95,6 @@
 
 					<livewire:frontend.quote-display />
 
-	                {{-- <div class="space-y-4">
-	                    <div class="flex items-center p-4 bg-base-100 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer" @click="window.location.href='/sacred_texts/vedanta-parijata-saurabha'">
-	                        <div class="text-3xl mr-4">📖</div>
-	                        <div>
-	                            <h3 class="font-semibold text-base-content" data-trans="home.vedanta_title"></h3>
-	                            <p class="text-sm text-base-content/80" data-trans="home.vedanta"></p>
-	                        </div>
-	                        <i class="fas fa-chevron-right ml-auto text-primary"></i>
-	                    </div>
-
-	                    <div class="flex items-center p-4 bg-base-100 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer" @click="window.location.href='/sacred_texts/dasha-shloki'">
-	                        <div class="text-3xl mr-4">📜</div>
-	                        <div>
-	                            <h3 class="font-semibold text-base-content" data-trans="home.dasha_title"></h3>
-	                            <p class="text-sm text-base-content/80" data-trans="home.dasha"></p>
-	                        </div>
-	                        <i class="fas fa-chevron-right ml-auto text-primary"></i>
-	                    </div>
-
-	                    <div class="flex items-center p-4 bg-base-100 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer" @click="window.location.href='/kirtan'">
-	                        <div class="text-3xl mr-4">🎵</div>
-	                        <div>
-	                            <h3 class="font-semibold text-base-content" data-trans="home.kirtan_title"></h3>
-	                            <p class="text-sm text-base-content/80" data-trans="home.kirtan"></p>
-	                        </div>
-	                        <i class="fas fa-chevron-right ml-auto text-primary"></i>
-	                    </div>
-
-	                    <div class="flex items-center p-4 bg-base-100 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer" @click="window.location.href='/festivals'">
-	                        <div class="text-3xl mr-4">🎉</div>
-	                        <div>
-	                            <h3 class="font-semibold text-base-content" data-trans="home.festivals_title"></h3>
-	                            <p class="text-sm text-base-content/80" data-trans="home.festivals"></p>
-	                        </div>
-	                        <i class="fas fa-chevron-right ml-auto text-primary"></i>
-	                    </div>
-	                </div> --}}
-
 	            </div>
 	        </section>
 

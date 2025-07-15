@@ -1,6 +1,7 @@
 <div class="min-h-screen bg-base-100 p-4">
     <div class="max-w-7xl mx-auto">
-        <!-- Header -->
+        <!-- FAQ Management -->
+        <!-- Manage questions and categories -->
         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
             <div>
                 <h1 class="text-3xl font-bold text-base-content">FAQ Management</h1>
@@ -12,6 +13,7 @@
                     <button wire:click="switchLocale('en')" class="btn btn-xs join-item {{ $currentLocale === 'en' ? 'btn-active' : '' }}">EN</button>
                     <button wire:click="switchLocale('hi')" class="btn btn-xs join-item {{ $currentLocale === 'hi' ? 'btn-active' : '' }}">हि</button>
                 </div>
+                {{-- Add Category --}}
                 <button wire:click="createCategory" class="btn btn-outline btn-sm">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
@@ -27,7 +29,7 @@
             </div>
         </div>
 
-        <!-- Alerts -->
+        <!-- Alerts Errors Messages -->
         @if (session()->has('message'))
         <div class="alert alert-success mb-4">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -45,7 +47,7 @@
         </div>
         @endif
 
-        <!-- Filters -->
+        <!-- Search FAQs... & All Categories -->
         <div class="card bg-base-200 shadow-sm mb-6">
             <div class="card-body p-4">
                 <div class="flex flex-col sm:flex-row gap-4">
@@ -111,8 +113,8 @@
                             </ul>
                         </div>
                     </div>
-                    <h3 class="font-semibold text-base-content mb-2 line-clamp-2">{{ $faq->translate('question', $currentLocale) ?: $faq->translate('question', 'en') ?: 'No question' }}</h3>
-                    <p class="text-base-content/70 text-sm line-clamp-3">{{ $faq->translate('answer', $currentLocale) ?: $faq->translate('answer', 'en') ?: 'No answer' }}</p>
+                    <h3 class="shree font-semibold text-base-content mb-2 line-clamp-2">{{ $faq->translate('question', $currentLocale) ?: $faq->translate('question', 'en') ?: 'No question' }}</h3>
+                    <p class="shree text-base-content/70 text-sm line-clamp-3">{{ $faq->translate('answer', $currentLocale) ?: $faq->translate('answer', 'en') ?: 'No answer' }}</p>
                     <div class="text-xs text-base-content/50 mt-2">
                         {{ $faq->created_at->diffForHumans() }}
                     </div>

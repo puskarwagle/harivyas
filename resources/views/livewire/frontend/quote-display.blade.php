@@ -1,4 +1,5 @@
-<div>@if($todaysQuote)
+<div>
+    @if($todaysQuote)
     <div class="card shadow-xl">
         <div class="card-body bg-base-100">
             <div class="text-6xl text-primary/60 mb-4">"</div>

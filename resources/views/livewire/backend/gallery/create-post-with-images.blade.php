@@ -20,7 +20,7 @@
 
             <!-- Upload Zone - Big and Inviting -->
             <div class="mb-6">
-                <div class="border-2 border-dashed rounded-2xl p-8 text-center transition-all duration-300 cursor-pointer hover:border-primary hover:bg-primary/5 border" onclick="document.getElementById('fileInput').click()">
+                <div class="border-2 border-dashed rounded-2xl p-8 text-center transition-all duration-300 cursor-pointer hover:border-primary hover:bg-primary/5" onclick="document.getElementById('fileInput').click()">
                     <div class="mb-4">
                         <svg class="w-16 h-16 mx-auto text-base-content/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />

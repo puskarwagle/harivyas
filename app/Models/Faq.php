@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 use App\Traits\HasTranslations;
@@ -19,10 +20,9 @@ class Faq extends Model
 
     protected static function booted(): void
     {
-        // Ensure FAQ always has a category before saving
         static::saving(function (Faq $faq) {
             if (empty($faq->faq_category_id)) {
-                $faq->faq_category_id = 1; // General category
+                $faq->faq_category_id = 1;
             }
         });
     }

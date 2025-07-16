@@ -18,7 +18,7 @@
                 <button wire:click="deleteSelected" onclick="confirm('Delete {{ $selectedCount }} selected images?') || event.stopImmediatePropagation()" class="btn btn-error btn-sm">
                     Delete Selected ({{ $selectedCount }})
                 </button>
-                <button wire:click="clearSelection" class="btn btn-ghost btn-sm">Clear</button>
+                <button wire:click="clearSelection" class="btn btn-dash btn-warning btn-sm">Clear</button>
                 @endif
                 <a href="{{ route('galleryManager.posts.create') }}" class="btn btn-primary btn-sm">New Post</a>
             </div>
@@ -34,7 +34,7 @@
                         {{ $groupBy === 'date' ? \Carbon\Carbon::parse($groupName)->format('M d, Y') : $groupName }}
                         <span class="text-sm text-gray-500">({{ count($groupImages) }} images)</span>
                     </h3>
-                    <button wire:click="selectAllInGroup({{ $groupImages->toJson() }})" class="btn btn-ghost btn-xs">
+                    <button wire:click="selectAllInGroup({{ $groupImages->toJson() }})" class="btn btn-soft">
                         Select All
                     </button>
                 </div>

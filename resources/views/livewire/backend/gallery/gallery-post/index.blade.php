@@ -3,7 +3,6 @@
 
     <div class="mb-4 flex justify-between items-center">
         <input type="search" placeholder="Search posts..." wire:model.debounce.300ms="search" class="input input-bordered w-full max-w-xs" />
-
         <a href="{{ route('galleryManager.posts.create') }}" class="btn btn-primary ml-4">New Post</a>
     </div>
 
@@ -12,12 +11,12 @@
             <tr>
                 <th>Title</th>
                 <th>Images</th>
-                <th>User</th>
                 <th>Tags</th>
                 <th>Location</th>
                 <th>Year</th>
                 <th>Homepage</th>
                 <th>Created</th>
+                <th>Uploaded By</th>
                 <th class="text-center">Actions</th>
             </tr>
         </thead>
@@ -25,6 +24,7 @@
             @forelse ($posts as $post)
             <tr wire:click="showPost({{ $post->id }})" class="hover cursor-pointer">
                 <td>{{ $post->title }}</td>
+                <td>{{ $post->images->count() }}</td>
 
                 <td>
                     @foreach ($post->tags ?? [] as $tag)
@@ -44,7 +44,6 @@
                 </td>
 
                 <td>{{ $post->created_at->format('Y-m-d') }}</td>
-                <td>{{ $post->images->count() }}</td>
                 <td>{{ $post->user->name ?? '—' }}</td>
 
                 <td class="text-center space-x-2" wire:click.stop>

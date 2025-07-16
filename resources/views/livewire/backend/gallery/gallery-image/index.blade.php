@@ -3,7 +3,7 @@
 
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
         <input type="text" wire:model.debounce.500ms="search" placeholder="Search by caption..." class="input input-bordered w-full sm:max-w-xs" />
-        <a href="{{ route('galleryManager.images.create') }}" class="btn btn-primary">Add Image</a>
+        <a href="{{ route('galleryManager.posts.create') }}" class="btn btn-primary ml-4">New Post</a>
     </div>
 
     <div class="overflow-x-auto">
@@ -11,8 +11,9 @@
             <thead>
                 <tr>
                     <th>Preview</th>
-                    <th>Caption</th>
+                    {{-- <th>Caption</th> --}}
                     <th>Post</th>
+                    <th>Uploaded By</th>
                     <th>Date</th>
                     <th class="text-center">Actions</th>
                 </tr>
@@ -21,9 +22,9 @@
                 @forelse ($images as $img)
                 <tr>
                     <td>
-                        <img src="{{ $img->url }}" alt="preview" class="h-16 rounded">
+                        <img src="{{ $img->url }}" alt="preview" class="h-16 w-20 rounded">
                     </td>
-                    <td>{{ $img->caption ?? '—' }}</td>
+                    {{-- <td>{{ $img->caption ?? '—' }}</td> --}}
                     <td>
                         <div class="font-semibold">{{ optional($img->post)->title ?? '—' }}</div>
                         <div class="text-xs text-gray-500">

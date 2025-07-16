@@ -1,6 +1,6 @@
 <div class="max-w-md mx-auto bg-base-100 rounded-2xl shadow-xl overflow-hidden">
     <!-- Header -->
-    <div class="bg-gradient-to-r from-primary to-secondary p-6 text-primary-content">
+    <div class="p-6 text-primary-content bg-base-200">
         <h1 class="text-xl font-bold">Create Post</h1>
     </div>
 
@@ -20,7 +20,7 @@
 
             <!-- Upload Zone - Big and Inviting -->
             <div class="mb-6">
-                <div class="border-2 border-dashed rounded-2xl p-8 text-center transition-all duration-300 cursor-pointer hover:border-primary hover:bg-primary/5 border-base-300" onclick="document.getElementById('fileInput').click()">
+                <div class="border-2 border-dashed rounded-2xl p-8 text-center transition-all duration-300 cursor-pointer hover:border-primary hover:bg-primary/5 border" onclick="document.getElementById('fileInput').click()">
                     <div class="mb-4">
                         <svg class="w-16 h-16 mx-auto text-base-content/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
@@ -52,7 +52,7 @@
                     <img src="{{ $tempImage->temporaryUrl() }}" alt="Preview" class="w-full h-24 object-cover" />
                     @endif
                     <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-2">
-                        <p class="text-xs text-white truncate">{{ $tempImage->getClientOriginalName() }}</p>
+                        <p class="text-xs text-primary truncate">{{ $tempImage->getClientOriginalName() }}</p>
                     </div>
                 </div>
                 @endforeach
@@ -110,7 +110,7 @@
 
             <!-- Homepage Toggle -->
             <div class="form-control mb-6">
-                <label class="label cursor-pointer bg-base-200 rounded-xl p-4">
+                <label class="label cursor-pointer bg-base-200 rounded-xl p-4 w-full flex justify-between">
                     <span class="label-text font-medium">🏠 Show on Homepage</span>
                     <input type="checkbox" wire:model.defer="show_in_homepage" class="toggle toggle-primary" />
                 </label>

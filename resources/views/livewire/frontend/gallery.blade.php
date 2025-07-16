@@ -2,10 +2,10 @@
     <div class="min-h-screen" x-data="galleryData()" x-init="initWithImages(@js($images))">
 
         <!-- Hero Section -->
-        <div class="hero min-h-[40vh] bg-gradient-to-br from-primary/20 via-secondary/10 to-accent/20">
+        <div class="hero min-h-[40vh]">
             <div class="hero-content text-center">
                 <div class="max-w-2xl">
-                    <h1 class="text-5xl md:text-6xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-6">
+                    <h1 class="text-5xl md:text-6xl font-bold bg-clip-text mb-6">
                         Sacred Moments
                     </h1>
                     <p class="text-lg text-base-content/80 mb-8">
@@ -26,10 +26,9 @@
         </div>
 
         <div class="container mx-auto px-4 py-12 max-w-7xl">
-
             <!-- Filter Controls -->
             <div class="flex flex-col lg:flex-row gap-6 items-center justify-between mb-12">
-
+            
                 <!-- Category Tabs -->
                 <div class="tabs tabs-boxed bg-base-200/50 backdrop-blur-sm flex-wrap">
                     <template x-for="category in categories" :key="category">

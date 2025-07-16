@@ -1,8 +1,8 @@
-<footer class="bg-base-200 p-8">
+<footer class="bg-base-200 p-2">
   <div class="flex flex-col">
     
     <!-- Top Row: SVG / Header / Connect -->
-    <div class="flex justify-between items-center px-10 mb-8">
+    <div class="flex justify-between items-center px-2">
       
       <!-- SVG Section -->
       <div class="flex-shrink-0">
@@ -41,7 +41,7 @@
     </div>
 
     <!-- Divider -->
-    <hr class="border-t border-neutral opacity-30 my-6" />
+    <hr class="border-t border-neutral opacity-30 my-2" />
 
     <!-- Bottom Text -->
     <div class="text-center">

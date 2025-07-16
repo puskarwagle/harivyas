@@ -4,55 +4,81 @@ namespace App\Livewire\Frontend;
 use Livewire\Component;
 use App\Models\Faq;
 use App\Models\FaqCategory;
+use Illuminate\Support\Facades\App;
 
 class FaqsList extends Component
 {
     public string $searchTerm = '';
     public string $selectedCategory = 'all';
-
+    public string $currentLang = 'hi'; // Default to Hindi
+    
     // Cache categories for tabs
     public $categories = [];
 
     public function mount()
     {
+        // Set default locale to Hindi
+        App::setLocale($this->currentLang);
+        
         // Load categories with 'all' option
         $this->categories = collect([
             ['id' => 0, 'name' => __('All')]
         ])->merge(
-            FaqCategory::orderBy('name')->get(['id', 'name'])->toArray()
+            FaqCategory::with('translations')->get()->map(function($category) {
+                return [
+                    'id' => $category->id,
+                    'name' => $category->translate('name', $this->currentLang) ?: $category->translate('name', 'hi') ?: 'Unnamed'
+                ];
+            })
         )->toArray();
-
+        
         $this->selectedCategory = 0;
     }
 
-        public function filterByCategory(int $id)
+    public function switchLanguage(string $lang)
+    {
+        $this->currentLang = $lang;
+        App::setLocale($lang);
+        
+        // Refresh categories for new language
+        $this->categories = collect([
+            ['id' => 0, 'name' => __('All')]
+        ])->merge(
+            FaqCategory::with('translations')->get()->map(function($category) {
+                return [
+                    'id' => $category->id,
+                    'name' => $category->translate('name', $this->currentLang) ?: $category->translate('name', 'hi') ?: 'Unnamed'
+                ];
+            })
+        )->toArray();
+    }
+
+    public function filterByCategory(int $id)
     {
         $this->selectedCategory = $id;
     }
 
-        public function clearFilters()
-        {
-            $this->searchTerm = '';
-            $this->selectedCategory = 'all';
-        }
+    public function clearFilters()
+    {
+        $this->searchTerm = '';
+        $this->selectedCategory = 0;
+    }
 
     public function getFilteredFaqsProperty()
     {
-        $query = Faq::query()
-            ->with('faqCategory')
-            ->when($this->selectedCategory !== 0, function ($q) {
+        return Faq::query()
+            ->with(['faqCategory.translations', 'translations'])
+            ->when($this->selectedCategory != 0, function ($q) {
                 $q->where('faq_category_id', $this->selectedCategory);
             })
             ->when(strlen($this->searchTerm) > 0, function ($q) {
-                $q->where(function ($q2) {
-                    $q2->where('question', 'like', '%' . $this->searchTerm . '%')
-                    ->orWhere('answer', 'like', '%' . $this->searchTerm . '%');
+                $q->whereHas('translations', function ($q2) {
+                    $q2->where('content', 'like', '%' . $this->searchTerm . '%')
+                       ->whereIn('field', ['question', 'answer']);
                 });
             })
-            ->orderBy('question')
+            ->orderBy('id')
             ->get();
-
-        return $query;
     }
 
     public function render()
@@ -63,6 +89,7 @@ class FaqsList extends Component
             'categories' => $this->categories,
             'selectedCategory' => $this->selectedCategory,
             'searchTerm' => $this->searchTerm,
+            'currentLang' => $this->currentLang,
         ]);
     }
 }

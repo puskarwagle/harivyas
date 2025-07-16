@@ -55,14 +55,14 @@ Route::get('/contact', F\Contact::class)->name('contact');
 // 🌐 Language switcher (if applicable)
 Route::get('/language', F\LanguageSwitcher::class)->name('language');
 
-// Backend Gallery Routes
+// Backend Routes
 Route::get('/gallery/posts/create', BG\CreatePostWithImages::class)->name('galleryManager.posts.create');
 Route::get('/faqManager', B\FaqManagement::class)->name('faqManager');
 Route::get('/quoteManager', B\QuoteManagement::class)->name('quoteManager');
 Route::get('/usersManager', B\UserManagement::class)->name('usersManager');
+Route::get('/nibandhaManager', B\NibandhaManager::class)->name('nibandhaManager');
 
 Route::prefix('galleryManager')->name('galleryManager.')->group(function () {
-    // Gallery Dashboard
     // Gallery Posts
     Route::get('posts', BG\GalleryPost\Index::class)->name('posts.index');
     // Route::get('posts/create', BG\GalleryPost\Create::class)->name('posts.create');

@@ -7,7 +7,7 @@ class LanguageSwitcher extends Component
     public function render()
     {
         $translations = [];
-        $files = ['home', 'menu', 'footer']; 
+        $files = ['home', 'menu', 'footer', 'nibandhaBackend']; 
         
         foreach ($files as $file) {
             $path = resource_path("lang/{$file}.php");

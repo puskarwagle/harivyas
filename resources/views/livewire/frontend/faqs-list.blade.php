@@ -9,11 +9,41 @@
             </p>
         </div>
 
-        {{-- Search Input --}}
-        <div class="mb-8">
-            <div class="form-control max-w-md mx-auto">
+        {{-- Language Switch + Search Row --}}
+        <div class="flex flex-col md:flex-row gap-4 mb-8 items-center justify-between">
+            {{-- Language Toggle --}}
+            <div class="flex items-center gap-2">
+                <!-- <span class="text-sm font-medium">{{ __('Language') }}:</span> -->
+                <div class="btn-group">
+                    <button 
+                        class="btn btn-sm {{ $currentLang === 'hi' ? 'btn-primary' : 'btn-outline' }}"
+                        wire:click="switchLanguage('hi')"
+                    >
+                        हिंदी
+                    </button>
+                    <button 
+                        class="btn btn-sm {{ $currentLang === 'en' ? 'btn-primary' : 'btn-outline' }}"
+                        wire:click="switchLanguage('en')"
+                    >
+                        English
+                    </button>
+                </div>
+            </div>
+
+            {{-- Search Input --}}
+            <div class="form-control max-w-md">
                 <div class="input-group flex">
-                    <input type="text" placeholder="{{ __('Search FAQs...') }}" class="input input-bordered w-full" wire:model.live.debounce.300ms="searchTerm">
+                    <input 
+                        type="text" 
+                        placeholder="{{ __('Search FAQs...') }}" 
+                        class="input input-bordered w-full" 
+                        wire:model.live.debounce.300ms="searchTerm"
+                    >
+                    @if(strlen($searchTerm) > 0)
+                        <button class="btn btn-square btn-outline" wire:click="clearFilters">
+                            ✕
+                        </button>
+                    @endif
                 </div>
             </div>
         </div>
@@ -21,11 +51,13 @@
         {{-- Category Tabs --}}
         <div class="tabs tabs-boxed justify-center mb-8 flex-wrap">
             @foreach($categories as $category)
-            <button class="tab {{ $selectedCategory === $category['id'] ? 'tab-active' : '' }}" wire:click="filterByCategory({{ $category['id'] }})">
+            <button 
+                class="tab {{ $selectedCategory === $category['id'] ? 'tab-active' : '' }}" 
+                wire:click="filterByCategory({{ $category['id'] }})"
+            >
                 {{ $category['name'] }}
             </button>
             @endforeach
-
         </div>
 
         {{-- Search Results Counter --}}
@@ -44,14 +76,14 @@
                 <input type="checkbox" id="faq-{{ $faq->id }}" />
                 <label for="faq-{{ $faq->id }}" class="collapse-title text-lg font-medium flex items-start gap-3 cursor-pointer">
                     <div class="badge badge-primary badge-sm mt-1 flex-shrink-0">
-                        {{ $faq->faqCategory->name }}
+                        {{ $faq->faqCategory->translate('name', $currentLang) ?: $faq->faqCategory->translate('name', 'hi') ?: 'General' }}
                     </div>
-                    <span class="flex-1 text-primary">{{ $faq->question }}</span>
+                    <span class="flex-1 text-primary">{{ $faq->translate('question', $currentLang) ?: $faq->translate('question', 'hi') ?: 'No question available' }}</span>
                 </label>
                 <div class="collapse-content">
                     <div class="pt-2">
                         <div class="prose prose-sm text-base-content max-w-none">
-                            {!! $faq->answer !!}
+                            {!! $faq->translate('answer', $currentLang) ?: $faq->translate('answer', 'hi') ?: 'No answer available' !!}
                         </div>
                     </div>
                 </div>

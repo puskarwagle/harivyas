@@ -81,7 +81,7 @@
                 </li>
 
                 <li><a href="/gallery" wire:navigate data-trans="menu.gallery"></a></li>
-                <li><a href="/faq" wire:navigate data-trans="menu.faq"></a></li>
+                <li><a href="/faqs" wire:navigate data-trans="menu.faq"></a></li>
 
                 <!-- Contact (standalone - always accessible) -->
                 <li><a href="/contact" wire:navigate data-trans="menu.contact"></a></li>
@@ -119,48 +119,49 @@
             </div>
 
             @if (Route::has('login'))
-            <nav class="flex items-center justify-end gap-4">
-                <div class="dropdown dropdown-end">
-                    <div tabindex="0" role="button" class="m-1">
-                        {{-- light Mode SVG --}}
-                        <svg id="lightFace" class="theme-face" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 100 100" style="border-radius: 50%; display: none;">
-                            <circle cx="50" cy="50" r="48" style="stroke:#ccc; stroke-width:4; fill:#eee;" />
-                            <circle cx="50" cy="35" r="12" style="fill:#bbb;" />
-                            <path d="M30,75 Q50,55 70,75" style="fill:#bbb;" />
-                        </svg>
-                        {{-- dark Mode SVG --}}
-                        <svg id="darkFace" class="theme-face" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 100 100" style="border-radius: 50%; display: block;">
-                            <circle cx="50" cy="50" r="48" style="stroke:#444; stroke-width:4; fill:#222;" />
-                            <circle cx="50" cy="35" r="12" style="fill:#555;" />
-                            <path d="M30,75 Q50,55 70,75" style="fill:#555;" />
-                        </svg>
-                    </div>
-
-                    <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-                        @auth
-                        <li>
-                            <a href="{{ url('/dashboard') }}">
-                                Dashboard
-                            </a>
-                        </li>
-                        @else
-                        <li>
-                            <a href="{{ route('login') }}">
-                                Log in
-                            </a>
-                        </li>
-                        @if (Route::has('register'))
-                        <li>
-                            <a href="{{ route('register') }}">
-                                Register
-                            </a>
-                        </li>
-                        @endif
-                        @endauth
-                    </ul>
-                </div>
-            </nav>
-            @endif
+<nav class="flex items-center justify-end gap-4">
+    @auth
+        {{-- Direct dashboard link when logged in --}}
+        <a href="{{ url('/dashboard') }}" class="m-1">
+            {{-- light Mode SVG --}}
+            <svg id="lightFace" class="theme-face" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 100 100" style="border-radius: 50%; display: none;">
+                <circle cx="50" cy="50" r="48" style="stroke:#ccc; stroke-width:4; fill:#eee;" />
+                <circle cx="50" cy="35" r="12" style="fill:#bbb;" />
+                <path d="M30,75 Q50,55 70,75" style="fill:#bbb;" />
+            </svg>
+            {{-- dark Mode SVG --}}
+            <svg id="darkFace" class="theme-face" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 100 100" style="border-radius: 50%; display: block;">
+                <circle cx="50" cy="50" r="48" style="stroke:#444; stroke-width:4; fill:#222;" />
+                <circle cx="50" cy="35" r="12" style="fill:#555;" />
+                <path d="M30,75 Q50,55 70,75" style="fill:#555;" />
+            </svg>
+        </a>
+    @else
+        {{-- Dropdown for guests --}}
+        <div class="dropdown dropdown-end">
+            <div tabindex="0" role="button" class="m-1">
+                {{-- Same SVGs --}}
+                <svg id="lightFace" class="theme-face" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 100 100" style="border-radius: 50%; display: none;">
+                    <circle cx="50" cy="50" r="48" style="stroke:#ccc; stroke-width:4; fill:#eee;" />
+                    <circle cx="50" cy="35" r="12" style="fill:#bbb;" />
+                    <path d="M30,75 Q50,55 70,75" style="fill:#bbb;" />
+                </svg>
+                <svg id="darkFace" class="theme-face" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 100 100" style="border-radius: 50%; display: block;">
+                    <circle cx="50" cy="50" r="48" style="stroke:#444; stroke-width:4; fill:#222;" />
+                    <circle cx="50" cy="35" r="12" style="fill:#555;" />
+                    <path d="M30,75 Q50,55 70,75" style="fill:#555;" />
+                </svg>
+            </div>
+            <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+                <li><a href="{{ route('login') }}">Log in</a></li>
+                @if (Route::has('register'))
+                <li><a href="{{ route('register') }}">Register</a></li>
+                @endif
+            </ul>
+        </div>
+    @endauth
+</nav>
+@endif
         </div>
     </div>
 

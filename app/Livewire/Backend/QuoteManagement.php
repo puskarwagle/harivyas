@@ -87,6 +87,6 @@ class QuoteManagement extends Component
     {
         return view('livewire.backend.quote-management', [
             'quotes' => Quote::orderBy('display_date', 'desc')->paginate(10)
-        ])->layout('components.layouts.app');;
+        ])->layout('components.layouts.app');
     }
 }

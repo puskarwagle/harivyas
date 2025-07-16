@@ -1,7 +1,7 @@
 <div class="max-w-md mx-auto bg-base-100 rounded-2xl shadow-xl overflow-hidden">
     <!-- Header -->
     <div class="p-6 text-primary-content bg-base-200">
-        <h1 class="text-xl font-bold">Create Post</h1>
+        <h1 class="text-xl font-bold text-secondary">Create Post</h1>
     </div>
 
     <div class="p-6">

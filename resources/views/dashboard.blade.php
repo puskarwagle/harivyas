@@ -30,7 +30,7 @@
             </a>
 
             {{-- सभी पोस्ट --}}
-            <a href="{{ route('galleryManager.posts.index') }}" class="block p-6 bg-base-100 border border-neutral-300 rounded-xl hover:shadow-xl transition-all dark:border-neutral-700 group">
+            <a href="{{ route('galleryManager.images.index') }}" class="block p-6 bg-base-100 border border-neutral-300 rounded-xl hover:shadow-xl transition-all dark:border-neutral-700 group">
                 <div class="flex flex-col items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="124" height="124" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-images-icon lucide-images">
                         <path d="M18 22H4a2 2 0 0 1-2-2V6" />

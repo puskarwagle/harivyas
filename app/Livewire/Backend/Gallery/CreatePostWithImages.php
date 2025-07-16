@@ -72,7 +72,7 @@ class CreatePostWithImages extends Component
 
         session()->flash('message', 'Gallery Post and images uploaded successfully.');
 
-        return redirect()->route('galleryManager.posts.index');
+        return redirect()->route('galleryManager.images.index');
     }
 
     public function render()

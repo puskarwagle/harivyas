@@ -1,9 +1,9 @@
 <div>
     {{-- Temporary debug info - remove after fixing --}}
-    @if(config('app.debug'))
+    {{--@if(config('app.debug'))
     <div class="bg-yellow-100 p-4 mb-4 rounded border">
         <h3 class="font-bold">Debug Info:</h3>
-        <pre>{{ print_r($debug, true) }}</pre>
+        <!-- <pre>{{ print_r($debug, true) }}</pre> -->
         <p><strong>Quote found:</strong> {{ $todaysQuote ? 'Yes (ID: '.$todaysQuote->id.')' : 'No' }}</p>
         @if($todaysQuote)
             <p><strong>Translations loaded:</strong> {{ $todaysQuote->translations->count() }}</p>
@@ -11,7 +11,7 @@
             <p><strong>Author:</strong> {{ $todaysQuote->translate('author') ?: 'No translation found' }}</p>
         @endif
     </div>
-    @endif
+    @endif --}}
 
     @if($todaysQuote)
     <div class="card shadow-xl">

@@ -13,7 +13,7 @@ class Quote extends Model
     protected static $translatableFields = ['quote', 'author'];
 
     protected $casts = [
-        'display_date' => 'date',
+        'display_date' => 'datetime',
         'is_active' => 'boolean',
     ];
 

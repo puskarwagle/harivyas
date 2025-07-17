@@ -2,10 +2,10 @@
     <div class="max-w-7xl mx-auto">
         <!-- FAQ Management -->
         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
-            <div>
-                <h1 class="text-3xl font-bold text-base-content">FAQ Management</h1>
-                <p class="text-base-content/70 mt-1">Manage questions and categories</p>
-            </div>
+        <div>
+            <h1 class="text-3xl font-bold text-base-content" data-trans="faqManagement.page_title">FAQ Management</h1>
+            <p class="text-base-content/70 mt-1" data-trans="faqManagement.page_subtitle">Manage questions and categories</p>
+        </div>
             <div class="flex flex-col sm:flex-row gap-2">
                 <!-- Dynamic Locale Switcher -->
                 <div class="join">
@@ -21,13 +21,14 @@
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
                     </svg>
-                    Add Category
+                    <span data-trans="faqManagement.add_category">Add Category</span>
                 </button>
+
                 <button wire:click="createFaq" class="btn btn-primary btn-sm">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
                     </svg>
-                    Add FAQ
+                    <span data-trans="faqManagement.add_faq">Add FAQ</span>
                 </button>
             </div>
         </div>
@@ -59,7 +60,7 @@
                     </div>
                     <div class="form-control sm:w-48">
                         <select wire:model.live="filterCategory" class="select select-bordered select-sm">
-                            <option value="">All Categories</option>
+                        <option value="" data-trans="faqManagement.all_categories">All Categories</option>
                             @foreach($categories as $category)
                                 <option value="{{ $category->id }}">
                                     {{ $category->translate('name', $currentLocale) ?: $category->translate('name', 'hi') ?: 'Unnamed' }}
@@ -74,8 +75,8 @@
         <!-- Categories Section -->
         <div class="card bg-base-200 shadow-sm mb-6">
             <div class="card-body p-4">
-                <h2 class="card-title text-lg mb-3">Categories</h2>
-                <div class="flex flex-wrap gap-2">
+            <h2 class="card-title text-lg mb-3" data-trans="faqManagement.category">Categories</h2>
+            <div class="flex flex-wrap gap-2">
                     @foreach($categories as $category)
                     <div class="badge badge-lg gap-2 {{ $category->id === 1 ? 'badge-primary' : 'badge-secondary' }}">
                         {{ $category->translate('name', $currentLocale) ?: $category->translate('name', 'hi') ?: 'Unnamed' }}
@@ -113,8 +114,8 @@
                                 </svg>
                             </div>
                             <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-32 p-2 shadow border">
-                                <li><button wire:click="editFaq({{ $faq->id }})" class="text-sm">Edit</button></li>
-                                <li><button wire:click="deleteFaq({{ $faq->id }})" class="text-sm text-error">Delete</button></li>
+                                <li><button wire:click="editFaq({{ $faq->id }})" class="text-sm" data-trans="faqManagement.edit">Edit</button></li>
+                                <li><button wire:click="deleteFaq({{ $faq->id }})" class="text-sm text-error" data-trans="faqManagement.delete">Delete</button></li>
                             </ul>
                         </div>
                     </div>
@@ -131,8 +132,8 @@
             </div>
             @empty
             <div class="col-span-full text-center py-12">
-                <div class="text-base-content/50 text-lg">No FAQs found</div>
-                <button wire:click="createFaq" class="btn btn-primary btn-sm mt-4">Create First FAQ</button>
+                <div class="text-base-content/50 text-lg" data-trans="faqManagement.no_faqs_found">No FAQs found</div>
+                <button wire:click="createFaq" class="btn btn-primary btn-sm mt-4" data-trans="faqManagement.create_first_faq">Create First FAQ</button>
             </div>
             @endforelse
         </div>
@@ -149,7 +150,7 @@
                 </h3>
                 <div class="space-y-4">
                     <div class="form-control">
-                        <label class="label"><span class="label-text">Category</span></label>
+                        <label class="label"><span class="label-text" data-trans="faqManagement.category">Category</span></label>
                         <select wire:model="faq_category_id" class="select select-bordered">
                             @foreach($categories as $category)
                             <option value="{{ $category->id }}">
@@ -177,18 +178,18 @@
                             <div class="space-y-3">
                                 <div class="form-control">
                                     <label class="label">
-                                        <span class="label-text">Question {{ $locale === 'hi' ? '(Required)' : '(Optional)' }}</span>
+                                        <span class="label-text" data-trans="faqManagement.question">Question {{ $locale === 'hi' ? '(Required)' : '(Optional)' }}</span>
                                     </label>
-                                    <input wire:model="question.{{ $locale }}" type="text" class="input input-bordered" 
+                                    <input wire:model="question.{{ $locale }}" type="text" class="input input-bordered w-full" 
                                            placeholder="Enter question in {{ $this->getLanguageDisplayName($locale) }}">
                                     @error('question.' . $locale) <span class="text-error text-sm">{{ $message }}</span> @enderror
                                 </div>
                                 
                                 <div class="form-control">
                                     <label class="label">
-                                        <span class="label-text">Answer {{ $locale === 'hi' ? '(Required)' : '(Optional)' }}</span>
+                                        <span class="label-text"><span data-trans="faqManagement.answer">Answer</span> {{ $locale === 'hi' ? '(Required)' : '(Optional)' }}</span>
                                     </label>
-                                    <textarea wire:model="answer.{{ $locale }}" class="textarea textarea-bordered h-32" 
+                                    <textarea wire:model="answer.{{ $locale }}" class="textarea textarea-bordered h-32 w-full" 
                                               placeholder="Enter answer in {{ $this->getLanguageDisplayName($locale) }}"></textarea>
                                     @error('answer.' . $locale) <span class="text-error text-sm">{{ $message }}</span> @enderror
                                 </div>
@@ -203,7 +204,7 @@
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
                                 </svg>
-                                Add Language
+                                <span data-trans="faqManagement.add_language">Add Language</span>
                             </div>
                             <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-48 p-2 shadow border">
                                 @foreach($availableLanguages as $locale)
@@ -221,7 +222,7 @@
                 </div>
                 
                 <div class="modal-action">
-                    <button wire:click="closeModal" class="btn btn-ghost">Cancel</button>
+                    <button wire:click="closeModal" class="btn btn-ghost" data-trans="faqManagement.cancel">Cancel</button>
                     <button wire:click="saveFaq" class="btn btn-primary">
                         {{ $editingFaq ? 'Update' : 'Create' }}
                     </button>
@@ -270,7 +271,7 @@
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
                                 </svg>
-                                Add Language
+                                <span data-trans="faqManagement.add_language">Add Language</span>
                             </div>
                             <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-48 p-2 shadow border">
                                 @foreach($availableLanguages as $locale)

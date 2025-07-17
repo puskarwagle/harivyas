@@ -14,8 +14,8 @@
                         <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
                         <circle cx="9" cy="7" r="4" />
                     </svg>
-                    <div class="text-lg font-semibold text-primary">यूज़र प्रबंधन</div>
-                    <div class="mt-2 text-sm text-base-content/80">यूज़र्स को जोड़ें, हटाएँ या संपादित करें</div>
+                    <div class="text-lg font-semibold text-primary" data-trans="dashboard.user_management">यूज़र प्रबंधन</div>
+                    <div class="mt-2 text-sm text-base-content/80" data-trans="dashboard.user_management_desc">यूज़र्स को जोड़ें, हटाएँ या संपादित करें</div>
                 </div>
             </a>
 
@@ -32,8 +32,8 @@
                         <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
                         <circle cx="9" cy="9" r="2" />
                     </svg>
-                    <div class="text-lg font-semibold text-primary">नई पोस्ट बनाएं</div>
-                    <div class="mt-2 text-sm text-base-content/80">गैलरी में नई पोस्ट जोड़ें</div>
+                    <div class="text-lg font-semibold text-primary" data-trans="dashboard.create_new_post">नई पोस्ट बनाएं</div>
+                    <div class="mt-2 text-sm text-base-content/80" data-trans="dashboard.create_new_post_desc">गैलरी में नई पोस्ट जोड़ें</div>
                 </div>
             </a>
 
@@ -49,8 +49,8 @@
                         <circle cx="12" cy="8" r="2" />
                         <rect width="16" height="16" x="6" y="2" rx="2" />
                     </svg>
-                    <div class="text-lg font-semibold text-primary">सभी पोस्ट</div>
-                    <div class="mt-2 text-sm text-base-content/80">गैलरी में उपलब्ध सभी पोस्ट देखें</div>
+                    <div class="text-lg font-semibold text-primary" data-trans="dashboard.all_posts">सभी पोस्ट</div>
+                    <div class="mt-2 text-sm text-base-content/80" data-trans="dashboard.all_posts_desc">गैलरी में उपलब्ध सभी पोस्ट देखें</div>
 
                 </div>
             </a>
@@ -66,8 +66,8 @@
                         <path d="M6 5v14" />
                         <rect width="12" height="18" x="10" y="3" rx="2" />
                     </svg>
-                    <div class="text-lg font-semibold text-primary">सभी चित्र</div>
-                    <div class="mt-2 text-sm text-base-content/80">गैलरी में सभी चित्र देखें</div>
+                    <div class="text-lg font-semibold text-primary" data-trans="dashboard.all_images">सभी चित्र</div>
+                    <div class="mt-2 text-sm text-base-content/80" data-trans="dashboard.all_images_desc">गैलरी में सभी चित्र देखें</div>
                 </div>
             </a>
 
@@ -83,8 +83,8 @@
                         <path d="M9.1 9a3 3 0 0 1 5.82 1c0 2-3 3-3 3" />
                         <path d="M12 17h.01" />
                     </svg>
-                    <div class="text-lg font-semibold text-primary">प्रश्नोत्तर प्रबंधन</div>
-                    <div class="mt-2 text-sm text-base-content/80">सामान्य प्रश्नों को जोड़ें या संपादित करें</div>
+                    <div class="text-lg font-semibold text-primary" data-trans="dashboard.faq_management">प्रश्नोत्तर प्रबंधन</div>
+                    <div class="mt-2 text-sm text-base-content/80" data-trans="dashboard.faq_management_desc">सामान्य प्रश्नों को जोड़ें या संपादित करें</div>
                 </div>
             </a>
 
@@ -100,8 +100,8 @@
                         <path
                             d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" />
                     </svg>
-                    <div class="text-lg font-semibold text-primary">दैनिक उद्धरण</div>
-                    <div class="mt-2 text-sm text-base-content/80">दैनिक प्रेरणादायक उद्धरण प्रबंधित करें</div>
+                    <div class="text-lg font-semibold text-primary" data-trans="dashboard.daily_quotes">दैनिक उद्धरण</div>
+                    <div class="mt-2 text-sm text-base-content/80" data-trans="dashboard.daily_quotes_desc">दैनिक प्रेरणादायक उद्धरण प्रबंधित करें</div>
                 </div>
             </a>
 
@@ -121,8 +121,8 @@
                         <path d="M9.5 12H16" />
                         <path d="M9.5 16H14" />
                     </svg>
-                    <div class="text-lg font-semibold text-primary">निबंध प्रबंधन</div>
-                    <div class="mt-2 text-sm text-base-content/80">निबंध जोड़ें, संपादित करें या प्रबंधित करें</div>
+                    <div class="text-lg font-semibold text-primary" data-trans="dashboard.essay_management">निबंध प्रबंधन</div>
+                    <div class="mt-2 text-sm text-base-content/80" data-trans="dashboard.essay_management_desc">निबंध जोड़ें, संपादित करें या प्रबंधित करें</div>
                 </div>
             </a>
         </div>

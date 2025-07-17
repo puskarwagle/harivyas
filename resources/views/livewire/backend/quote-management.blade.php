@@ -1,182 +1,238 @@
-<div class="max-w-6xl mx-auto p-4 space-y-6">
-    {{-- <div class="language-switcher flex justify-end mb-4">
-        <button id="lang-toggle" class="btn btn-sm btn-outline">Switch to English</button>
-    </div> --}}
-    <!-- Form Section -->
-    <div class="card bg-base-100 shadow-xl">
-        <div class="card-body">
-            {{-- <h2 class="card-title text-2xl mb-4">
-                @if($editingId)
-                <span data-en="Edit Quote" data-hi="उद्धरण संपादित करें">Edit Quote</span>
-                @else
-                <span data-en="Add New Quote" data-hi="नया उद्धरण जोड़ें">Add New Quote</span>
-                @endif
-            </h2> --}}
-            <h2 class="card-title text-2xl mb-4">
-                @if($editingId)
-                उद्धरण संपादित करें
-                @else
-                नया उद्धरण जोड़ें
-                @endif
-            </h2>
-
-            <form wire:submit.prevent="save" class="space-y-4">
-                <div class="form-control">
-                    {{-- <label class="label">
-                        <span class="label-text font-semibold">उद्धरण</span>
-                    </label> --}}
-                    <textarea wire:model="quote" class="textarea textarea-bordered h-24 w-full @error('quote') textarea-error @enderror" placeholder="यहाँ उद्धरण दर्ज करें..." rows="3"></textarea>
-                    @error('quote')
-                    <label class="label">
-                        <span class="label-text-alt text-error">{{ $message }}</span>
-                    </label>
-                    @enderror
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="form-control">
-                        <label class="label">
-                            <span class="label-text font-semibold">लेखक</span>
-                        </label>
-                        <input wire:model="author" type="text" class="input input-bordered @error('author') input-error @enderror" placeholder="लेखक का नाम">
-                        @error('author')
-                        <label class="label">
-                            <span class="label-text-alt text-error">{{ $message }}</span>
-                        </label>
-                        @enderror
-                    </div>
-
-                    <div class="form-control">
-                        <label class="label">
-                            <span class="label-text font-semibold">प्रदर्शित तिथि</span>
-                        </label>
-                        <input wire:model="display_date" type="date" class="input input-bordered @error('display_date') input-error @enderror">
-                        @error('display_date')
-                        <label class="label">
-                            <span class="label-text-alt text-error">{{ $message }}</span>
-                        </label>
-                        @enderror
-                    </div>
-                </div>
-
-                {{-- <div class="form-control">
-                    <label class="label cursor-pointer justify-start gap-2">
-                        <input wire:model="is_active" type="checkbox" class="checkbox checkbox-primary">
-                        <span class="label-text font-semibold">सक्रिय</span>
-                    </label>
-                </div> --}}
-
-                <div class="card-actions justify-end gap-2">
-                    @if($editingId)
-                    <button wire:click="cancel" type="button" class="btn btn-ghost">
-                        रद्द करें
+<div class="min-h-screen bg-base-100 p-6">
+    <div class="max-w-7xl mx-auto">
+        <!-- Header -->
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-8">
+            <div>
+                <h1 class="text-4xl font-bold text-base-content" data-trans="quotesBackend.title">Quote Management</h1>
+                <p class="text-base-content/70 mt-2 text-lg" data-trans="quotesBackend.subtitle">Manage daily quotes</p>
+            </div>
+            <div class="join">
+                @foreach($availableLanguages as $locale)
+                    <button wire:click="switchLocale('{{ $locale }}')" 
+                            class="btn btn-sm join-item {{ $currentLocale === $locale ? 'btn-active' : '' }} text-base">
+                        {{ $this->getLanguageDisplayName($locale) }}
                     </button>
-                    @endif
-                    <button type="submit" class="btn btn-primary">
-                        @if($editingId) उद्धरण अपडेट करें @else उद्धरण जोड़ें @endif
-                    </button>
-                </div>
-            </form>
+                @endforeach
+            </div>
         </div>
-    </div>
 
-    <!-- Table Section -->
-    <div class="card bg-base-100 shadow-xl">
-        <div class="card-body">
-            <h2 class="card-title text-2xl mb-4">सभी उद्धरण</h2>
-            <div class="overflow-x-auto">
-                <table class="table table-zebra w-full">
-                    <thead>
-                        <tr>
-                            <th>उद्धरण</th>
-                            <th>लेखक</th>
-                            <th>प्रदर्शित तिथि</th>
-                            {{-- <th>स्थिति</th> --}}
-                            <th>कार्रवाइयाँ</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @forelse($quotes as $quote)
-                        <tr>
-                            <td class="max-w-md">
-                                <div class="text-sm leading-relaxed">
-                                    "{{ Str::limit($quote->quote, 100) }}"
-                                </div>
-                            </td>
-                            <td class="font-medium">{{ $quote->author }}</td>
-                            <td class="text-sm">{{ $quote->display_date->format('M d, Y') }}</td>
-                            {{-- <td>
-                                <div class="badge {{ $quote->is_active ? 'badge-success' : 'badge-error' }}">
-                                    {{ $quote->is_active ? 'Active' : 'Inactive' }}
-                                </div>
-                            </td> --}}
-                            <td>
-                                <div class="flex gap-2">
-                                    <button wire:click="edit({{ $quote->id }})" class="btn btn-sm btn-ghost" title="Edit">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                                        </svg>
-                                    </button>
+        <!-- Alerts -->
+        @if (session()->has('message'))
+        <div class="alert alert-success mb-6 text-lg">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            {{ session('message') }}
+        </div>
+        @endif
 
-                                    {{-- <button wire:click="toggleActive({{ $quote->id }})" class="btn btn-sm btn-ghost {{ $quote->is_active ? 'text-warning' : 'text-success' }}" title="{{ $quote->is_active ? 'Deactivate' : 'Activate' }}">
-                                        @if($quote->is_active)
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L8.465 8.465M9.878 9.878L3 16.757M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                        </svg>
-                                        @else
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                        </svg>
+        <!-- Quote Form -->
+        <div class="card bg-base-100 shadow-xl mb-8 border-2 border-base-300">
+            <div class="card-body p-8">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-2xl font-bold text-primary" data-trans="{{ $editingQuote ? 'quotesBackend.edit_quote' : 'quotesBackend.add_new_quote' }}">
+                        {{ $editingQuote ? 'Edit Quote' : 'Add New Quote' }}
+                    </h2>
+                    @if($editingQuote)
+                        <button wire:click="$set('editingQuote', null)" class="btn btn-outline btn-sm text-base" data-trans="quotesBackend.cancel_edit">
+                            Cancel Edit
+                        </button>
+                    @endif
+                </div>
+
+                <form wire:submit.prevent="saveQuote" class="space-y-6">
+                    @if($editingQuote)
+                        <!-- Language Management (Only in Edit Mode) -->
+                        <div class="bg-base-200 p-6 rounded-lg">
+                            <div class="flex flex-wrap gap-3 mb-4">
+                                <span class="text-lg font-medium" data-trans="quotesBackend.languages">Languages:</span>
+                                @foreach($activeFormLanguages as $locale)
+                                    <div class="badge badge-primary badge-lg gap-2 text-base py-3">
+                                        {{ $this->getLanguageDisplayName($locale) }}
+                                        @if($locale !== 'hi')
+                                            <button type="button" wire:click="removeLanguageFromForm('{{ $locale }}')" class="btn btn-ghost btn-xs">×</button>
                                         @endif
-                                    </button> --}}
+                                    </div>
+                                @endforeach
+                            </div>
+                            
+                            @if(count($availableLanguages) > count($activeFormLanguages))
+                                <div class="dropdown">
+                                    <label tabindex="0" class="btn btn-outline text-base" data-trans="quotesBackend.add_language">Add Language</label>
+                                    <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                                        @foreach($availableLanguages as $locale)
+                                            @if(!in_array($locale, $activeFormLanguages))
+                                                <li><a wire:click="addLanguageToForm('{{ $locale }}')" class="text-base py-2">{{ $this->getLanguageDisplayName($locale) }}</a></li>
+                                            @endif
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                        </div>
+                    @endif
 
-                                    <button wire:click="delete({{ $quote->id }})" class="btn btn-sm btn-ghost text-error" title="Delete" onclick="return confirm('Delete this quote?')">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <!-- Quote Fields -->
+                    @if($editingQuote)
+                        <div class="grid gap-6">
+                            @foreach($activeFormLanguages as $locale)
+                                <div class="bg-base-50 border-2 border-base-300 rounded-xl p-6">
+                                    <h3 class="text-xl font-semibold text-primary mb-4">{{ $this->getLanguageDisplayName($locale) }}</h3>
+                                    
+                                    <div class="grid gap-4">
+                                        <div class="form-control">
+                                            <label class="label">
+                                                <span class="label-text text-lg font-medium" data-trans="quotesBackend.quote">Quote</span>
+                                                @if($locale === 'hi')<span class="text-error text-lg">*</span>@endif
+                                            </label>
+                                            <textarea wire:model="quote.{{ $locale }}" 
+                                                      class="textarea textarea-bordered h-32 text-lg w-full @error('quote.'.$locale) textarea-error @enderror" 
+                                                      placeholder="Enter quote in {{ $this->getLanguageDisplayName($locale) }}..."></textarea>
+                                            @error('quote.'.$locale)
+                                                <label class="label"><span class="label-text-alt text-error text-base">{{ $message }}</span></label>
+                                            @enderror
+                                        </div>
+
+                                        <div class="form-control">
+                                            <label class="label">
+                                                <span class="label-text text-lg font-medium" data-trans="quotesBackend.author">Author</span>
+                                                @if($locale === 'hi')<span class="text-error text-lg">*</span>@endif
+                                            </label>
+                                            <input wire:model="author.{{ $locale }}" 
+                                                   type="text" 
+                                                   class="input input-bordered input-lg text-lg w-full @error('author.'.$locale) input-error @enderror" 
+                                                   placeholder="Author name in {{ $this->getLanguageDisplayName($locale) }}">
+                                            @error('author.'.$locale)
+                                                <label class="label"><span class="label-text-alt text-error text-base">{{ $message }}</span></label>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    @else
+                        <!-- Hindi-only form for creation -->
+                        <div class="bg-base-50 border-2 border-base-300 rounded-xl p-6">
+                            <h3 class="text-xl font-semibold text-primary mb-4">हिंदी (Hindi)</h3>
+                            
+                            <div class="grid gap-4">
+                                <div class="form-control">
+                                    <label class="label">
+                                        <span class="label-text text-lg font-medium" data-trans="quotesBackend.quote">Quote</span>
+                                        <span class="text-error text-lg">*</span>
+                                    </label>
+                                    <textarea wire:model="quote.hi" 
+                                              class="textarea textarea-bordered textarea-lg h-32 text-lg w-full @error('quote.hi') textarea-error @enderror" 
+                                              data-trans="quotesBackend.hindi_form_quote" 
+                                              placeholder="Enter quote in Hindi..."></textarea>
+                                    @error('quote.hi')
+                                        <label class="label"><span class="label-text-alt text-error text-base">{{ $message }}</span></label>
+                                    @enderror
+                                </div>
+
+                                <div class="form-control">
+                                    <label class="label">
+                                        <span class="label-text text-lg font-medium" data-trans="quotesBackend.author">Author</span>
+                                        <span class="text-error text-lg">*</span>
+                                    </label>
+                                    <input wire:model="author.hi" 
+                                           type="text" 
+                                           class="input input-bordered input-lg text-lg w-full @error('author.hi') input-error @enderror" 
+                                           data-trans="quotesBackend.hindi_form_author" 
+                                           placeholder="Author name in Hindi">
+                                    @error('author.hi')
+                                        <label class="label"><span class="label-text-alt text-error text-base">{{ $message }}</span></label>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+
+                    <!-- Display Date -->
+                    <div class="form-control max-w-md flex flex-col">
+                        <label class="label">
+                            <span class="label-text text-lg font-medium" data-trans="quotesBackend.display_date">Display Date</span>
+                            <span class="text-error text-lg">*</span>
+                        </label>
+                        <input wire:model="display_date" type="date" class="input input-bordered input-lg text-lg @error('display_date') input-error @enderror">
+                        @error('display_date')
+                            <label class="label"><span class="label-text-alt text-error text-base">{{ $message }}</span></label>
+                        @enderror
+                    </div>
+
+                    <div class="flex justify-end pt-4">
+                        <button type="submit" class="btn btn-primary btn-lg text-lg px-8" data-trans="{{ $editingQuote ? 'quotesBackend.update_quote' : 'quotesBackend.create_quote' }}">
+                            {{ $editingQuote ? 'Update Quote' : 'Create Quote' }}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Search -->
+        <div class="card bg-base-100 shadow-xl mb-8">
+            <div class="card-body p-6">
+                <div class="form-control">
+                    <input wire:model.live="search" type="text" 
+                           data-trans="quotesBackend.search_quotes" 
+                           placeholder="Search quotes..." 
+                           class="input input-bordered input-lg text-lg w-full">
+                </div>
+            </div>
+        </div>
+
+        <!-- Quotes Table -->
+        <div class="card bg-base-100 shadow-xl">
+            <div class="card-body p-6">
+                <div class="overflow-x-auto">
+                    <table class="table table-zebra w-full">
+                        <thead>
+                            <tr class="text-lg">
+                                <th class="text-lg font-bold py-4" data-trans="quotesBackend.quote">Quote</th>
+                                <th class="text-lg font-bold py-4" data-trans="quotesBackend.author">Author</th>
+                                <th class="text-lg font-bold py-4" data-trans="quotesBackend.display_date">Display Date</th>
+                                <th class="text-lg font-bold py-4" data-trans="quotesBackend.actions">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @forelse($quotes as $quote)
+                            <tr wire:click="editQuote({{ $quote->id }})" class="cursor-pointer hover:bg-base-200 transition-colors">
+                                <td class="max-w-md py-4">
+                                    <div class="text-base leading-relaxed">
+                                        "{{ Str::limit($quote->translate('quote', $currentLocale) ?? $quote->translate('quote', 'hi') ?? 'No translation', 100) }}"
+                                    </div>
+                                </td>
+                                <td class="font-medium text-base py-4">
+                                    {{ $quote->translate('author', $currentLocale) ?? $quote->translate('author', 'hi') ?? 'No translation' }}
+                                </td>
+                                <td class="text-base py-4">{{ $quote->display_date->format('M d, Y') }}</td>
+                                <td class="py-4">
+                                    <button wire:click.stop="deleteQuote({{ $quote->id }})" 
+                                            class="btn btn-error btn-sm text-base" 
+                                            title="Delete" 
+                                            onclick="return confirm('Delete this quote?')">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                                         </svg>
+                                        <span data-trans="quotesBackend.delete">Delete</span>
                                     </button>
-                                </div>
-                            </td>
-                        </tr>
-                        @empty
-                        <tr>
-                            <td colspan="5" class="text-center py-8 text-base-content/60">
-                                कोई कोट नहीं मिला। ऊपर अपना पहला कोट जोड़ें।
-                            </td>
+                                </td>
+                            </tr>
+                            @empty
+                            <tr>
+                                <td colspan="4" class="text-center py-12 text-base-content/60 text-lg" data-trans="quotesBackend.no_quotes">
+                                    No quotes found. Add your first quote above.
+                                </td>
+                            </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
 
-                        </tr>
-                        @endforelse
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- Pagination -->
-            <div class="mt-4">
-                {{ $quotes->links() }}
+                <!-- Pagination -->
+                <div class="mt-6">
+                    {{ $quotes->links() }}
+                </div>
             </div>
         </div>
     </div>
-
-    {{-- 
-    Use this script to make the page multi lingual
-    <script>
-        const langToggle = document.getElementById('lang-toggle');
-        let currentLang = 'hi';
-
-        langToggle.addEventListener('click', () => {
-            currentLang = currentLang === 'hi' ? 'en' : 'hi';
-            langToggle.textContent = currentLang === 'hi' ? 'Switch to English' : 'हिन्दी में बदलें';
-
-            // Toggle text for elements with data-en and data-hi attributes
-            document.querySelectorAll('[data-en][data-hi]').forEach(el => {
-                el.textContent = currentLang === 'hi' ? el.getAttribute('data-hi') : el.getAttribute('data-en');
-            });
-
-            // Toggle form title and submit button manually (or assign data attributes similarly)
-            document.getElementById('form-title').textContent = currentLang === 'hi' ? 'नया उद्धरण जोड़ें' : 'Add New Quote';
-            document.getElementById('submit-btn').textContent = currentLang === 'hi' ? 'उद्धरण जोड़ें' : 'Add Quote';
-        });
-
-    </script> --}}
 </div>

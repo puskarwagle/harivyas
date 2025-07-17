@@ -4,12 +4,15 @@
         <div class="hero bg-base-200 py-16">
             <div class="hero-content text-center">
                 <div class="max-w-md">
-                    <h1 class="text-5xl font-bold text-primary mb-4">संपर्क करें</h1>
-                    <h2 class="text-base-content text-opacity-70">श्री हरि व्यास निकुंज मंदिर, वृंदावन</h2>
+                    <h1 class="text-5xl font-bold text-primary mb-4">
+                        <span data-trans="contactPage.hero_title">संपर्क करें</span>
+                    </h1>
+                    <h2 class="text-base-content text-opacity-70">
+                        <span data-trans="contactPage.hero_subtitle">श्री हरि व्यास निकुंज मंदिर, वृंदावन</span>
+                    </h2>
                 </div>
             </div>
         </div>
-
 
         <!-- Main Content -->
         <div class="container mx-auto px-4 py-12">
@@ -22,13 +25,15 @@
                         <div class="card-body">
                             <div class="flex items-center mb-4">
                                 <i class="fas fa-map-marker-alt text-primary text-2xl mr-4"></i>
-                                <h3 class="card-title text-primary">पता</h3>
+                                <h3 class="card-title text-primary">
+                                    <span data-trans="contactPage.address_title">पता</span>
+                                </h3>
                             </div>
                             <p class="text-base-content leading-relaxed">
-                                श्री हरि व्यास निकुंज मंदिर<br>
-                                वृंदावन, मथुरा जिला<br>
-                                उत्तर प्रदेश - 281121<br>
-                                भारत
+                                <span data-trans="contactPage.address_line1">श्री हरि व्यास निकुंज मंदिर</span><br />
+                                <span data-trans="contactPage.address_line2">वृंदावन, मथुरा जिला</span><br />
+                                <span data-trans="contactPage.address_line3">उत्तर प्रदेश - 281121</span><br />
+                                <span data-trans="contactPage.address_line4">भारत</span>
                             </p>
                         </div>
                     </div>
@@ -36,13 +41,17 @@
                     <!-- संपर्क विवरण -->
                     <div class="card bg-base-100 shadow-xl border border-base-300">
                         <div class="card-body">
-                            <h3 class="card-title text-primary mb-6">संपर्क करें</h3>
+                            <h3 class="card-title text-primary mb-6">
+                                <span data-trans="contactPage.contact_title">संपर्क करें</span>
+                            </h3>
 
                             <!-- फोन -->
                             <div class="flex items-center mb-4">
                                 <i class="fas fa-phone text-primary text-xl mr-4"></i>
                                 <div>
-                                    <p class="font-semibold text-base-content">फोन</p>
+                                    <p class="font-semibold text-base-content">
+                                        <span data-trans="contactPage.phone_label">फोन</span>
+                                    </p>
                                     <a href="tel:+918070525204" class="text-primary hover:underline">+91 8070525204</a>
                                 </div>
                             </div>
@@ -51,8 +60,11 @@
                             <div class="flex items-center mb-4">
                                 <i class="fab fa-whatsapp text-success text-xl mr-4"></i>
                                 <div>
-                                    <p class="font-semibold text-base-content">WhatsApp</p>
-                                    <a href="https://wa.me/919456812155" class="text-success hover:underline">+91 9456812155</a>
+                                    <p class="font-semibold text-base-content">
+                                        <span data-trans="contactPage.whatsapp_label">WhatsApp</span>
+                                    </p>
+                                    <a href="https://wa.me/919456812155" class="text-success hover:underline">+91
+                                        9456812155</a>
                                 </div>
                             </div>
 
@@ -60,8 +72,11 @@
                             <div class="flex items-center mb-4">
                                 <i class="fas fa-envelope text-primary text-xl mr-4"></i>
                                 <div>
-                                    <p class="font-semibold text-base-content">ईमेल</p>
-                                    <a href="mailto:muraridass1976@gmail.com" class="text-primary hover:underline">muraridass1976@gmail.com</a>
+                                    <p class="font-semibold text-base-content">
+                                        <span data-trans="contactPage.email_label">ईमेल</span>
+                                    </p>
+                                    <a href="mailto:muraridass1976@gmail.com"
+                                        class="text-primary hover:underline">muraridass1976@gmail.com</a>
                                 </div>
                             </div>
 
@@ -69,9 +84,17 @@
                             <div class="flex items-start">
                                 <i class="fas fa-clock text-primary text-xl mr-4 mt-1"></i>
                                 <div>
-                                    <p class="font-semibold text-base-content">दर्शन समय</p>
-                                    <p class="text-base-content text-opacity-70">रोजाना: सुबह 9:00 - दोपहर 12:00</p>
-                                    <p class="text-base-content text-opacity-70">आरती समय: 9:00 सुबह, 5:00 दोपहर, 7:00 शाम</p>
+                                    <p class="font-semibold text-base-content">
+                                        <span data-trans="contactPage.timings_label">दर्शन समय</span>
+                                    </p>
+                                    <p class="text-base-content text-opacity-70">
+                                        <span data-trans="contactPage.timings_daily">रोजाना: सुबह 9:00 - दोपहर
+                                            12:00</span>
+                                    </p>
+                                    <p class="text-base-content text-opacity-70">
+                                        <span data-trans="contactPage.timings_aarti">आरती समय: 9:00 सुबह, 5:00 दोपहर,
+                                            7:00 शाम</span>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -81,11 +104,11 @@
                     <div class="flex flex-wrap gap-4">
                         <a href="tel:+918070525204" class="btn btn-warning btn-outline flex-1 min-w-0">
                             <i class="fas fa-phone mr-2"></i>
-                            अभी कॉल करें
+                            <span data-trans="contactPage.quick_call">अभी कॉल करें</span>
                         </a>
                         <a href="https://wa.me/918070525204" class="btn btn-success btn-outline flex-1 min-w-0">
                             <i class="fab fa-whatsapp mr-2"></i>
-                            WhatsApp करें
+                            <span data-trans="contactPage.quick_whatsapp">WhatsApp करें</span>
                         </a>
                     </div>
                 </div>
@@ -93,89 +116,140 @@
                 <!-- संपर्क फ़ॉर्म -->
                 <div class="card bg-base-100 shadow-xl border border-base-300">
                     <div class="card-body">
-                        <h3 class="card-title text-primary mb-6">संदेश भेजें</h3>
+                        <h3 class="card-title text-primary mb-6">
+                            <span data-trans="contactPage.form_title">संदेश भेजें</span>
+                        </h3>
 
                         <!-- सफलता संदेश -->
                         <div x-show="showSuccess" x-transition class="alert alert-success mb-6">
                             <i class="fas fa-check-circle"></i>
-                            <span>आपका संदेश सफलतापूर्वक भेजा गया है! हम जल्द ही संपर्क करेंगे।</span>
+                            <span data-trans="contactPage.success_message">आपका संदेश सफलतापूर्वक भेजा गया है! हम जल्द
+                                ही संपर्क करेंगे।</span>
                         </div>
 
                         <!-- त्रुटि संदेश -->
                         <div x-show="showError" x-transition class="alert alert-error mb-6">
                             <i class="fas fa-exclamation-triangle"></i>
-                            <span>कृपया सभी आवश्यक फ़ील्ड सही से भरें।</span>
+                            <span data-trans="contactPage.error_message">कृपया सभी आवश्यक फ़ील्ड सही से भरें।</span>
                         </div>
 
                         <form @submit.prevent="submitForm" class="space-y-6">
                             <!-- नाम -->
                             <div class="form-control">
                                 <label class="label">
-                                    <span class="label-text font-semibold">नाम *</span>
+                                    <span class="label-text font-semibold">
+                                        <span data-trans="contactPage.form_name_label">नाम *</span>
+                                    </span>
                                 </label>
-                                <input type="text" x-model="form.name" class="input input-bordered focus:input-primary" :class="{'input-error': errors.name}" placeholder="अपना पूरा नाम" required>
+                                <input type="text" x-model="form.name" class="input input-bordered focus:input-primary"
+                                    :class="{'input-error': errors.name}" placeholder="अपना पूरा नाम" required>
                                 <label x-show="errors.name" class="label">
-                                    <span class="label-text-alt text-error">नाम आवश्यक है</span>
+                                    <span class="label-text-alt text-error">
+                                        <span data-trans="contactPage.error_name_required">नाम आवश्यक है</span>
+                                    </span>
                                 </label>
                             </div>
 
                             <!-- ईमेल -->
                             <div class="form-control">
                                 <label class="label">
-                                    <span class="label-text font-semibold">ईमेल *</span>
+                                    <span class="label-text font-semibold">
+                                        <span data-trans="contactPage.form_email_label">ईमेल *</span>
+                                    </span>
                                 </label>
-                                <input type="email" x-model="form.email" class="input input-bordered focus:input-primary" :class="{'input-error': errors.email}" placeholder="aapka.email@udaharan.com" required>
+                                <input type="email" x-model="form.email"
+                                    class="input input-bordered focus:input-primary"
+                                    :class="{'input-error': errors.email}" placeholder="aapka.email@udaharan.com"
+                                    required>
                                 <label x-show="errors.email" class="label">
-                                    <span class="label-text-alt text-error">सही ईमेल आवश्यक है</span>
+                                    <span class="label-text-alt text-error">
+                                        <span data-trans="contactPage.error_email_required">सही ईमेल आवश्यक है</span>
+                                    </span>
                                 </label>
                             </div>
 
                             <!-- फोन -->
                             <div class="form-control">
                                 <label class="label">
-                                    <span class="label-text font-semibold">फ़ोन</span>
+                                    <span class="label-text font-semibold">
+                                        <span data-trans="contactPage.form_phone_label">फ़ोन</span>
+                                    </span>
                                 </label>
-                                <input type="tel" x-model="form.phone" class="input input-bordered focus:input-primary" placeholder="+91 98765 43210">
+                                <input type="tel" x-model="form.phone" class="input input-bordered focus:input-primary"
+                                    placeholder="+91 98765 43210">
                             </div>
 
                             <!-- विषय -->
                             <div class="form-control">
                                 <label class="label">
-                                    <span class="label-text font-semibold">विषय *</span>
+                                    <span class="label-text font-semibold">
+                                        <span data-trans="contactPage.form_subject_label">विषय *</span>
+                                    </span>
                                 </label>
-                                <select x-model="form.subject" class="select select-bordered focus:select-primary" :class="{'select-error': errors.subject}" required>
-                                    <option value="">विषय चुनें</option>
-                                    <option value="general">सामान्य पूछताछ</option>
-                                    <option value="visit">दर्शन योजना</option>
-                                    <option value="seva">सेवा के अवसर</option>
-                                    <option value="donation">दान</option>
-                                    <option value="ashram-life">आश्रम जीवन</option>
-                                    <option value="texts">ग्रंथ एवं शिक्षाएं</option>
-                                    <option value="festivals">त्योहार एवं कार्यक्रम</option>
-                                    <option value="other">अन्य</option>
+                                <select x-model="form.subject" class="select select-bordered focus:select-primary"
+                                    :class="{'select-error': errors.subject}" required>
+                                    <option value="">
+                                        <span data-trans="contactPage.form_subject_option_default">विषय चुनें</span>
+                                    </option>
+                                    <option value="general">
+                                        <span data-trans="contactPage.form_subject_option_general">सामान्य पूछताछ</span>
+                                    </option>
+                                    <option value="visit">
+                                        <span data-trans="contactPage.form_subject_option_visit">दर्शन योजना</span>
+                                    </option>
+                                    <option value="seva">
+                                        <span data-trans="contactPage.form_subject_option_seva">सेवा के अवसर</span>
+                                    </option>
+                                    <option value="donation">
+                                        <span data-trans="contactPage.form_subject_option_donation">दान</span>
+                                    </option>
+                                    <option value="ashram-life">
+                                        <span data-trans="contactPage.form_subject_option_ashram_life">आश्रम जीवन</span>
+                                    </option>
+                                    <option value="texts">
+                                        <span data-trans="contactPage.form_subject_option_texts">ग्रंथ एवं
+                                            शिक्षाएं</span>
+                                    </option>
+                                    <option value="festivals">
+                                        <span data-trans="contactPage.form_subject_option_festivals">त्योहार एवं
+                                            कार्यक्रम</span>
+                                    </option>
+                                    <option value="other">
+                                        <span data-trans="contactPage.form_subject_option_other">अन्य</span>
+                                    </option>
                                 </select>
                                 <label x-show="errors.subject" class="label">
-                                    <span class="label-text-alt text-error">कृपया विषय चुनें</span>
+                                    <span class="label-text-alt text-error">
+                                        <span data-trans="contactPage.error_subject_required">कृपया विषय चुनें</span>
+                                    </span>
                                 </label>
                             </div>
 
                             <!-- संदेश -->
                             <div class="form-control">
                                 <label class="label">
-                                    <span class="label-text font-semibold">संदेश *</span>
+                                    <span class="label-text font-semibold">
+                                        <span data-trans="contactPage.form_message_label">संदेश *</span>
+                                    </span>
                                 </label>
-                                <textarea x-model="form.message" class="textarea textarea-bordered h-32 focus:textarea-primary" :class="{'textarea-error': errors.message}" placeholder="कृपया अपना संदेश, प्रश्न, या किसी प्रकार की सहायता लिखें..." required></textarea>
+                                <textarea x-model="form.message"
+                                    class="textarea textarea-bordered h-32 focus:textarea-primary"
+                                    :class="{'textarea-error': errors.message}"
+                                    placeholder="कृपया अपना संदेश, प्रश्न, या किसी प्रकार की सहायता लिखें..."
+                                    required></textarea>
                                 <label x-show="errors.message" class="label">
-                                    <span class="label-text-alt text-error">संदेश आवश्यक है</span>
+                                    <span class="label-text-alt text-error">
+                                        <span data-trans="contactPage.error_message_required">संदेश आवश्यक है</span>
+                                    </span>
                                 </label>
                             </div>
 
                             <!-- सबमिट बटन -->
                             <div class="form-control">
-                                <button type="submit" class="btn btn-primary" :class="{'loading': isSubmitting}" :disabled="isSubmitting">
+                                <button type="submit" class="btn btn-primary" :class="{'loading': isSubmitting}"
+                                    :disabled="isSubmitting">
                                     <i class="fas fa-paper-plane mr-2"></i>
-                                    संदेश भेजें
-                                    </span>
+                                    <span data-trans="contactPage.submit_button">संदेश भेजें</span>
                                 </button>
                             </div>
                         </form>
@@ -185,18 +259,24 @@
 
             <!-- मानचित्र अनुभाग -->
             <div class="mt-16">
-                <h3 class="text-3xl font-bold text-center mb-8 text-primary">हमें यहां पाएं</h3>
+                <h3 class="text-3xl font-bold text-center mb-8 text-primary">
+                    <span data-trans="contactPage.map_title">हमें यहां पाएं</span>
+                </h3>
                 <div class="card bg-base-100 shadow-xl">
                     <div class="card-body p-0">
                         <div class="w-full h-96 rounded-lg overflow-hidden">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14146.480517212021!2d77.66465682575418!3d27.574297521723995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39736e17b9bbb095%3A0xcbf23f3eb74be6b!2sHari%20Vyas%20Nikunja%20Mandir%20(aashram)!5e0!3m2!1sen!2sin!4v1749968147522!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" class="w-full h-full border-0 rounded-lg block" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14146.480517212021!2d77.66465682575418!3d27.574297521723995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39736e17b9bbb095%3A0xcbf23f3eb74be6b!2sHari%20Vyas%20Nikunja%20Mandir%20(aashram)!5e0!3m2!1sen!2sin!4v1749968147522!5m2!1sen!2sin"
+                                width="100%" height="100%" style="border:0;"
+                                class="w-full h-full border-0 rounded-lg block" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
+
 
     <script>
         function contactForm() {

@@ -2,22 +2,29 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Traits\HasTranslations;
 use Illuminate\Database\Eloquent\Model;
 
 class Quote extends Model
 {
-    use HasFactory;
+    use HasTranslations;
 
-    protected $fillable = [
-        'quote',
-        'author',
-        'display_date',
-        'is_active'
-    ];
+    protected $fillable = ['display_date', 'is_active'];
+    protected static $translatableFields = ['quote', 'author'];
 
     protected $casts = [
         'display_date' => 'date',
-        'is_active' => 'boolean'
+        'is_active' => 'boolean',
     ];
+
+    public function scopeActive($query)
+    {
+        return $query->where('is_active', true);
+    }
+
+    public function scopeForDate($query, $date = null)
+    {
+        $date = $date ?? now()->toDateString();
+        return $query->where('display_date', $date);
+    }
 }

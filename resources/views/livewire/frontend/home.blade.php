@@ -1,7 +1,7 @@
 	<div>
-	    <div class="snap-y snap-mandatory overflow-y-scroll h-screen bg-gradient-to-br from-base-250 via-base-150 to-base-100">
-	        <!-- Hero Section -->
-	        <section class="hero snap-start min-h-[calc(100vh-100px)] relative overflow-hidden">
+	    <div class="overflow-y-scroll h-screen bg-gradient-to-br from-base-250 via-base-150 to-base-100">
+
+		<section class="hero min-h-[calc(100vh-100px)] relative overflow-hidden">
 	            <div class="hero-content text-center z-10">
 	                <div class="max-w-4xl">
 	                    <div class="mb-8">
@@ -48,7 +48,7 @@
 	            </div>
 	        </section>
 
-	        <section id="section2" class="snap-start min-h-screen flex items-center">
+	        <section id="section2" class=" min-h-screen flex items-center">
 	            <div class="container mx-auto px-4 py-20">
 	                <h2 class="text-4xl font-bold text-center text-primary mb-4" data-trans="home.discover_our_ashram"></h2>
 	                <p class="text-center text-base-content/80 mb-12 max-w-2xl mx-auto" data-trans="home.ashram_description"></p>
@@ -89,7 +89,7 @@
 	            </div>
 	        </section>
 
-	        <section class="snap-start min-h-screen flex items-center">
+	        <section class="min-h-screen flex items-center">
 	            <div class="container mx-auto px-4 py-20 text-center">
 	                <h2 class="shree text-4xl font-bold text-primary mb-12" data-trans="home.sacred_teachings"></h2>
 
@@ -98,7 +98,7 @@
 	            </div>
 	        </section>
 
-	        <section class="snap-start min-h-screen flex items-center">
+	        <section class="min-h-screen flex items-center">
 	            <div class="container mx-auto px-4 text-center">
 	                <h2 class="shree text-4xl font-bold text-primary mb-6" data-trans="home.join_community"></h2>
 	                <p class="shree text-xl mb-8 max-w-3xl mx-auto opacity-90" data-trans="home.join_community_desc"></p>

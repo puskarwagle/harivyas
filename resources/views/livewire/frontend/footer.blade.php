@@ -1,14 +1,15 @@
 <footer class="bg-base-200 p-2">
   <div class="flex flex-col">
-    
+
     <!-- Top Row: SVG / Header / Connect -->
     <div class="flex justify-between items-center px-2">
-      
+
       <!-- SVG Section -->
       <div class="flex-shrink-0">
         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="150" height="150" class="mb-4">
           <svg viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg">
-            <path d="M30 20 C30 60, 30 120, 50 120 C70 120, 70 60, 70 20" stroke="goldenrod" stroke-width="8" fill="none"></path>
+            <path d="M30 20 C30 60, 30 120, 50 120 C70 120, 70 60, 70 20" stroke="goldenrod" stroke-width="8"
+              fill="none"></path>
             <circle cx="50" cy="70" r="5" fill="red"></circle>
           </svg>
         </svg>
